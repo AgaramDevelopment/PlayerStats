@@ -662,7 +662,7 @@
                                             <constraint firstItem="gpY-Oy-R0I" firstAttribute="top" secondItem="ZOL-7S-Rky" secondAttribute="top" constant="5" id="vhe-mq-7SV"/>
                                         </constraints>
                                     </view>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" alwaysBounceHorizontal="YES" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qCj-DH-N1q">
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qCj-DH-N1q">
                                         <rect key="frame" x="0.0" y="212" width="1980" height="990"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HI4-Ko-2EO">
