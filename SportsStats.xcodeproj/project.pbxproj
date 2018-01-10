@@ -7,25 +7,152 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1821A8C22000E928009F8269 /* WebService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1821A8C12000E928009F8269 /* WebService.m */; };
+		1821A8E82000E97C009F8269 /* Montserrat-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1821A8C32000E979009F8269 /* Montserrat-Black.otf */; };
+		1821A8E92000E97C009F8269 /* MontserratAlternates-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1821A8C42000E979009F8269 /* MontserratAlternates-BoldItalic.otf */; };
+		1821A8EA2000E97C009F8269 /* MontserratAlternates-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1821A8C52000E979009F8269 /* MontserratAlternates-Thin.otf */; };
+		1821A8EB2000E97C009F8269 /* Montserrat-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1821A8C62000E979009F8269 /* Montserrat-Medium.otf */; };
+		1821A8EC2000E97C009F8269 /* Montserrat-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1821A8C72000E979009F8269 /* Montserrat-BoldItalic.otf */; };
+		1821A8ED2000E97C009F8269 /* Montserrat-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1821A8C82000E979009F8269 /* Montserrat-ExtraBold.otf */; };
+		1821A8EE2000E97C009F8269 /* Montserrat-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1821A8C92000E979009F8269 /* Montserrat-Regular.otf */; };
+		1821A8EF2000E97C009F8269 /* MontserratAlternates-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1821A8CA2000E979009F8269 /* MontserratAlternates-ExtraBold.otf */; };
+		1821A8F02000E97C009F8269 /* Montserrat-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1821A8CB2000E979009F8269 /* Montserrat-ExtraLight.otf */; };
+		1821A8F12000E97C009F8269 /* MontserratAlternates-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1821A8CC2000E979009F8269 /* MontserratAlternates-Regular.otf */; };
+		1821A8F22000E97C009F8269 /* MontserratAlternates-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1821A8CD2000E979009F8269 /* MontserratAlternates-Black.otf */; };
+		1821A8F32000E97C009F8269 /* MontserratAlternates-ExtraBoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1821A8CE2000E979009F8269 /* MontserratAlternates-ExtraBoldItalic.otf */; };
+		1821A8F42000E97C009F8269 /* MontserratAlternates-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1821A8CF2000E979009F8269 /* MontserratAlternates-SemiBold.otf */; };
+		1821A8F52000E97C009F8269 /* MontserratAlternates-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1821A8D02000E979009F8269 /* MontserratAlternates-ExtraLight.otf */; };
+		1821A8F62000E97C009F8269 /* MontserratAlternates-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1821A8D12000E97A009F8269 /* MontserratAlternates-Italic.otf */; };
+		1821A8F72000E97C009F8269 /* MontserratAlternates-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1821A8D22000E97A009F8269 /* MontserratAlternates-Medium.otf */; };
+		1821A8F82000E97C009F8269 /* Montserrat-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1821A8D32000E97A009F8269 /* Montserrat-Italic.otf */; };
+		1821A8F92000E97C009F8269 /* SIL Open Font License.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1821A8D42000E97A009F8269 /* SIL Open Font License.txt */; };
+		1821A8FA2000E97C009F8269 /* Montserrat-ExtraBoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1821A8D52000E97A009F8269 /* Montserrat-ExtraBoldItalic.otf */; };
+		1821A8FB2000E97C009F8269 /* Montserrat-ThinItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1821A8D62000E97A009F8269 /* Montserrat-ThinItalic.otf */; };
+		1821A8FC2000E97C009F8269 /* Montserrat-ExtraLightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1821A8D72000E97A009F8269 /* Montserrat-ExtraLightItalic.otf */; };
+		1821A8FD2000E97C009F8269 /* Montserrat-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1821A8D82000E97A009F8269 /* Montserrat-MediumItalic.otf */; };
+		1821A8FE2000E97C009F8269 /* MontserratAlternates-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1821A8D92000E97A009F8269 /* MontserratAlternates-Bold.otf */; };
+		1821A8FF2000E97C009F8269 /* Montserrat-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1821A8DA2000E97B009F8269 /* Montserrat-Thin.otf */; };
+		1821A9002000E97C009F8269 /* Montserrat-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1821A8DB2000E97B009F8269 /* Montserrat-Bold.otf */; };
+		1821A9012000E97C009F8269 /* Montserrat-BlackItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1821A8DC2000E97B009F8269 /* Montserrat-BlackItalic.otf */; };
+		1821A9022000E97C009F8269 /* Montserrat-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1821A8DD2000E97B009F8269 /* Montserrat-LightItalic.otf */; };
+		1821A9032000E97C009F8269 /* MontserratAlternates-BlackItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1821A8DE2000E97B009F8269 /* MontserratAlternates-BlackItalic.otf */; };
+		1821A9042000E97C009F8269 /* MontserratAlternates-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1821A8DF2000E97B009F8269 /* MontserratAlternates-LightItalic.otf */; };
+		1821A9052000E97C009F8269 /* Montserrat-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1821A8E02000E97B009F8269 /* Montserrat-SemiBold.otf */; };
+		1821A9062000E97C009F8269 /* MontserratAlternates-ExtraLightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1821A8E12000E97B009F8269 /* MontserratAlternates-ExtraLightItalic.otf */; };
+		1821A9072000E97C009F8269 /* MontserratAlternates-ThinItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1821A8E22000E97C009F8269 /* MontserratAlternates-ThinItalic.otf */; };
+		1821A9082000E97C009F8269 /* Montserrat-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1821A8E32000E97C009F8269 /* Montserrat-Light.otf */; };
+		1821A9092000E97C009F8269 /* MontserratAlternates-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1821A8E42000E97C009F8269 /* MontserratAlternates-Light.otf */; };
+		1821A90A2000E97C009F8269 /* MontserratAlternates-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1821A8E52000E97C009F8269 /* MontserratAlternates-MediumItalic.otf */; };
+		1821A90B2000E97C009F8269 /* Montserrat-SemiBoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1821A8E62000E97C009F8269 /* Montserrat-SemiBoldItalic.otf */; };
+		1821A90C2000E97C009F8269 /* MontserratAlternates-SemiBoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1821A8E72000E97C009F8269 /* MontserratAlternates-SemiBoldItalic.otf */; };
+		1821A9122000E9DC009F8269 /* CustomNavigation_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1821A90E2000E9DC009F8269 /* CustomNavigation_iPad.xib */; };
+		1821A9132000E9DC009F8269 /* CustomNavigation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1821A90F2000E9DC009F8269 /* CustomNavigation.m */; };
+		1821A9142000E9DC009F8269 /* CustomNavigation_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1821A9112000E9DC009F8269 /* CustomNavigation_iPhone.xib */; };
+		1821A95C2000F285009F8269 /* PlayerSelectorVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1821A95B2000F285009F8269 /* PlayerSelectorVC.m */; };
+		1821A95F2000F29B009F8269 /* PlayerStatsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1821A95E2000F29B009F8269 /* PlayerStatsVC.m */; };
+		187832A6200361E400F8A156 /* AppCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 187832A4200361E300F8A156 /* AppCommon.m */; };
+		187832AA2003625300F8A156 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 187832A82003625300F8A156 /* Reachability.m */; };
+		187832AE20038CB000F8A156 /* PlayerListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 187832AB20038CB000F8A156 /* PlayerListTableViewCell.xib */; };
+		187832AF20038CB000F8A156 /* PlayerListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 187832AC20038CB000F8A156 /* PlayerListTableViewCell.m */; };
 		187F5C6C1FFF944600970319 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 187F5C6B1FFF944600970319 /* AppDelegate.m */; };
-		187F5C6F1FFF944600970319 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 187F5C6E1FFF944600970319 /* ViewController.m */; };
 		187F5C721FFF944600970319 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 187F5C701FFF944600970319 /* Main.storyboard */; };
 		187F5C741FFF944600970319 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 187F5C731FFF944600970319 /* Assets.xcassets */; };
 		187F5C771FFF944600970319 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 187F5C751FFF944600970319 /* LaunchScreen.storyboard */; };
 		187F5C7A1FFF944600970319 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 187F5C791FFF944600970319 /* main.m */; };
+		1893D7AA2004F7E20048CCF1 /* DetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1893D7A82004F7E20048CCF1 /* DetailCell.m */; };
+		1893D7B22004F8F10048CCF1 /* HACBarChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 1893D7AF2004F8F00048CCF1 /* HACBarChart.m */; };
+		1893D7B32004F8F10048CCF1 /* HACBarLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1893D7B02004F8F00048CCF1 /* HACBarLayer.m */; };
+		1893D7B82004F91D0048CCF1 /* MCBarChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1893D7B62004F91D0048CCF1 /* MCBarChartView.m */; };
+		1893D7B92004F91D0048CCF1 /* MCChartInformationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1893D7B72004F91D0048CCF1 /* MCChartInformationView.m */; };
+		54FCE7DF535E341F305E2A73 /* libPods-SportsStats.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F6279B1A185E576278AA63C /* libPods-SportsStats.a */; };
+		CE0C7DFA2002267200A53371 /* CustomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0C7DF72002267200A53371 /* CustomButton.m */; };
+		CE2993DF2005D247003781EC /* ExpendedView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2993DB2005D247003781EC /* ExpendedView.m */; };
+		CE2993E02005D247003781EC /* SeachView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2993DE2005D247003781EC /* SeachView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1821A8BF2000E905009F8269 /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
+		1821A8C02000E928009F8269 /* WebService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebService.h; sourceTree = "<group>"; };
+		1821A8C12000E928009F8269 /* WebService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebService.m; sourceTree = "<group>"; };
+		1821A8C32000E979009F8269 /* Montserrat-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Black.otf"; sourceTree = "<group>"; };
+		1821A8C42000E979009F8269 /* MontserratAlternates-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MontserratAlternates-BoldItalic.otf"; sourceTree = "<group>"; };
+		1821A8C52000E979009F8269 /* MontserratAlternates-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MontserratAlternates-Thin.otf"; sourceTree = "<group>"; };
+		1821A8C62000E979009F8269 /* Montserrat-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.otf"; sourceTree = "<group>"; };
+		1821A8C72000E979009F8269 /* Montserrat-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-BoldItalic.otf"; sourceTree = "<group>"; };
+		1821A8C82000E979009F8269 /* Montserrat-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraBold.otf"; sourceTree = "<group>"; };
+		1821A8C92000E979009F8269 /* Montserrat-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.otf"; sourceTree = "<group>"; };
+		1821A8CA2000E979009F8269 /* MontserratAlternates-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MontserratAlternates-ExtraBold.otf"; sourceTree = "<group>"; };
+		1821A8CB2000E979009F8269 /* Montserrat-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraLight.otf"; sourceTree = "<group>"; };
+		1821A8CC2000E979009F8269 /* MontserratAlternates-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MontserratAlternates-Regular.otf"; sourceTree = "<group>"; };
+		1821A8CD2000E979009F8269 /* MontserratAlternates-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MontserratAlternates-Black.otf"; sourceTree = "<group>"; };
+		1821A8CE2000E979009F8269 /* MontserratAlternates-ExtraBoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MontserratAlternates-ExtraBoldItalic.otf"; sourceTree = "<group>"; };
+		1821A8CF2000E979009F8269 /* MontserratAlternates-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MontserratAlternates-SemiBold.otf"; sourceTree = "<group>"; };
+		1821A8D02000E979009F8269 /* MontserratAlternates-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MontserratAlternates-ExtraLight.otf"; sourceTree = "<group>"; };
+		1821A8D12000E97A009F8269 /* MontserratAlternates-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MontserratAlternates-Italic.otf"; sourceTree = "<group>"; };
+		1821A8D22000E97A009F8269 /* MontserratAlternates-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MontserratAlternates-Medium.otf"; sourceTree = "<group>"; };
+		1821A8D32000E97A009F8269 /* Montserrat-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Italic.otf"; sourceTree = "<group>"; };
+		1821A8D42000E97A009F8269 /* SIL Open Font License.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SIL Open Font License.txt"; sourceTree = "<group>"; };
+		1821A8D52000E97A009F8269 /* Montserrat-ExtraBoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraBoldItalic.otf"; sourceTree = "<group>"; };
+		1821A8D62000E97A009F8269 /* Montserrat-ThinItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ThinItalic.otf"; sourceTree = "<group>"; };
+		1821A8D72000E97A009F8269 /* Montserrat-ExtraLightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraLightItalic.otf"; sourceTree = "<group>"; };
+		1821A8D82000E97A009F8269 /* Montserrat-MediumItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-MediumItalic.otf"; sourceTree = "<group>"; };
+		1821A8D92000E97A009F8269 /* MontserratAlternates-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MontserratAlternates-Bold.otf"; sourceTree = "<group>"; };
+		1821A8DA2000E97B009F8269 /* Montserrat-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Thin.otf"; sourceTree = "<group>"; };
+		1821A8DB2000E97B009F8269 /* Montserrat-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.otf"; sourceTree = "<group>"; };
+		1821A8DC2000E97B009F8269 /* Montserrat-BlackItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-BlackItalic.otf"; sourceTree = "<group>"; };
+		1821A8DD2000E97B009F8269 /* Montserrat-LightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-LightItalic.otf"; sourceTree = "<group>"; };
+		1821A8DE2000E97B009F8269 /* MontserratAlternates-BlackItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MontserratAlternates-BlackItalic.otf"; sourceTree = "<group>"; };
+		1821A8DF2000E97B009F8269 /* MontserratAlternates-LightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MontserratAlternates-LightItalic.otf"; sourceTree = "<group>"; };
+		1821A8E02000E97B009F8269 /* Montserrat-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.otf"; sourceTree = "<group>"; };
+		1821A8E12000E97B009F8269 /* MontserratAlternates-ExtraLightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MontserratAlternates-ExtraLightItalic.otf"; sourceTree = "<group>"; };
+		1821A8E22000E97C009F8269 /* MontserratAlternates-ThinItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MontserratAlternates-ThinItalic.otf"; sourceTree = "<group>"; };
+		1821A8E32000E97C009F8269 /* Montserrat-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Light.otf"; sourceTree = "<group>"; };
+		1821A8E42000E97C009F8269 /* MontserratAlternates-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MontserratAlternates-Light.otf"; sourceTree = "<group>"; };
+		1821A8E52000E97C009F8269 /* MontserratAlternates-MediumItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MontserratAlternates-MediumItalic.otf"; sourceTree = "<group>"; };
+		1821A8E62000E97C009F8269 /* Montserrat-SemiBoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBoldItalic.otf"; sourceTree = "<group>"; };
+		1821A8E72000E97C009F8269 /* MontserratAlternates-SemiBoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MontserratAlternates-SemiBoldItalic.otf"; sourceTree = "<group>"; };
+		1821A90E2000E9DC009F8269 /* CustomNavigation_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomNavigation_iPad.xib; sourceTree = "<group>"; };
+		1821A90F2000E9DC009F8269 /* CustomNavigation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomNavigation.m; sourceTree = "<group>"; };
+		1821A9102000E9DC009F8269 /* CustomNavigation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomNavigation.h; sourceTree = "<group>"; };
+		1821A9112000E9DC009F8269 /* CustomNavigation_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomNavigation_iPhone.xib; sourceTree = "<group>"; };
+		1821A95A2000F285009F8269 /* PlayerSelectorVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayerSelectorVC.h; sourceTree = "<group>"; };
+		1821A95B2000F285009F8269 /* PlayerSelectorVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayerSelectorVC.m; sourceTree = "<group>"; };
+		1821A95D2000F29B009F8269 /* PlayerStatsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayerStatsVC.h; sourceTree = "<group>"; };
+		1821A95E2000F29B009F8269 /* PlayerStatsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayerStatsVC.m; sourceTree = "<group>"; };
+		187832A4200361E300F8A156 /* AppCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppCommon.m; sourceTree = "<group>"; };
+		187832A5200361E300F8A156 /* AppCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppCommon.h; sourceTree = "<group>"; };
+		187832A82003625300F8A156 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		187832A92003625300F8A156 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		187832AB20038CB000F8A156 /* PlayerListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerListTableViewCell.xib; sourceTree = "<group>"; };
+		187832AC20038CB000F8A156 /* PlayerListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerListTableViewCell.m; sourceTree = "<group>"; };
+		187832AD20038CB000F8A156 /* PlayerListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerListTableViewCell.h; sourceTree = "<group>"; };
 		187F5C671FFF944600970319 /* SportsStats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SportsStats.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		187F5C6A1FFF944600970319 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		187F5C6B1FFF944600970319 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		187F5C6D1FFF944600970319 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		187F5C6E1FFF944600970319 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		187F5C711FFF944600970319 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		187F5C731FFF944600970319 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		187F5C761FFF944600970319 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		187F5C781FFF944600970319 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		187F5C791FFF944600970319 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1893D7A82004F7E20048CCF1 /* DetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DetailCell.m; path = SportsStats/CustomCell/ExpendCell/DetailCell.m; sourceTree = SOURCE_ROOT; };
+		1893D7A92004F7E20048CCF1 /* DetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetailCell.h; path = SportsStats/CustomCell/ExpendCell/DetailCell.h; sourceTree = SOURCE_ROOT; };
+		1893D7AE2004F8F00048CCF1 /* HACBarChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HACBarChart.h; sourceTree = "<group>"; };
+		1893D7AF2004F8F00048CCF1 /* HACBarChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HACBarChart.m; sourceTree = "<group>"; };
+		1893D7B02004F8F00048CCF1 /* HACBarLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HACBarLayer.m; sourceTree = "<group>"; };
+		1893D7B12004F8F10048CCF1 /* HACBarLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HACBarLayer.h; sourceTree = "<group>"; };
+		1893D7B42004F91D0048CCF1 /* MCBarChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCBarChartView.h; sourceTree = "<group>"; };
+		1893D7B52004F91D0048CCF1 /* MCChartInformationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCChartInformationView.h; sourceTree = "<group>"; };
+		1893D7B62004F91D0048CCF1 /* MCBarChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCBarChartView.m; sourceTree = "<group>"; };
+		1893D7B72004F91D0048CCF1 /* MCChartInformationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCChartInformationView.m; sourceTree = "<group>"; };
+		4F6279B1A185E576278AA63C /* libPods-SportsStats.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SportsStats.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		756E200640A36208B531C9EA /* Pods-SportsStats.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SportsStats.release.xcconfig"; path = "Pods/Target Support Files/Pods-SportsStats/Pods-SportsStats.release.xcconfig"; sourceTree = "<group>"; };
+		CE0C7DF62002267200A53371 /* CustomButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomButton.h; sourceTree = "<group>"; };
+		CE0C7DF72002267200A53371 /* CustomButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomButton.m; sourceTree = "<group>"; };
+		CE2993DA2005D247003781EC /* ExpendedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpendedView.h; sourceTree = "<group>"; };
+		CE2993DB2005D247003781EC /* ExpendedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpendedView.m; sourceTree = "<group>"; };
+		CE2993DD2005D247003781EC /* SeachView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeachView.h; sourceTree = "<group>"; };
+		CE2993DE2005D247003781EC /* SeachView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeachView.m; sourceTree = "<group>"; };
+		CF99D1CD0E6CE8A891638D5B /* Pods-SportsStats.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SportsStats.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SportsStats/Pods-SportsStats.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +160,130 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54FCE7DF535E341F305E2A73 /* libPods-SportsStats.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		13F1796F742064ACED400C92 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CF99D1CD0E6CE8A891638D5B /* Pods-SportsStats.debug.xcconfig */,
+				756E200640A36208B531C9EA /* Pods-SportsStats.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		1821A8BC2000E820009F8269 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				1821A8C32000E979009F8269 /* Montserrat-Black.otf */,
+				1821A8DC2000E97B009F8269 /* Montserrat-BlackItalic.otf */,
+				1821A8DB2000E97B009F8269 /* Montserrat-Bold.otf */,
+				1821A8C72000E979009F8269 /* Montserrat-BoldItalic.otf */,
+				1821A8C82000E979009F8269 /* Montserrat-ExtraBold.otf */,
+				1821A8D52000E97A009F8269 /* Montserrat-ExtraBoldItalic.otf */,
+				1821A8CB2000E979009F8269 /* Montserrat-ExtraLight.otf */,
+				1821A8D72000E97A009F8269 /* Montserrat-ExtraLightItalic.otf */,
+				1821A8D32000E97A009F8269 /* Montserrat-Italic.otf */,
+				1821A8E32000E97C009F8269 /* Montserrat-Light.otf */,
+				1821A8DD2000E97B009F8269 /* Montserrat-LightItalic.otf */,
+				1821A8C62000E979009F8269 /* Montserrat-Medium.otf */,
+				1821A8D82000E97A009F8269 /* Montserrat-MediumItalic.otf */,
+				1821A8C92000E979009F8269 /* Montserrat-Regular.otf */,
+				1821A8E02000E97B009F8269 /* Montserrat-SemiBold.otf */,
+				1821A8E62000E97C009F8269 /* Montserrat-SemiBoldItalic.otf */,
+				1821A8DA2000E97B009F8269 /* Montserrat-Thin.otf */,
+				1821A8D62000E97A009F8269 /* Montserrat-ThinItalic.otf */,
+				1821A8CD2000E979009F8269 /* MontserratAlternates-Black.otf */,
+				1821A8DE2000E97B009F8269 /* MontserratAlternates-BlackItalic.otf */,
+				1821A8D92000E97A009F8269 /* MontserratAlternates-Bold.otf */,
+				1821A8C42000E979009F8269 /* MontserratAlternates-BoldItalic.otf */,
+				1821A8CA2000E979009F8269 /* MontserratAlternates-ExtraBold.otf */,
+				1821A8CE2000E979009F8269 /* MontserratAlternates-ExtraBoldItalic.otf */,
+				1821A8D02000E979009F8269 /* MontserratAlternates-ExtraLight.otf */,
+				1821A8E12000E97B009F8269 /* MontserratAlternates-ExtraLightItalic.otf */,
+				1821A8D12000E97A009F8269 /* MontserratAlternates-Italic.otf */,
+				1821A8E42000E97C009F8269 /* MontserratAlternates-Light.otf */,
+				1821A8DF2000E97B009F8269 /* MontserratAlternates-LightItalic.otf */,
+				1821A8D22000E97A009F8269 /* MontserratAlternates-Medium.otf */,
+				1821A8E52000E97C009F8269 /* MontserratAlternates-MediumItalic.otf */,
+				1821A8CC2000E979009F8269 /* MontserratAlternates-Regular.otf */,
+				1821A8CF2000E979009F8269 /* MontserratAlternates-SemiBold.otf */,
+				1821A8E72000E97C009F8269 /* MontserratAlternates-SemiBoldItalic.otf */,
+				1821A8C52000E979009F8269 /* MontserratAlternates-Thin.otf */,
+				1821A8E22000E97C009F8269 /* MontserratAlternates-ThinItalic.otf */,
+				1821A8D42000E97A009F8269 /* SIL Open Font License.txt */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		1821A8BD2000E88B009F8269 /* Webservice */ = {
+			isa = PBXGroup;
+			children = (
+				1821A8C02000E928009F8269 /* WebService.h */,
+				1821A8C12000E928009F8269 /* WebService.m */,
+			);
+			path = Webservice;
+			sourceTree = "<group>";
+		};
+		1821A8BE2000E8AF009F8269 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				1821A8BF2000E905009F8269 /* Config.h */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		1821A90D2000E9A1009F8269 /* CustomNavigation */ = {
+			isa = PBXGroup;
+			children = (
+				1821A90E2000E9DC009F8269 /* CustomNavigation_iPad.xib */,
+				1821A9112000E9DC009F8269 /* CustomNavigation_iPhone.xib */,
+				1821A9102000E9DC009F8269 /* CustomNavigation.h */,
+				1821A90F2000E9DC009F8269 /* CustomNavigation.m */,
+			);
+			path = CustomNavigation;
+			sourceTree = "<group>";
+		};
+		1821A9152000EAF2009F8269 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1821A95A2000F285009F8269 /* PlayerSelectorVC.h */,
+				1821A95B2000F285009F8269 /* PlayerSelectorVC.m */,
+				1821A95D2000F29B009F8269 /* PlayerStatsVC.h */,
+				1821A95E2000F29B009F8269 /* PlayerStatsVC.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		187832A32003619500F8A156 /* AppCommon */ = {
+			isa = PBXGroup;
+			children = (
+				187832A5200361E300F8A156 /* AppCommon.h */,
+				187832A4200361E300F8A156 /* AppCommon.m */,
+			);
+			path = AppCommon;
+			sourceTree = "<group>";
+		};
+		187832A72003622700F8A156 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				187832A92003625300F8A156 /* Reachability.h */,
+				187832A82003625300F8A156 /* Reachability.m */,
+			);
+			path = Reachability;
+			sourceTree = "<group>";
+		};
 		187F5C5E1FFF944600970319 = {
 			isa = PBXGroup;
 			children = (
 				187F5C691FFF944600970319 /* SportsStats */,
 				187F5C681FFF944600970319 /* Products */,
+				13F1796F742064ACED400C92 /* Pods */,
+				691596C590D0E7143ED79E08 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,10 +298,20 @@
 		187F5C691FFF944600970319 /* SportsStats */ = {
 			isa = PBXGroup;
 			children = (
+				1893D7AB2004F8A80048CCF1 /* Helper */,
+				187832A72003622700F8A156 /* Reachability */,
+				187832A32003619500F8A156 /* AppCommon */,
+				CE0C7DF52002267200A53371 /* CustomButton */,
+				CE0C7DF12002267200A53371 /* PlayerSelectorTVC */,
+				1821A9152000EAF2009F8269 /* ViewController */,
+				CE2993D82005D247003781EC /* SubView */,
+				1821A90D2000E9A1009F8269 /* CustomNavigation */,
+				1821A8BE2000E8AF009F8269 /* Config */,
+				1821A8BD2000E88B009F8269 /* Webservice */,
+				1893D7A02004F7090048CCF1 /* CustomCell */,
+				1821A8BC2000E820009F8269 /* Font */,
 				187F5C6A1FFF944600970319 /* AppDelegate.h */,
 				187F5C6B1FFF944600970319 /* AppDelegate.m */,
-				187F5C6D1FFF944600970319 /* ViewController.h */,
-				187F5C6E1FFF944600970319 /* ViewController.m */,
 				187F5C701FFF944600970319 /* Main.storyboard */,
 				187F5C731FFF944600970319 /* Assets.xcassets */,
 				187F5C751FFF944600970319 /* LaunchScreen.storyboard */,
@@ -71,6 +321,109 @@
 			path = SportsStats;
 			sourceTree = "<group>";
 		};
+		1893D7A02004F7090048CCF1 /* CustomCell */ = {
+			isa = PBXGroup;
+			children = (
+				1893D7A72004F7A00048CCF1 /* ExpendCell */,
+			);
+			path = CustomCell;
+			sourceTree = "<group>";
+		};
+		1893D7A72004F7A00048CCF1 /* ExpendCell */ = {
+			isa = PBXGroup;
+			children = (
+				1893D7A92004F7E20048CCF1 /* DetailCell.h */,
+				1893D7A82004F7E20048CCF1 /* DetailCell.m */,
+			);
+			name = ExpendCell;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		1893D7AB2004F8A80048CCF1 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				1893D7AD2004F8C10048CCF1 /* Vertical */,
+				1893D7AC2004F8B40048CCF1 /* Horzatical */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		1893D7AC2004F8B40048CCF1 /* Horzatical */ = {
+			isa = PBXGroup;
+			children = (
+				1893D7AE2004F8F00048CCF1 /* HACBarChart.h */,
+				1893D7AF2004F8F00048CCF1 /* HACBarChart.m */,
+				1893D7B12004F8F10048CCF1 /* HACBarLayer.h */,
+				1893D7B02004F8F00048CCF1 /* HACBarLayer.m */,
+			);
+			path = Horzatical;
+			sourceTree = "<group>";
+		};
+		1893D7AD2004F8C10048CCF1 /* Vertical */ = {
+			isa = PBXGroup;
+			children = (
+				1893D7B42004F91D0048CCF1 /* MCBarChartView.h */,
+				1893D7B62004F91D0048CCF1 /* MCBarChartView.m */,
+				1893D7B52004F91D0048CCF1 /* MCChartInformationView.h */,
+				1893D7B72004F91D0048CCF1 /* MCChartInformationView.m */,
+			);
+			path = Vertical;
+			sourceTree = "<group>";
+		};
+		691596C590D0E7143ED79E08 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4F6279B1A185E576278AA63C /* libPods-SportsStats.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CE0C7DF12002267200A53371 /* PlayerSelectorTVC */ = {
+			isa = PBXGroup;
+			children = (
+				187832AD20038CB000F8A156 /* PlayerListTableViewCell.h */,
+				187832AC20038CB000F8A156 /* PlayerListTableViewCell.m */,
+				187832AB20038CB000F8A156 /* PlayerListTableViewCell.xib */,
+			);
+			path = PlayerSelectorTVC;
+			sourceTree = "<group>";
+		};
+		CE0C7DF52002267200A53371 /* CustomButton */ = {
+			isa = PBXGroup;
+			children = (
+				CE0C7DF62002267200A53371 /* CustomButton.h */,
+				CE0C7DF72002267200A53371 /* CustomButton.m */,
+			);
+			path = CustomButton;
+			sourceTree = "<group>";
+		};
+		CE2993D82005D247003781EC /* SubView */ = {
+			isa = PBXGroup;
+			children = (
+				CE2993D92005D247003781EC /* ExpendView */,
+				CE2993DC2005D247003781EC /* SeachView */,
+			);
+			path = SubView;
+			sourceTree = "<group>";
+		};
+		CE2993D92005D247003781EC /* ExpendView */ = {
+			isa = PBXGroup;
+			children = (
+				CE2993DA2005D247003781EC /* ExpendedView.h */,
+				CE2993DB2005D247003781EC /* ExpendedView.m */,
+			);
+			path = ExpendView;
+			sourceTree = "<group>";
+		};
+		CE2993DC2005D247003781EC /* SeachView */ = {
+			isa = PBXGroup;
+			children = (
+				CE2993DD2005D247003781EC /* SeachView.h */,
+				CE2993DE2005D247003781EC /* SeachView.m */,
+			);
+			path = SeachView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -78,9 +431,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 187F5C7D1FFF944600970319 /* Build configuration list for PBXNativeTarget "SportsStats" */;
 			buildPhases = (
+				4D5344FA5CF8417FB058D76D /* [CP] Check Pods Manifest.lock */,
 				187F5C631FFF944600970319 /* Sources */,
 				187F5C641FFF944600970319 /* Frameworks */,
 				187F5C651FFF944600970319 /* Resources */,
+				8588976F128267A2749263A0 /* [CP] Embed Pods Frameworks */,
+				33D58425D6F81CEC92DF964E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -129,22 +485,124 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1821A8F92000E97C009F8269 /* SIL Open Font License.txt in Resources */,
+				1821A8EF2000E97C009F8269 /* MontserratAlternates-ExtraBold.otf in Resources */,
+				1821A90C2000E97C009F8269 /* MontserratAlternates-SemiBoldItalic.otf in Resources */,
+				1821A9122000E9DC009F8269 /* CustomNavigation_iPad.xib in Resources */,
+				1821A8ED2000E97C009F8269 /* Montserrat-ExtraBold.otf in Resources */,
+				1821A90B2000E97C009F8269 /* Montserrat-SemiBoldItalic.otf in Resources */,
+				1821A8F42000E97C009F8269 /* MontserratAlternates-SemiBold.otf in Resources */,
+				1821A8FF2000E97C009F8269 /* Montserrat-Thin.otf in Resources */,
+				1821A8FA2000E97C009F8269 /* Montserrat-ExtraBoldItalic.otf in Resources */,
+				1821A8E82000E97C009F8269 /* Montserrat-Black.otf in Resources */,
+				1821A8F22000E97C009F8269 /* MontserratAlternates-Black.otf in Resources */,
+				1821A8F72000E97C009F8269 /* MontserratAlternates-Medium.otf in Resources */,
+				1821A8FB2000E97C009F8269 /* Montserrat-ThinItalic.otf in Resources */,
+				1821A8F32000E97C009F8269 /* MontserratAlternates-ExtraBoldItalic.otf in Resources */,
+				1821A8FD2000E97C009F8269 /* Montserrat-MediumItalic.otf in Resources */,
 				187F5C771FFF944600970319 /* LaunchScreen.storyboard in Resources */,
+				1821A9022000E97C009F8269 /* Montserrat-LightItalic.otf in Resources */,
+				1821A8F02000E97C009F8269 /* Montserrat-ExtraLight.otf in Resources */,
+				1821A9072000E97C009F8269 /* MontserratAlternates-ThinItalic.otf in Resources */,
+				1821A9142000E9DC009F8269 /* CustomNavigation_iPhone.xib in Resources */,
+				1821A8EE2000E97C009F8269 /* Montserrat-Regular.otf in Resources */,
+				1821A8F82000E97C009F8269 /* Montserrat-Italic.otf in Resources */,
+				1821A9062000E97C009F8269 /* MontserratAlternates-ExtraLightItalic.otf in Resources */,
+				1821A8F12000E97C009F8269 /* MontserratAlternates-Regular.otf in Resources */,
+				1821A9052000E97C009F8269 /* Montserrat-SemiBold.otf in Resources */,
+				1821A8F52000E97C009F8269 /* MontserratAlternates-ExtraLight.otf in Resources */,
+				1821A8EA2000E97C009F8269 /* MontserratAlternates-Thin.otf in Resources */,
+				1821A9032000E97C009F8269 /* MontserratAlternates-BlackItalic.otf in Resources */,
+				1821A8EC2000E97C009F8269 /* Montserrat-BoldItalic.otf in Resources */,
+				1821A8F62000E97C009F8269 /* MontserratAlternates-Italic.otf in Resources */,
+				1821A9092000E97C009F8269 /* MontserratAlternates-Light.otf in Resources */,
+				1821A9012000E97C009F8269 /* Montserrat-BlackItalic.otf in Resources */,
+				1821A9042000E97C009F8269 /* MontserratAlternates-LightItalic.otf in Resources */,
 				187F5C741FFF944600970319 /* Assets.xcassets in Resources */,
+				1821A8FC2000E97C009F8269 /* Montserrat-ExtraLightItalic.otf in Resources */,
+				1821A9002000E97C009F8269 /* Montserrat-Bold.otf in Resources */,
+				187832AE20038CB000F8A156 /* PlayerListTableViewCell.xib in Resources */,
+				1821A90A2000E97C009F8269 /* MontserratAlternates-MediumItalic.otf in Resources */,
+				1821A8FE2000E97C009F8269 /* MontserratAlternates-Bold.otf in Resources */,
 				187F5C721FFF944600970319 /* Main.storyboard in Resources */,
+				1821A8EB2000E97C009F8269 /* Montserrat-Medium.otf in Resources */,
+				1821A8E92000E97C009F8269 /* MontserratAlternates-BoldItalic.otf in Resources */,
+				1821A9082000E97C009F8269 /* Montserrat-Light.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		33D58425D6F81CEC92DF964E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SportsStats/Pods-SportsStats-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4D5344FA5CF8417FB058D76D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		8588976F128267A2749263A0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SportsStats/Pods-SportsStats-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		187F5C631FFF944600970319 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				187F5C6F1FFF944600970319 /* ViewController.m in Sources */,
+				187832AF20038CB000F8A156 /* PlayerListTableViewCell.m in Sources */,
+				CE2993DF2005D247003781EC /* ExpendedView.m in Sources */,
+				CE0C7DFA2002267200A53371 /* CustomButton.m in Sources */,
+				1893D7B32004F8F10048CCF1 /* HACBarLayer.m in Sources */,
+				1821A95C2000F285009F8269 /* PlayerSelectorVC.m in Sources */,
 				187F5C7A1FFF944600970319 /* main.m in Sources */,
+				187832AA2003625300F8A156 /* Reachability.m in Sources */,
+				1821A8C22000E928009F8269 /* WebService.m in Sources */,
+				1821A9132000E9DC009F8269 /* CustomNavigation.m in Sources */,
+				CE2993E02005D247003781EC /* SeachView.m in Sources */,
+				1893D7AA2004F7E20048CCF1 /* DetailCell.m in Sources */,
 				187F5C6C1FFF944600970319 /* AppDelegate.m in Sources */,
+				1821A95F2000F29B009F8269 /* PlayerStatsVC.m in Sources */,
+				1893D7B92004F91D0048CCF1 /* MCChartInformationView.m in Sources */,
+				187832A6200361E400F8A156 /* AppCommon.m in Sources */,
+				1893D7B82004F91D0048CCF1 /* MCBarChartView.m in Sources */,
+				1893D7B22004F8F10048CCF1 /* HACBarChart.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,6 +734,7 @@
 		};
 		187F5C7E1FFF944600970319 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CF99D1CD0E6CE8A891638D5B /* Pods-SportsStats.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -290,6 +749,7 @@
 		};
 		187F5C7F1FFF944600970319 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 756E200640A36208B531C9EA /* Pods-SportsStats.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
