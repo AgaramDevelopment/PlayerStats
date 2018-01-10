@@ -4,22 +4,6 @@
    version = "2.0">
    <Breakpoints>
       <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SportsStats/ViewController/PlayerSelectorVC.m"
-            timestampString = "537188206.17167"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "312"
-            endingLineNumber = "312"
-            landmarkName = "-tableView:didSelectRowAtIndexPath:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
          <BreakpointContent
             shouldBeEnabled = "Yes"
@@ -35,13 +19,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SportsStats/ViewController/PlayerSelectorVC.m"
-            timestampString = "537188206.171759"
+            filePath = "SportsStats/SubView/SeachView/SeachView.m"
+            timestampString = "537273498.0610141"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "689"
-            endingLineNumber = "689"
-            landmarkName = "-filterPlayer"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -51,13 +35,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SportsStats/ViewController/PlayerSelectorVC.m"
-            timestampString = "537188206.171826"
+            filePath = "SportsStats/SubView/SeachView/SeachView.m"
+            timestampString = "537273498.061166"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "597"
-            endingLineNumber = "597"
-            landmarkName = "-filterPlayer"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "-allviewSetborder"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -67,13 +51,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SportsStats/ViewController/PlayerSelectorVC.m"
-            timestampString = "537188206.1718889"
+            filePath = "SportsStats/SubView/SeachView/SeachView.m"
+            timestampString = "537273498.061518"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "603"
-            endingLineNumber = "603"
-            landmarkName = "-filterPlayer"
+            startingLineNumber = "146"
+            endingLineNumber = "146"
+            landmarkName = "-searchBar:textDidChange:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -83,13 +67,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SportsStats/ViewController/PlayerSelectorVC.m"
-            timestampString = "537188206.1719511"
+            filePath = "SportsStats/SubView/SeachView/SeachView.m"
+            timestampString = "537273498.061591"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "578"
-            endingLineNumber = "578"
-            landmarkName = "-onClickBowlingStyleDD:"
+            startingLineNumber = "161"
+            endingLineNumber = "161"
+            landmarkName = "-searchBarSearchButtonClicked:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -99,13 +83,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SportsStats/ViewController/PlayerSelectorVC.m"
-            timestampString = "537188206.172014"
+            filePath = "SportsStats/ViewController/PlayerStatsVC.m"
+            timestampString = "537273498.061694"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "540"
-            endingLineNumber = "540"
-            landmarkName = "-onClickBowlingStyleDD:"
+            startingLineNumber = "553"
+            endingLineNumber = "553"
+            landmarkName = "-searchBarSearchButtonClicked:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -115,13 +99,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SportsStats/ViewController/PlayerSelectorVC.m"
-            timestampString = "537188206.172075"
+            filePath = "SportsStats/ViewController/PlayerStatsVC.m"
+            timestampString = "537273498.06191"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "560"
-            endingLineNumber = "560"
-            landmarkName = "-onClickBowlingStyleDD:"
+            startingLineNumber = "561"
+            endingLineNumber = "561"
+            landmarkName = "-searchBarCancelButtonClicked:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -131,13 +115,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SportsStats/ViewController/PlayerSelectorVC.m"
-            timestampString = "537188206.172137"
+            filePath = "SportsStats/ViewController/PlayerStatsVC.m"
+            timestampString = "537273498.061972"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "658"
-            endingLineNumber = "658"
-            landmarkName = "-filterPlayer"
+            startingLineNumber = "538"
+            endingLineNumber = "538"
+            landmarkName = "-searchBar:textDidChange:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

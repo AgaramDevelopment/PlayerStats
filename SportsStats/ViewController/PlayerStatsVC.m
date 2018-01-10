@@ -12,7 +12,7 @@
 #import "SeachView.h"
 #import "MCBarChartView.h"
 #import "HACBarChart.h"
-@interface PlayerStatsVC ()<MCBarChartViewDelegate,MCBarChartViewDataSource>
+@interface PlayerStatsVC ()<MCBarChartViewDelegate,MCBarChartViewDataSource,UISearchBarDelegate>
 {
     NSArray *data3;
     NSArray *values;
@@ -20,8 +20,11 @@
     
     NSString * yValue;
     NSString * zValue;
-    SeachView * objSearchview;
+    //SeachView * objSearchview;
     ExpendedView * objExpendTbl;
+    NSMutableArray *playerArray;
+
+     UITableView *dropDownTblView;
 }
 @property (nonatomic,strong)  NSArray *ylist;
 @property (nonatomic,strong)  NSArray *zlist;
@@ -29,6 +32,12 @@
 
 @property (weak, nonatomic) IBOutlet HACBarChart *chart3;
 @property (strong, nonatomic) MCBarChartView * BarChartView;
+
+@property(nonatomic,strong) NSMutableArray *tableDataArray;
+@property(assign) BOOL searchEnabled;
+@property (nonatomic,strong) IBOutlet UITableView * search_Tbl;
+@property (nonatomic,strong) IBOutlet UISearchBar * search_Bar;
+@property (nonatomic, strong) NSArray *searchResult;
 @end
 
 @implementation PlayerStatsVC
@@ -36,11 +45,24 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self customnavigationmethod];
+    self.filterView.hidden = YES;
+//    playerArray = [[NSMutableArray alloc] initWithObjects:@"Player1", @"Player2", @"Player3", @"Player4", @"Player5", @"Player6", @"Player7", @"Player8", @"Player9", @"Player10", @"Player11", nil];
+//    dropDownTblView = [[UITableView alloc]init];
+//    dropDownTblView.dataSource = self;
+//    dropDownTblView.delegate = self;
     [self ChartViewMethod];
-    objSearchview.frame=[self setFramrToMenuViewWithXposition:190];
+    //_searchView.frame=[self setFramrToMenuViewWithXposition:100];
+    [self SearchViewMethod];
     objExpendTbl =[[ExpendedView alloc]init];
 }
-
+-(void)SearchViewMethod
+{
+    _tableDataArray = [[NSMutableArray alloc]initWithObjects:@"1",@"2",@"3",@"4",@"5",@"6", nil];
+    
+    self.searchResult = [NSMutableArray arrayWithCapacity:[_tableDataArray count]];
+    self.search_Tbl.hidden=YES;
+    
+}
 -(void)customnavigationmethod
 {
     CustomNavigation * objCustomNavigation;
@@ -48,10 +70,14 @@
     objCustomNavigation=[[CustomNavigation alloc] initWithNibName:@"CustomNavigation_iPad" bundle:nil];
     [self.view addSubview:objCustomNavigation.view];
     objCustomNavigation.tittle_lbl.text=@"Player Stats";
+    objCustomNavigation.nav_header_img.image = [UIImage imageNamed:@"withText"];
     objCustomNavigation.nav_header_img.backgroundColor = [UIColor colorWithRed:(13/255.0f) green:(43/255.0f) blue:(129/255.0f) alpha:1.0f];
     objCustomNavigation.btn_back.hidden = NO;
     objCustomNavigation.filter_btn.hidden = YES;
     objCustomNavigation.Cancelbtn.hidden = YES;
+    objCustomNavigation.nav_search_view.hidden = NO;
+    objCustomNavigation.objSearchBar.delegate = self;
+
     [objCustomNavigation.btn_back addTarget:self action:@selector(BackBtn:) forControlEvents:UIControlEventTouchUpInside];
     
 }
@@ -157,8 +183,70 @@
     
 }
 
+#pragma Filter Button Action
 
+- (IBAction)onClickFilterButton:(id)sender {
+    self.filterView.hidden = NO;
+}
 
+- (IBAction)onClickMatchType:(id)sender {
+    dropDownTblView.frame = CGRectMake(self.matchTypeView.frame.origin.x+40, self.matchTypeView.frame.origin.y+self.matchTypeView.frame.size.height+190, self.matchTypeView.frame.size.width, playerArray.count >= 5 ? 150 : playerArray.count*30);
+    //  dropDownTblView=[[UITableView alloc]initWithFrame:CGRectMake(self.matchTypeBtn.frame.origin.x+16+518, self.matchTypeBtn.frame.origin.y+60+80,150,228)];
+    dropDownTblView.backgroundColor=[UIColor colorWithRed:(13/255.0f) green:(43/255.0f) blue:(129/255.0f) alpha:1.0f];
+    [self.view addSubview:dropDownTblView];
+    
+}
+
+- (IBAction)onClickLastNYear:(id)sender {
+    dropDownTblView.frame = CGRectMake(self.lastNYearView.frame.origin.x+40, self.lastNYearView.frame.origin.y + self.lastNYearView.frame.size.height + 190,self.lastNYearView.frame.size.width,playerArray.count >= 5 ? 150 : playerArray.count*30);
+    dropDownTblView.backgroundColor=[UIColor colorWithRed:(13/255.0f) green:(43/255.0f) blue:(129/255.0f) alpha:1.0f];
+    [self.view addSubview:dropDownTblView];
+}
+
+- (IBAction)onClickCondition:(id)sender {
+    dropDownTblView.frame = CGRectMake(self.conditionView.frame.origin.x+40, self.conditionView.frame.origin.y + self.conditionView.frame.size.height + 190,self.conditionView.frame.size.width,playerArray.count >= 5 ? 150 : playerArray.count*30);
+    dropDownTblView.backgroundColor=[UIColor colorWithRed:(13/255.0f) green:(43/255.0f) blue:(129/255.0f) alpha:1.0f];
+    [self.view addSubview:dropDownTblView];
+}
+
+- (IBAction)onClickCompetition:(id)sender {
+    dropDownTblView.frame = CGRectMake(self.competitionView.frame.origin.x+40, self.competitionView.frame.origin.y + self.competitionView.frame.size.height + 190,self.competitionView.frame.size.width,playerArray.count >= 5 ? 150 : playerArray.count*30);
+    dropDownTblView.backgroundColor=[UIColor colorWithRed:(13/255.0f) green:(43/255.0f) blue:(129/255.0f) alpha:1.0f];
+    [self.view addSubview:dropDownTblView];
+}
+
+- (IBAction)onClickAgainst:(id)sender {
+    dropDownTblView.frame = CGRectMake(self.againstView.frame.origin.x+155, self.againstView.frame.origin.y + self.againstView.frame.size.height + 295,self.againstView.frame.size.width,playerArray.count >= 5 ? 150 : playerArray.count*30);
+    dropDownTblView.backgroundColor=[UIColor colorWithRed:(13/255.0f) green:(43/255.0f) blue:(129/255.0f) alpha:1.0f];
+    [self.view addSubview:dropDownTblView];
+}
+
+- (IBAction)onClickInnings:(id)sender {
+    dropDownTblView.frame = CGRectMake(self.inningsView.frame.origin.x+155, self.inningsView.frame.origin.y + self.inningsView.frame.size.height + 295,self.inningsView.frame.size.width,playerArray.count >= 5 ? 150 : playerArray.count*30);
+    dropDownTblView.backgroundColor=[UIColor colorWithRed:(13/255.0f) green:(43/255.0f) blue:(129/255.0f) alpha:1.0f];
+    [self.view addSubview:dropDownTblView];
+}
+
+- (IBAction)onClickMatchResult:(id)sender {
+    dropDownTblView.frame = CGRectMake(self.matchResultView.frame.origin.x+155, self.matchResultView.frame.origin.y + self.matchResultView.frame.size.height + 295,self.matchResultView.frame.size.width,playerArray.count >= 5 ? 150 : playerArray.count*30);
+    dropDownTblView.backgroundColor=[UIColor colorWithRed:(13/255.0f) green:(43/255.0f) blue:(129/255.0f) alpha:1.0f];
+    [self.view addSubview:dropDownTblView];
+}
+
+- (IBAction)okButtonTapped:(id)sender {
+    self.filterView.hidden = YES;
+    
+    if(dropDownTblView!=nil){
+        [dropDownTblView removeFromSuperview];
+    }
+}
+
+- (IBAction)cancelButtonTapped:(id)sender {
+    self.filterView.hidden = YES;
+    if(dropDownTblView!=nil){
+        [dropDownTblView removeFromSuperview];
+    }
+}
 
 - (NSInteger)numberOfSectionsInBarChartView:(MCBarChartView *)barChartView {
     
@@ -247,13 +335,6 @@
     
 }
 
-
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(nonnull NSIndexPath *)indexPath
-{
-    
-    return 30;
-}
 -(void) setInningsBySelection: (NSString*) innsNo{
     
     [self setInningsButtonUnselect:self.PP1Btn];
@@ -328,10 +409,167 @@
 {
     [self setInningsBySelection:@"3"];
 }
+
+#pragma mark - UITableViewDataSource
+//// number of section(s), now I assume there is only 1 section
+//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+//{
+//    return 1;
+//}
+//// number of row in the section, I assume there is only 1 row
+//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+//{
+//    return playerArray.count;
+//}
+//// the cell will be returned to the tableView
+//- (UITableViewCell *)tableView:(UITableView *)tableView
+//         cellForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    static NSString *cellIdentifier = @"playerStatisticsCell";
+//    
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+//    
+//    if(cell == nil){
+//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+//    }
+//    
+//    cell.backgroundColor = [UIColor clearColor];
+//    
+//    UIView *bgColorView = [[UIView alloc] init];
+//    bgColorView.backgroundColor = [UIColor colorWithRed:(8/255.0f) green:(26/255.0f) blue:(77/255.0f) alpha:1.0f];
+//    cell.selectedBackgroundView = bgColorView;
+//    cell.textLabel.textColor = [UIColor whiteColor];
+//    
+//    cell.textLabel.text = playerArray[indexPath.row];
+//    return cell;
+//}
+//
+//#pragma mark - UITableViewDelegate
+//// when user tap the row, what action you want to perform
+//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    NSLog(@"selected %d row", indexPath.row);
+//    if(dropDownTblView!=nil){
+//        [dropDownTblView removeFromSuperview];
+//    }
+//}
+
+
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    
+    return 1;
+    
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 0;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    
+    if(_searchEnabled)
+    {
+        return  self.searchResult.count;
+    }
+    else
+    {
+        return [_tableDataArray count];
+    }
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    return 44;
+    
+}
+#pragma mark Table Delegate Methods
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    
+    static NSString *simpleTableIdentifier = @"SimpleTableItem";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+    }
+    if (_searchEnabled) {
+        cell.textLabel.text = [self.searchResult objectAtIndex:indexPath.row];
+        
+    }
+    else{
+        cell.textLabel.text = [_tableDataArray objectAtIndex:indexPath.row];
+    }
+    return cell;
+    
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    self.search_Bar.text = [_searchResult objectAtIndex:indexPath.row];
+    self.search_Tbl.hidden = YES;
+    
+}
+
+
+#pragma mark - Search delegate methods
+
+- (void)filterContentForSearchText:(NSString*)searchText
+{
+    NSPredicate *resultPredicate = [NSPredicate
+                                    predicateWithFormat:@"SELF CONTAINS %@",
+                                    searchText];
+    
+    _searchResult = [_tableDataArray filteredArrayUsingPredicate:resultPredicate];
+    [self.search_Tbl reloadData];
+}
+- (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar
+{
+    self.searchResult = _tableDataArray;
+    self.search_Tbl.hidden = NO;
+    [self.search_Tbl reloadData];
+    return YES;
+}
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    if (searchBar.text.length == 0) {
+        _searchEnabled = NO;
+        self.search_Tbl.hidden=YES;
+        [self.search_Tbl reloadData];
+    }
+    else {
+        _searchEnabled = YES;
+        
+        self.search_Tbl.hidden=NO;
+        [self filterContentForSearchText:searchBar.text];
+    }
+}
+
+-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    [searchBar resignFirstResponder];
+    _searchEnabled = YES;
+    self.search_Tbl.hidden=NO;
+    [self filterContentForSearchText:searchBar.text];
+}
+
+-(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{
+    [searchBar resignFirstResponder];
+    [searchBar setText:@""];
+    _searchEnabled = NO;
+    self.search_Tbl.hidden=YES;
+    [self.search_Tbl reloadData];
+    
+}
 -(IBAction)BackBtn:(id)sender
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
+
 
 
 - (void)didReceiveMemoryWarning {

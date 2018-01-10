@@ -118,6 +118,7 @@
     objCustomNavigation.filter_btn.hidden = YES;
     objCustomNavigation.Cancelbtn.hidden = YES;
     objCustomNavigation.summarybtn.hidden=YES;
+    objCustomNavigation.nav_search_view.hidden = YES;
     
     //[objCustomNavigation.btn_back addTarget:self action:@selector(didClickBackBtn:) forControlEvents:UIControlEventTouchUpInside];
 }

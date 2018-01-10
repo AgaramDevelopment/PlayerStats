@@ -28,7 +28,7 @@
     self.search_Tbl.layer.borderColor = [UIColor lightTextColor].CGColor;
     self.search_Tbl.layer.borderWidth = 1.0;
     self.search_Tbl.layer.masksToBounds= YES;
-    self.search_Tbl.hidden = YES;
+    //self.search_Tbl.hidden = YES;
     [self allviewSetborder];
     [self initialization];
 }
@@ -72,63 +72,9 @@ return 1;
 {
     return 0;
 }
-#pragma mark - Creating View for TableView Section
 
-//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-//{
-//    if(_DetailTblEnable)
-//    {
-//        UIView *sectionView=[[UIView alloc]initWithFrame:CGRectMake(0, 0, 280,40)];
-//        sectionView.tag=section;
-//        UILabel *viewLabel=[[UILabel alloc]initWithFrame:CGRectMake(10, 0, self.playerDetail.frame.size.width-10, 40)];
-//        viewLabel.backgroundColor=[UIColor clearColor];
-//        viewLabel.textColor=[UIColor blackColor];
-//        viewLabel.font=[UIFont systemFontOfSize:15];
-//        viewLabel.text=[NSString stringWithFormat:@"%@",[_detailArray objectAtIndex:section]];
-//        [sectionView addSubview:viewLabel];
-//        /********** Add a custom Separator with Section view *******************/
-//        UIView* separatorLineView = [[UIView alloc] initWithFrame:CGRectMake(15, 40, self.playerDetail.frame.size.width-15, 1)];
-//        separatorLineView.backgroundColor = [UIColor blackColor];
-//        [sectionView addSubview:separatorLineView];
-//
-//        /********** Add UITapGestureRecognizer to SectionView   **************/
-//
-//        UITapGestureRecognizer  *headerTapped   = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(sectionHeaderTapped:)];
-//        [sectionView addGestureRecognizer:headerTapped];
-//
-//        return  sectionView;
-//
-//    }
-//    return nil ;
-//}
-#pragma mark - Table header gesture tapped
-
-//- (void)sectionHeaderTapped:(UITapGestureRecognizer *)gestureRecognizer{
-//
-//    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:gestureRecognizer.view.tag];
-//    if (indexPath.row == 0) {
-//        BOOL collapsed  = [[_arrayForBool objectAtIndex:indexPath.section] boolValue];
-//        for (int i=0; i<[_detailArray count]; i++) {
-//            if (indexPath.section==i) {
-//                [_arrayForBool replaceObjectAtIndex:i withObject:[NSNumber numberWithBool:!collapsed]];
-//            }
-//        }
-//        [self.playerDetail reloadSections:[NSIndexSet indexSetWithIndex:gestureRecognizer.view.tag] withRowAnimation:UITableViewRowAnimationAutomatic];
-//
-//    }
-//
-//}
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-//    if(_DetailTblEnable)
-//    {
-//        if ([[_arrayForBool objectAtIndex:section] boolValue]) {
-//            return _detailArray.count;
-//        }
-//        else
-//            return 0;
-//    }
-//    else
-//    {
+
         if(_searchEnabled)
         {
             return  self.searchResult.count;
@@ -137,67 +83,19 @@ return 1;
         {
             return [_tableDataArray count];
         }
-    //}
-    
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    if(_DetailTblEnable)
-//    {
-//        if ([[_arrayForBool objectAtIndex:indexPath.section] boolValue]) {
-//            return 40;
-//        }
-//        return 0;
-//    }
-//    else
-//    {
+
         return 44;
-    //}
+   
 }
 
 #pragma mark Table Delegate Methods
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-//    if(_DetailTblEnable)
-//    {
-//        static NSString *simpleTableIdentifier = @"DetailCell";
-//
-//        DetailCell *cell=[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-//        if (cell==nil) {
-//            cell=[[DetailCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:simpleTableIdentifier];
-//        }
-//
-//
-//        BOOL manyCells  = [[arrayForBool objectAtIndex:indexPath.section] boolValue];
-//
-//        /********** If the section supposed to be closed *******************/
-//        if(!manyCells)
-//        {
-//            cell.backgroundColor=[UIColor clearColor];
-//
-//            cell.textLabel.text=@"";
-//        }
-//        /********** If the section supposed to be Opened *******************/
-//        else
-//        {
-//            cell.match_lbl.text=[NSString stringWithFormat:@"%@ %d",[detailArray objectAtIndex:indexPath.section],indexPath.row+1];
-//            cell.textLabel.font=[UIFont systemFontOfSize:15.0f];
-//            cell.backgroundColor=[UIColor whiteColor];
-//            cell.imageView.image=[UIImage imageNamed:@"point.png"];
-//            cell.selectionStyle=UITableViewCellSelectionStyleNone ;
-//        }
-//        cell.textLabel.textColor=[UIColor blackColor];
-//
-//        /********** Add a custom Separator with cell *******************/
-//        UIView* separatorLineView = [[UIView alloc] initWithFrame:CGRectMake(15, 40, self.playerDetail.frame.size.width-15, 1)];
-//        separatorLineView.backgroundColor = [UIColor blackColor];
-//        [cell.contentView addSubview:separatorLineView];
-//
-//        return cell;
-//    }
-//    else
-//    {
+
         static NSString *simpleTableIdentifier = @"SimpleTableItem";
         
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
@@ -213,26 +111,15 @@ return 1;
             cell.textLabel.text = [_tableDataArray objectAtIndex:indexPath.row];
         }
         return cell;
-    //}
-    
-    
+  
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    if(_DetailTblEnable)
-//    {
-//        [_arrayForBool replaceObjectAtIndex:indexPath.section withObject:[NSNumber numberWithBool:NO]];
-//
-//        [self.playerDetail reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationAutomatic];
-//    }
-//    else
-//    {
-    
+
         self.search_Bar.text = [_searchResult objectAtIndex:indexPath.row];
         self.search_Tbl.hidden = YES;
-    
-    //}
+   
 }
 
 
