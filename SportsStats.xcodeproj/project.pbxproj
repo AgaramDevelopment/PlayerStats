@@ -59,15 +59,27 @@
 		187F5C741FFF944600970319 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 187F5C731FFF944600970319 /* Assets.xcassets */; };
 		187F5C771FFF944600970319 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 187F5C751FFF944600970319 /* LaunchScreen.storyboard */; };
 		187F5C7A1FFF944600970319 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 187F5C791FFF944600970319 /* main.m */; };
-		1893D7AA2004F7E20048CCF1 /* DetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1893D7A82004F7E20048CCF1 /* DetailCell.m */; };
 		1893D7B22004F8F10048CCF1 /* HACBarChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 1893D7AF2004F8F00048CCF1 /* HACBarChart.m */; };
 		1893D7B32004F8F10048CCF1 /* HACBarLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1893D7B02004F8F00048CCF1 /* HACBarLayer.m */; };
 		1893D7B82004F91D0048CCF1 /* MCBarChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1893D7B62004F91D0048CCF1 /* MCBarChartView.m */; };
 		1893D7B92004F91D0048CCF1 /* MCChartInformationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1893D7B72004F91D0048CCF1 /* MCChartInformationView.m */; };
-		54FCE7DF535E341F305E2A73 /* libPods-SportsStats.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F6279B1A185E576278AA63C /* libPods-SportsStats.a */; };
 		CE0C7DFA2002267200A53371 /* CustomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0C7DF72002267200A53371 /* CustomButton.m */; };
 		CE2993DF2005D247003781EC /* ExpendedView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2993DB2005D247003781EC /* ExpendedView.m */; };
 		CE2993E02005D247003781EC /* SeachView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2993DE2005D247003781EC /* SeachView.m */; };
+		CE91AAA720A1C07A00DBA042 /* DetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE91AAA620A1C07A00DBA042 /* DetailCell.m */; };
+		CE91AAAE20A1C3BF00DBA042 /* CustomCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE91AAAA20A1C3BF00DBA042 /* CustomCollectionViewLayout.swift */; };
+		CE91AAAF20A1C3BF00DBA042 /* PlayerListCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE91AAAC20A1C3BF00DBA042 /* PlayerListCollectionViewCell.m */; };
+		CE91AAB020A1C3BF00DBA042 /* PlayerListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE91AAAD20A1C3BF00DBA042 /* PlayerListCollectionViewCell.xib */; };
+		CE91AAB320A1C49200DBA042 /* BowlerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE91AAB220A1C49200DBA042 /* BowlerCell.m */; };
+		CE91AAC220A1C4E100DBA042 /* DateValueFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = CE91AAB620A1C4E000DBA042 /* DateValueFormatter.m */; };
+		CE91AAC320A1C4E100DBA042 /* DayAxisValueFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = CE91AAB820A1C4E000DBA042 /* DayAxisValueFormatter.m */; };
+		CE91AAC420A1C4E100DBA042 /* HorizontalXLblFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = CE91AABA20A1C4E000DBA042 /* HorizontalXLblFormatter.m */; };
+		CE91AAC520A1C4E100DBA042 /* IntAxisValueFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = CE91AABC20A1C4E000DBA042 /* IntAxisValueFormatter.m */; };
+		CE91AAC620A1C4E100DBA042 /* LargeValueFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE91AABD20A1C4E000DBA042 /* LargeValueFormatter.swift */; };
+		CE91AAC720A1C4E100DBA042 /* BalloonMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE91AABF20A1C4E100DBA042 /* BalloonMarker.swift */; };
+		CE91AAC820A1C4E100DBA042 /* RadarMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE91AAC020A1C4E100DBA042 /* RadarMarkerView.swift */; };
+		CE91AAC920A1C4E100DBA042 /* XYMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE91AAC120A1C4E100DBA042 /* XYMarkerView.swift */; };
+		D26F577458E341244586FA48 /* Pods_SportsStats.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 232E1BAC40EF0415C421597D /* Pods_SportsStats.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -134,8 +146,6 @@
 		187F5C761FFF944600970319 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		187F5C781FFF944600970319 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		187F5C791FFF944600970319 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		1893D7A82004F7E20048CCF1 /* DetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DetailCell.m; path = SportsStats/CustomCell/ExpendCell/DetailCell.m; sourceTree = SOURCE_ROOT; };
-		1893D7A92004F7E20048CCF1 /* DetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetailCell.h; path = SportsStats/CustomCell/ExpendCell/DetailCell.h; sourceTree = SOURCE_ROOT; };
 		1893D7AE2004F8F00048CCF1 /* HACBarChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HACBarChart.h; sourceTree = "<group>"; };
 		1893D7AF2004F8F00048CCF1 /* HACBarChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HACBarChart.m; sourceTree = "<group>"; };
 		1893D7B02004F8F00048CCF1 /* HACBarLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HACBarLayer.m; sourceTree = "<group>"; };
@@ -144,7 +154,7 @@
 		1893D7B52004F91D0048CCF1 /* MCChartInformationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCChartInformationView.h; sourceTree = "<group>"; };
 		1893D7B62004F91D0048CCF1 /* MCBarChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCBarChartView.m; sourceTree = "<group>"; };
 		1893D7B72004F91D0048CCF1 /* MCChartInformationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCChartInformationView.m; sourceTree = "<group>"; };
-		4F6279B1A185E576278AA63C /* libPods-SportsStats.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SportsStats.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		232E1BAC40EF0415C421597D /* Pods_SportsStats.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SportsStats.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		756E200640A36208B531C9EA /* Pods-SportsStats.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SportsStats.release.xcconfig"; path = "Pods/Target Support Files/Pods-SportsStats/Pods-SportsStats.release.xcconfig"; sourceTree = "<group>"; };
 		CE0C7DF62002267200A53371 /* CustomButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomButton.h; sourceTree = "<group>"; };
 		CE0C7DF72002267200A53371 /* CustomButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomButton.m; sourceTree = "<group>"; };
@@ -152,6 +162,26 @@
 		CE2993DB2005D247003781EC /* ExpendedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpendedView.m; sourceTree = "<group>"; };
 		CE2993DD2005D247003781EC /* SeachView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeachView.h; sourceTree = "<group>"; };
 		CE2993DE2005D247003781EC /* SeachView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeachView.m; sourceTree = "<group>"; };
+		CE91AAA520A1C07A00DBA042 /* DetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailCell.h; sourceTree = "<group>"; };
+		CE91AAA620A1C07A00DBA042 /* DetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailCell.m; sourceTree = "<group>"; };
+		CE91AAAA20A1C3BF00DBA042 /* CustomCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewLayout.swift; sourceTree = "<group>"; };
+		CE91AAAB20A1C3BF00DBA042 /* PlayerListCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerListCollectionViewCell.h; sourceTree = "<group>"; };
+		CE91AAAC20A1C3BF00DBA042 /* PlayerListCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerListCollectionViewCell.m; sourceTree = "<group>"; };
+		CE91AAAD20A1C3BF00DBA042 /* PlayerListCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerListCollectionViewCell.xib; sourceTree = "<group>"; };
+		CE91AAB120A1C49100DBA042 /* BowlerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BowlerCell.h; sourceTree = "<group>"; };
+		CE91AAB220A1C49200DBA042 /* BowlerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BowlerCell.m; sourceTree = "<group>"; };
+		CE91AAB520A1C4E000DBA042 /* DateValueFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateValueFormatter.h; sourceTree = "<group>"; };
+		CE91AAB620A1C4E000DBA042 /* DateValueFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateValueFormatter.m; sourceTree = "<group>"; };
+		CE91AAB720A1C4E000DBA042 /* DayAxisValueFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DayAxisValueFormatter.h; sourceTree = "<group>"; };
+		CE91AAB820A1C4E000DBA042 /* DayAxisValueFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DayAxisValueFormatter.m; sourceTree = "<group>"; };
+		CE91AAB920A1C4E000DBA042 /* HorizontalXLblFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HorizontalXLblFormatter.h; sourceTree = "<group>"; };
+		CE91AABA20A1C4E000DBA042 /* HorizontalXLblFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HorizontalXLblFormatter.m; sourceTree = "<group>"; };
+		CE91AABB20A1C4E000DBA042 /* IntAxisValueFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntAxisValueFormatter.h; sourceTree = "<group>"; };
+		CE91AABC20A1C4E000DBA042 /* IntAxisValueFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntAxisValueFormatter.m; sourceTree = "<group>"; };
+		CE91AABD20A1C4E000DBA042 /* LargeValueFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LargeValueFormatter.swift; sourceTree = "<group>"; };
+		CE91AABF20A1C4E100DBA042 /* BalloonMarker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalloonMarker.swift; sourceTree = "<group>"; };
+		CE91AAC020A1C4E100DBA042 /* RadarMarkerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadarMarkerView.swift; sourceTree = "<group>"; };
+		CE91AAC120A1C4E100DBA042 /* XYMarkerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XYMarkerView.swift; sourceTree = "<group>"; };
 		CF99D1CD0E6CE8A891638D5B /* Pods-SportsStats.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SportsStats.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SportsStats/Pods-SportsStats.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -160,7 +190,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				54FCE7DF535E341F305E2A73 /* libPods-SportsStats.a in Frameworks */,
+				D26F577458E341244586FA48 /* Pods_SportsStats.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +328,7 @@
 		187F5C691FFF944600970319 /* SportsStats */ = {
 			isa = PBXGroup;
 			children = (
+				CE91AAA820A1C3BF00DBA042 /* PlayerListCollectionViewCell */,
 				1893D7AB2004F8A80048CCF1 /* Helper */,
 				187832A72003622700F8A156 /* Reachability */,
 				187832A32003619500F8A156 /* AppCommon */,
@@ -324,24 +355,18 @@
 		1893D7A02004F7090048CCF1 /* CustomCell */ = {
 			isa = PBXGroup;
 			children = (
-				1893D7A72004F7A00048CCF1 /* ExpendCell */,
+				CE91AAB120A1C49100DBA042 /* BowlerCell.h */,
+				CE91AAB220A1C49200DBA042 /* BowlerCell.m */,
+				CE91AAA420A1C07A00DBA042 /* ExpendCell */,
 			);
 			path = CustomCell;
-			sourceTree = "<group>";
-		};
-		1893D7A72004F7A00048CCF1 /* ExpendCell */ = {
-			isa = PBXGroup;
-			children = (
-				1893D7A92004F7E20048CCF1 /* DetailCell.h */,
-				1893D7A82004F7E20048CCF1 /* DetailCell.m */,
-			);
-			name = ExpendCell;
-			path = "New Group";
 			sourceTree = "<group>";
 		};
 		1893D7AB2004F8A80048CCF1 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				CE91AABE20A1C4E100DBA042 /* Components */,
+				CE91AAB420A1C4E000DBA042 /* Formatters */,
 				1893D7AD2004F8C10048CCF1 /* Vertical */,
 				1893D7AC2004F8B40048CCF1 /* Horzatical */,
 			);
@@ -373,7 +398,7 @@
 		691596C590D0E7143ED79E08 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4F6279B1A185E576278AA63C /* libPods-SportsStats.a */,
+				232E1BAC40EF0415C421597D /* Pods_SportsStats.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -422,6 +447,60 @@
 				CE2993DE2005D247003781EC /* SeachView.m */,
 			);
 			path = SeachView;
+			sourceTree = "<group>";
+		};
+		CE91AAA420A1C07A00DBA042 /* ExpendCell */ = {
+			isa = PBXGroup;
+			children = (
+				CE91AAA520A1C07A00DBA042 /* DetailCell.h */,
+				CE91AAA620A1C07A00DBA042 /* DetailCell.m */,
+			);
+			path = ExpendCell;
+			sourceTree = "<group>";
+		};
+		CE91AAA820A1C3BF00DBA042 /* PlayerListCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				CE91AAA920A1C3BF00DBA042 /* CollectionViewLayout */,
+				CE91AAAB20A1C3BF00DBA042 /* PlayerListCollectionViewCell.h */,
+				CE91AAAC20A1C3BF00DBA042 /* PlayerListCollectionViewCell.m */,
+				CE91AAAD20A1C3BF00DBA042 /* PlayerListCollectionViewCell.xib */,
+			);
+			path = PlayerListCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		CE91AAA920A1C3BF00DBA042 /* CollectionViewLayout */ = {
+			isa = PBXGroup;
+			children = (
+				CE91AAAA20A1C3BF00DBA042 /* CustomCollectionViewLayout.swift */,
+			);
+			path = CollectionViewLayout;
+			sourceTree = "<group>";
+		};
+		CE91AAB420A1C4E000DBA042 /* Formatters */ = {
+			isa = PBXGroup;
+			children = (
+				CE91AAB520A1C4E000DBA042 /* DateValueFormatter.h */,
+				CE91AAB620A1C4E000DBA042 /* DateValueFormatter.m */,
+				CE91AAB720A1C4E000DBA042 /* DayAxisValueFormatter.h */,
+				CE91AAB820A1C4E000DBA042 /* DayAxisValueFormatter.m */,
+				CE91AAB920A1C4E000DBA042 /* HorizontalXLblFormatter.h */,
+				CE91AABA20A1C4E000DBA042 /* HorizontalXLblFormatter.m */,
+				CE91AABB20A1C4E000DBA042 /* IntAxisValueFormatter.h */,
+				CE91AABC20A1C4E000DBA042 /* IntAxisValueFormatter.m */,
+				CE91AABD20A1C4E000DBA042 /* LargeValueFormatter.swift */,
+			);
+			path = Formatters;
+			sourceTree = "<group>";
+		};
+		CE91AABE20A1C4E100DBA042 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				CE91AABF20A1C4E100DBA042 /* BalloonMarker.swift */,
+				CE91AAC020A1C4E100DBA042 /* RadarMarkerView.swift */,
+				CE91AAC120A1C4E100DBA042 /* XYMarkerView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -515,6 +594,7 @@
 				1821A9032000E97C009F8269 /* MontserratAlternates-BlackItalic.otf in Resources */,
 				1821A8EC2000E97C009F8269 /* Montserrat-BoldItalic.otf in Resources */,
 				1821A8F62000E97C009F8269 /* MontserratAlternates-Italic.otf in Resources */,
+				CE91AAB020A1C3BF00DBA042 /* PlayerListCollectionViewCell.xib in Resources */,
 				1821A9092000E97C009F8269 /* MontserratAlternates-Light.otf in Resources */,
 				1821A9012000E97C009F8269 /* Montserrat-BlackItalic.otf in Resources */,
 				1821A9042000E97C009F8269 /* MontserratAlternates-LightItalic.otf in Resources */,
@@ -555,13 +635,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SportsStats-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		8588976F128267A2749263A0 /* [CP] Embed Pods Frameworks */ = {
@@ -570,9 +653,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SportsStats/Pods-SportsStats-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -588,20 +678,31 @@
 			files = (
 				187832AF20038CB000F8A156 /* PlayerListTableViewCell.m in Sources */,
 				CE2993DF2005D247003781EC /* ExpendedView.m in Sources */,
+				CE91AAB320A1C49200DBA042 /* BowlerCell.m in Sources */,
 				CE0C7DFA2002267200A53371 /* CustomButton.m in Sources */,
 				1893D7B32004F8F10048CCF1 /* HACBarLayer.m in Sources */,
+				CE91AAAE20A1C3BF00DBA042 /* CustomCollectionViewLayout.swift in Sources */,
+				CE91AAC620A1C4E100DBA042 /* LargeValueFormatter.swift in Sources */,
 				1821A95C2000F285009F8269 /* PlayerSelectorVC.m in Sources */,
 				187F5C7A1FFF944600970319 /* main.m in Sources */,
 				187832AA2003625300F8A156 /* Reachability.m in Sources */,
 				1821A8C22000E928009F8269 /* WebService.m in Sources */,
+				CE91AAC320A1C4E100DBA042 /* DayAxisValueFormatter.m in Sources */,
+				CE91AAC820A1C4E100DBA042 /* RadarMarkerView.swift in Sources */,
 				1821A9132000E9DC009F8269 /* CustomNavigation.m in Sources */,
 				CE2993E02005D247003781EC /* SeachView.m in Sources */,
-				1893D7AA2004F7E20048CCF1 /* DetailCell.m in Sources */,
+				CE91AAC920A1C4E100DBA042 /* XYMarkerView.swift in Sources */,
 				187F5C6C1FFF944600970319 /* AppDelegate.m in Sources */,
 				1821A95F2000F29B009F8269 /* PlayerStatsVC.m in Sources */,
 				1893D7B92004F91D0048CCF1 /* MCChartInformationView.m in Sources */,
+				CE91AAC720A1C4E100DBA042 /* BalloonMarker.swift in Sources */,
+				CE91AAA720A1C07A00DBA042 /* DetailCell.m in Sources */,
+				CE91AAAF20A1C3BF00DBA042 /* PlayerListCollectionViewCell.m in Sources */,
 				187832A6200361E400F8A156 /* AppCommon.m in Sources */,
+				CE91AAC520A1C4E100DBA042 /* IntAxisValueFormatter.m in Sources */,
+				CE91AAC220A1C4E100DBA042 /* DateValueFormatter.m in Sources */,
 				1893D7B82004F91D0048CCF1 /* MCBarChartView.m in Sources */,
+				CE91AAC420A1C4E100DBA042 /* HorizontalXLblFormatter.m in Sources */,
 				1893D7B22004F8F10048CCF1 /* HACBarChart.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -738,11 +839,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = L5S8VPA4A5;
+				DEVELOPMENT_TEAM = LZ7UNGW43T;
 				INFOPLIST_FILE = SportsStats/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.agaram.SportsStats;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -753,11 +856,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = L5S8VPA4A5;
+				DEVELOPMENT_TEAM = LZ7UNGW43T;
 				INFOPLIST_FILE = SportsStats/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.agaram.SportsStats;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

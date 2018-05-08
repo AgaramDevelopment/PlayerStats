@@ -43,7 +43,9 @@
 -(void)AddMenuView:(UIView *)view;
 - (CGSize)getControlHeight:(NSString *)string withFontName:(NSString *)fontName ofSize:(NSInteger)size withSize:(CGSize)LabelWidth;
 
++(void)showAlertWithMessage:(NSString *)message;
 
++(NSString *)checkNull:(NSString *)value;
 
 
 @end

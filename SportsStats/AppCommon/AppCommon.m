@@ -10,13 +10,14 @@
 #import "Reachability.h"
 #import "WebService.h"
 #import "Config.h"
+#import "AppDelegate.h"
 
 @implementation AppCommon
 AppCommon *sharedCommon = nil;
 
 + (AppCommon *)common {
     
-    NSString *reqName;
+//    NSString *reqName;
     
     if (!sharedCommon) {
         
@@ -33,7 +34,8 @@ AppCommon *sharedCommon = nil;
 -(void)loadingIcon:(UIView *)view
 {
     loadingView = [[UIView alloc] initWithFrame:CGRectMake((view.frame.size.width)/2, (view.frame.size.height)/2, 37, 37)];
-    
+//    loadingView = [[UIView alloc] initWithFrame:CGRectMake((appDel.window.frame.size.width)/2, (appDel.window.frame.size.height)/2, 37, 37)];
+
     [loadingView.layer setCornerRadius:5.0];
     
     [loadingView setBackgroundColor:[UIColor blackColor]];
@@ -55,11 +57,14 @@ AppCommon *sharedCommon = nil;
     [loadingView addSubview:activityView];
     [view addSubview:loadingView];
     [view setUserInteractionEnabled:NO];
+//    [appDel.window setUserInteractionEnabled:NO];
+//    [appDel.window addSubview:loadingView];
     
 }
 
 -(void)RemoveLoadingIcon
 {
+//    [appDel.window setUserInteractionEnabled:YES];
     [loadingView removeFromSuperview];
     
 }
@@ -83,19 +88,22 @@ AppCommon *sharedCommon = nil;
     
     [self RemoveLoadingIcon];
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleName"] message:@"It appears that you have lost network connectivity. Please check your network settings!" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-    
-    [alert show];
-    
+//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleName"] message:@"It appears that you have lost network connectivity. Please check your network settings!" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+//
+//    [alert show];
+    [AppCommon showAlertWithMessage:@"It appears that you have lost network connectivity. Please check your network settings!"];
+
 }
 
 -(void)webServiceFailureError
 {
     [self RemoveLoadingIcon];
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleName"] message:@"Server Error" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-    
-    [alert show];
+//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleName"] message:@"Server Error" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+//
+//    [alert show];
+    [AppCommon showAlertWithMessage:@"Server Error"];
+
 }
 #pragma mark - Get Height of Control
 
@@ -122,7 +130,23 @@ AppCommon *sharedCommon = nil;
     return CGSizeMake(dataHeight.width, dataHeight.height);
 }
 
++(void)showAlertWithMessage:(NSString *)message
+{
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:APP_NAME message:message preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction* action = [UIAlertAction actionWithTitle:@"Okay" style:UIAlertActionStyleCancel handler:nil];
+    [alert addAction:action];
+    [appDel.window.rootViewController presentViewController:alert animated:YES completion:nil];
+}
 
++(NSString *)checkNull:(NSString *)value
+{
+    NSString* result = @"";
+    if (value == (id)[NSNull null] || value.length == 0 )
+    {
+        return  result;
+    }
+    return value;
+}
 
 
 @end

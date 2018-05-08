@@ -72,6 +72,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblStump;
 
 @property (strong, nonatomic) IBOutletCollection(CustomButton) NSArray *btnHeader;
+@property (weak, nonatomic) IBOutlet UIView *viewBG;
 
 @end
 

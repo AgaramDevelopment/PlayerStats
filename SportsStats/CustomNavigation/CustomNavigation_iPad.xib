@@ -80,7 +80,7 @@
                                     <subviews>
                                         <searchBar contentMode="redraw" backgroundImage="withText" translatesAutoresizingMaskIntoConstraints="NO" id="J1r-h4-bjA">
                                             <rect key="frame" x="0.0" y="0.0" width="445" height="56"/>
-                                            <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <textInputTraits key="textInputTraits"/>
                                             <connections>
                                                 <outlet property="delegate" destination="BE4-Jc-4QR" id="5X2-7H-Knn"/>

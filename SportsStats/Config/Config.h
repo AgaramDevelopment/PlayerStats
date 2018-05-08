@@ -80,9 +80,10 @@
 #define DEFAULT_BG_IMG_COLOR  [UIColor colorWithRed:(28/255.0f) green:(70/255.0f) blue:(126/255.0f) alpha:1.0]
 
 
-#define FETCH_AUCTION_OVERALL_PLAYER_STATS                               @"FETCHAUCTIONOVERALLPLAYERSTATS"
+#define FETCH_AUCTION_OVERALL_PLAYER_STATS       @"FETCHAUCTIONOVERALLPLAYERSTATS"
 
+#define PlayerDetails_key                         @"FETCHAUCTIONPLAYERSTATS"
 
-
+#define Filter_key                         @"GETAUCTIONPLAYERSTATS"
 
 

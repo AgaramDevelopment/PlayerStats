@@ -9,6 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface DetailCell : UITableViewCell
+@property (nonatomic,strong) IBOutlet UIView * commonviewCell;
+
+@property (nonatomic,strong) IBOutlet UILabel * competition_lbl;
+
 @property(nonatomic,strong) IBOutlet UILabel * match_lbl;
 @property(nonatomic,strong) IBOutlet UILabel * inns_lbl;
 @property(nonatomic,strong) IBOutlet UILabel * runs_lbl;

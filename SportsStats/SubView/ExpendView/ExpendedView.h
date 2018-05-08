@@ -8,12 +8,24 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ExpendedView : UIView
-@property(nonatomic,strong) NSMutableArray * detailArray;
+@protocol ExpendDelegate <NSObject>
+@required
+-(void)horzaticalscrollviewHeightMethod:(double)height;
+
+@end
+
+@interface ExpendedView : UIView <UITableViewDelegate,UITableViewDataSource>
+
+@property (nonatomic,assign)  id <ExpendDelegate> delegate;
+
+@property(nonatomic,strong) NSMutableArray * playerDetailArray;
+@property (nonatomic,strong) NSMutableArray * expendplayerDetailArray;
 @property(nonatomic,strong) NSMutableArray  *arrayForBool;
 @property(assign) BOOL DetailTblEnable;
+@property (assign) BOOL isBatting;
 
 @property (nonatomic,strong) IBOutlet UITableView * expendTbl;
 @property (nonatomic,strong) IBOutlet NSLayoutConstraint * expendTblHeight;
 @property (nonatomic,strong) IBOutlet NSLayoutConstraint * expandviewHeight;
+
 @end

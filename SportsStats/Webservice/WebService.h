@@ -23,12 +23,12 @@ typedef void (^WebserviceRequestXMLFailureHandler)(AFHTTPRequestOperation  *oper
 
 #pragma Testing Url
 //Local
-#define BASE_URL  @"http://192.168.1.84:8029/AGAPTService.svc/"
+//#define BASE_URL  @"http://192.168.1.84:8029/AGAPTService.svc/"
 //#define BASE_Image_URL @"http://192.168.1.84:8030/bcciapp/"
 
 //Live
-//#define BASE_URL  @"http://13.126.151.253:9001/AGAPTSERVICE.svc/"
-//#define BASE_Image_URL @"http://13.126.151.253:9001/bcciapp/"
+#define BASE_URL  @"http://13.126.151.253:9001/AGAPTSERVICE.svc/"
+#define BASE_Image_URL @"http://13.126.151.253:9000/bcciapp/"
 
 //#ifdef DEBUG
 //#define push_type   @"dev"
@@ -50,26 +50,26 @@ typedef void (^WebserviceRequestXMLFailureHandler)(AFHTTPRequestOperation  *oper
 //                     success:(WebserviceRequestSuccessHandler)success
 //                     failure:(WebserviceRequestFailureHandler)failure;
 
--(void)cancelRequest;
-
-
--(void)BattingWagonWheel :(NSString *)list :(NSString *)playercode :(NSString *)matchcode:(NSString *)innno success:(WebserviceRequestSuccessHandler)success
-                  failure:(WebserviceRequestFailureHandler)failure;
-
--(void)Battingpitchmap :(NSString *)list :(NSString *)playercode :(NSString *)matchcode:(NSString *)innno success:(WebserviceRequestSuccessHandler)success
-                failure:(WebserviceRequestFailureHandler)failure;
-
--(void)sessionsummary :(NSString *)list :(NSString *)matchcode :(NSString *)matchstatus:(NSString *)dayno:(NSString *)sessionno:(NSString *)innno success:(WebserviceRequestSuccessHandler)success
-               failure:(WebserviceRequestFailureHandler)failure;
--(void)matchtypesummary :(NSString *)list :(NSString *)matchcode :(NSString *)matchstatus success:(WebserviceRequestSuccessHandler)success
-                 failure:(WebserviceRequestFailureHandler)failure;
--(void)SingledaySession :(NSString *)list :(NSString *)matchcode :(NSString *)matchtype :(NSString *)sessionNo :(NSString *)innNo success:(WebserviceRequestSuccessHandler)success
-                 failure:(WebserviceRequestFailureHandler)failure;
-
--(void)LoadFieldingSummaryByInnins :(NSString *)list :(NSString *)matchStatus  :(NSString *)matchcode:(NSString *)innno success:(WebserviceRequestSuccessHandler)success
-                            failure:(WebserviceRequestFailureHandler)failure;
-
--(void)GetVideoPathFile :(NSString *)list : (NSString *) batsmanCode : (NSString *) matchCode: (NSString *) inns: (NSString *) value: (NSString *) batOrBowl success:(WebserviceRequestSuccessHandler)success
-                 failure:(WebserviceRequestFailureHandler)failure;
+//-(void)cancelRequest;
+//
+//
+//-(void)BattingWagonWheel :(NSString *)list :(NSString *)playercode :(NSString *)matchcode:(NSString *)innno success:(WebserviceRequestSuccessHandler)success
+//                  failure:(WebserviceRequestFailureHandler)failure;
+//
+//-(void)Battingpitchmap :(NSString *)list :(NSString *)playercode :(NSString *)matchcode:(NSString *)innno success:(WebserviceRequestSuccessHandler)success
+//                failure:(WebserviceRequestFailureHandler)failure;
+//
+//-(void)sessionsummary :(NSString *)list :(NSString *)matchcode :(NSString *)matchstatus:(NSString *)dayno:(NSString *)sessionno:(NSString *)innno success:(WebserviceRequestSuccessHandler)success
+//               failure:(WebserviceRequestFailureHandler)failure;
+//-(void)matchtypesummary :(NSString *)list :(NSString *)matchcode :(NSString *)matchstatus success:(WebserviceRequestSuccessHandler)success
+//                 failure:(WebserviceRequestFailureHandler)failure;
+//-(void)SingledaySession :(NSString *)list :(NSString *)matchcode :(NSString *)matchtype :(NSString *)sessionNo :(NSString *)innNo success:(WebserviceRequestSuccessHandler)success
+//                 failure:(WebserviceRequestFailureHandler)failure;
+//
+//-(void)LoadFieldingSummaryByInnins :(NSString *)list :(NSString *)matchStatus  :(NSString *)matchcode:(NSString *)innno success:(WebserviceRequestSuccessHandler)success
+//                            failure:(WebserviceRequestFailureHandler)failure;
+//
+//-(void)GetVideoPathFile :(NSString *)list : (NSString *) batsmanCode : (NSString *) matchCode: (NSString *) inns: (NSString *) value: (NSString *) batOrBowl success:(WebserviceRequestSuccessHandler)success
+//                 failure:(WebserviceRequestFailureHandler)failure;
 
 @end
