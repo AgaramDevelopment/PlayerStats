@@ -84,7 +84,7 @@
     [self fetchPlayerSelectionWS];
     
     [self customnavigationmethod];
-//    tagArray addObjectsFromArray:@[@0,@0,]
+
     battingOrderArray = [[NSMutableArray alloc] initWithArray:
                         @[
                           @{
@@ -924,6 +924,7 @@
     if (indexPath.section == 0) {
         return;
     }
+    
     PlayerStatsVC * nextVC = [[PlayerStatsVC alloc]init];
     nextVC = (PlayerStatsVC *)[self.storyboard instantiateViewControllerWithIdentifier:@"PlayerStats"];
     nextVC.SelectedPlayerCode = [[PlayerListArray objectAtIndex:indexPath.section-1] valueForKey:@"PlayerCode"];
