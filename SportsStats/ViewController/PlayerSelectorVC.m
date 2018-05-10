@@ -66,12 +66,67 @@
     playerTypeFilterPos = 0;
     battingStyleFilterPos = 0;
     bowlingStyleFilterPos = 0;
+    /*
+     
+     "PlayerCode": "PYC0000054",
+     "PlayerName": "ASHWIN R",
+     "PlayerPhoto": null,
+     "Origin": "",
+     "CappedOrNot": "UNCAPPED",
+     "PlayerType": null,
+     "BatStyle": "Right Hand Bat",
+     "BatOrder": "Lower",
+     "Matches": "2",
+     "Inns": "2",
+     "NOs": "0",
+     "Runs": "64",
+     "Balls": "38",
+     "HS": "49",
+     "BatAve": "32.00",
+     "BatSR": "168.42",
+     "dots": "10",
+     "dotspercent": "15.63",
+     "dotsfreq": null,
+     "ones": null,
+     "boundaries": "62.50",
+     "boundariespercent": null,
+     "boundaryfrequency": null,
+     "Fours": "4",
+     "Sixs": "4",
+     "thirties": "1",
+     "fifties": "0",
+     "thirtiespart": null,
+     "fiftiespart": null,
+     "hunderds": "0",
+     "BowlRuns": "40",
+     "BowlBalls": "6",
+     "BowlInns": "2",
+     "BowlDB": "15",
+     "BowlDBPercent": "41",
+     "Bowlboundariespercent": "55",
+     "wickets": "2",
+     "BowlSR": "18.00",
+     "BowlAve": "20.00",
+     "Threes": null,
+     "Wides": null,
+     "Noballs": null,
+     "Econ": "6.67",
+     "threes": "0",
+     "catches": "0",
+     "stumpings": "0",
+     "playerTypecode": "MSC008",
+     "batstylecode": "MSC013",
+     "bowlstylecode": "RAOS",
+     "competitionCode": null,
+     "competitionName": null,
+     "className": "row02"
+     
+     */
     
-    
-    headingKeyArray = @[@"PlayerName",@"BatStyle",@"Matches",@"Inns",@"NOs",@"Runs",@"Balls",@"HS",@"BatAve",@"BatSR",@"dotspercent",@"boundaries",@"hunderds",@"fifties",@"dots",@"Fours",@"Sixs",@"thirties",@"BowlRuns",@"BowlBalls",@"BowlAve",@"BowlSR",@"wickets",@"threes",@"Econ",@"catches",@"stumpings"];
+    headingKeyArray = @[@"PlayerName",@"BatStyle",@"Inns",@"Runs",@"Balls",@"dots",@"BatSR",@"HS",@"BatAve",@"Fours",@"Sixs",@"boundaries",@"dotspercent",@"thirties",@"fifties",@"BowlInns",@"BowlRuns",@"BowlBalls",@"wickets",@"Econ",@"BowlAve",@"BowlSR",@"BowlDB",@"BowlDBPercent",@"Bowlboundariespercent",@"threes",@"catches",@"stumpings"]; //28
 
-    
-    headingButtonNames = @[@"Player",@"Style",@"Mat",@"Inns",@"NO",@"Runs",@"BF",@"HS",@"Ave %",@"SR %",@"DB %",@"Bdry %",@"100s",@"50s",@"0s",@"4s",@"6s",@"30s",@"Bowl\nRuns",@"Bowl\nBalls",@"Bowl\nAve %",@"Bowl\nSR %",@"Wkts",@"3w Above",@"Econ %",@"Catch",@"Stump"];
+
+    headingButtonNames = @[@"Player",@" Bat Style &\nOrder",@"Inns",@"Runs",@"BF",@"DB",@"SR",@"HS",@"Avg %",@"4s",@"6s %",@"Bdry %",@"DB  %",@"30s",@"50s",@"Bowl\nInns",@"Bowl\nRuns",@"Bowl\nOvers",@"Wkts",@"Eco",@"Bowl\nAvg %",@"Bowl\nSR %",@"Bow\nDB",@"Bow\nDB %",@"Bow\nBdry %",@"3Wkts",@"Catches",@"Stumpings"];
 
     
     [collectionPlayerList registerNib:[UINib nibWithNibName:@"PlayerListCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"ContentCellIdentifier"];
@@ -86,9 +141,10 @@
     [self customnavigationmethod];
 
     battingOrderArray = [[NSMutableArray alloc] initWithArray:
-                        @[
-                          @{
-                              @"playerTypeDesc":@"Top",
+                         @[@{
+                               @"playerTypeDesc":@"ALL",
+                               @"playerTypeCode":@""
+                               },@{@"playerTypeDesc":@"Top",
                               @"playerTypeCode":@"Top"
                               }, @{
                               @"playerTypeDesc":@"Middle",
@@ -97,27 +153,54 @@
                               @"playerTypeDesc":@"Tail Ender",
                               @"playerTypeCode":@"Tail Ender"
                               },@{
-                              @"playerTypeDesc":@"ALL",
-                              @"playerTypeCode":@""
+                              @"playerTypeDesc":@"Lower Order",
+                              @"playerTypeCode":@"lower"
                               }]];
 
     
     
+//    playerOrginArray = [[NSMutableArray alloc] initWithArray:
+//                        @[@{@"playerTypeDesc":@"Indian Capped",
+//                           @"playerTypeCode":@"CAPPED"
+//                           }, @{
+//                           @"playerTypeDesc":@"Indian Uncapped",
+//                           @"playerTypeCode":@"UNCAPPED"
+//                           }, @{
+//                           @"playerTypeDesc":@"Foreigner",
+//                           @"playerTypeCode":@"FOREIGNER"
+//                           },@{
+//                           @"playerTypeDesc":@"ALL",
+//                           @"playerTypeCode":@""
+//                           }]];
+    
     playerOrginArray = [[NSMutableArray alloc] initWithArray:
-                     @[
-                       @{
-                           @"playerTypeDesc":@"Indian Capped",
-                           @"playerTypeCode":@"CAPPED"
-                           }, @{
-                           @"playerTypeDesc":@"Indian Uncapped",
-                           @"playerTypeCode":@"UNCAPPED"
-                           }, @{
-                           @"playerTypeDesc":@"Foreigner",
-                           @"playerTypeCode":@"FOREIGNER"
-                           },@{
-                           @"playerTypeDesc":@"ALL",
-                           @"playerTypeCode":@""
-                           }]];
+                        @[@{@"playerTypeDesc":@"ALL",
+                              @"playerTypeCode":@""
+                              }]];
+    
+    playerBowlingStyleArray = [[NSMutableArray alloc] initWithArray:
+                               @[@{@"playerTypeDesc":@"ALL",
+                                  @"playerTypeCode":@""
+                                  },
+                                @{@"playerTypeDesc":@"RA FAST MEDIUM",
+                                  @"playerTypeCode":@"RAFM"
+                                  },
+                                @{@"playerTypeDesc":@"RA OFF SPIN",
+                                  @"playerTypeCode":@"RAOS"
+                                  },
+                                @{@"playerTypeDesc":@"RA LEG SPIN",
+                                  @"playerTypeCode":@"RALS"
+                                  },
+                                @{@"playerTypeDesc":@"LA FAST MEDIUM",
+                                  @"playerTypeCode":@"LAFM"
+                                  },
+                                @{@"playerTypeDesc":@"LA ORTHODOX",
+                                  @"playerTypeCode":@"LAO"
+                                  },
+                                @{@"playerTypeDesc":@"LA CHINAMAN",
+                                  @"playerTypeCode":@"LAC"
+                                  }]];
+                                
     
     
     filterDropDownTblView=[[UITableView alloc]init];
@@ -134,20 +217,13 @@
 
 -(void)customnavigationmethod
 {
-    CustomNavigation * objCustomNavigation;
-    
-        objCustomNavigation=[[CustomNavigation alloc] initWithNibName:@"CustomNavigation_iPad" bundle:nil];
+    CustomNavigation * objCustomNavigation=[[CustomNavigation alloc] initWithNibName:@"CustomNavigation_iPad" bundle:nil];
     
     
     [self.view addSubview:objCustomNavigation.view];
     
-    objCustomNavigation.tittle_lbl.text=@"Player Selection";
+    objCustomNavigation.tittle_lbl.text=@"TNPL-3 Player Auction 2018";
     objCustomNavigation.nav_header_img.image = [UIImage imageNamed:@"withText"];
-    
-    //objCustomNavigation.nav_header_img.image = [UIImage imageNamed:@"withoutText"];
-   // objCustomNavigation.nav_header_img.backgroundColor = [UIColor colorWithRed:(13/255.0f) green:(43/255.0f) blue:(129/255.0f) alpha:1.0f];
-    
-    
     
     objCustomNavigation.btn_back.hidden = YES;
     objCustomNavigation.filter_btn.hidden = YES;
@@ -155,21 +231,16 @@
     objCustomNavigation.summarybtn.hidden=YES;
     objCustomNavigation.nav_search_view.hidden = YES;
     
-    //[objCustomNavigation.btn_back addTarget:self action:@selector(didClickBackBtn:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-//    if (tableView == tblPlayerList) {
-//        return 2;
-//    }
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-//    if(tableView == tblPlayerList && section == 1){
     if(tableView == tblPlayerList){
 
         return PlayerListArray.count;
@@ -184,9 +255,7 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-//    if(tableView == tblPlayerList && indexPath.section == 1){
-    if(tableView == tblPlayerList){
+        if(tableView == tblPlayerList){
 
     
         PlayerListTableViewCell *cell = [tblPlayerList dequeueReusableCellWithIdentifier:@"FirstCell"];
@@ -249,9 +318,6 @@
         otherCell.textLabel.textColor = [UIColor whiteColor];
         
         if(tableView == filterDropDownTblView){
-            
-            
-            
             otherCell.textLabel.text = [[DropDownArray objectAtIndex:indexPath.row] valueForKey:@"playerTypeDesc"];
         }
         
@@ -416,8 +482,9 @@
     
     
     dispatch_async(dispatch_get_main_queue(), ^{
-        //        [self.tblPlayerList reloadData];
         [self.collectionPlayerList reloadData];
+//        [self.collectionPlayerList.collectionViewLayout invalidateLayout];
+
     });
 }
 
@@ -539,7 +606,8 @@
         
         filterDropDownTblView.frame = CGRectMake([sender superview].frame.origin.x, collectionPlayerList.frame.origin.y -10 ,[sender frame].size.width,DropDownArray.count*45);
 
-        [self dropDownValueForBowlingStyle];
+//        [self dropDownValueForBowlingStyle];
+        DropDownArray = playerBowlingStyleArray;
         
         [self.view addSubview:filterDropDownTblView];
         [filterDropDownTblView reloadData];
@@ -590,10 +658,12 @@
         [DropDownArray addObject:tempDict];
     }
     
-    [DropDownArray addObject:@{
-                               @"playerTypeDesc":@"ALL",
-                               @"playerTypeCode":@""
-                               }];
+//    [DropDownArray addObject:@{
+//                               @"playerTypeDesc":@"ALL",
+//                               @"playerTypeCode":@""
+//                               }];
+    
+    [DropDownArray insertObject:@{@"playerTypeDesc":@"ALL",@"playerTypeCode":@""} atIndex:0];
     
     playerBattingStyleArray = [[NSMutableArray alloc] initWithArray:DropDownArray];;
 
@@ -612,10 +682,12 @@
         [DropDownArray addObject:tempDict];
     }
     
-    [DropDownArray addObject:@{
-                               @"playerTypeDesc":@"ALL",
-                               @"playerTypeCode":@""
-                               }];
+//    [DropDownArray addObject:@{
+//                               @"playerTypeDesc":@"ALL",
+//                               @"playerTypeCode":@""
+//                               }];
+    [DropDownArray insertObject:@{@"playerTypeDesc":@"ALL",@"playerTypeCode":@""} atIndex:0];
+
     
     playerBowlingStyleArray = [[NSMutableArray alloc] initWithArray:DropDownArray];;
 
@@ -634,11 +706,12 @@
     }
     
     
-    [DropDownArray addObject:@{
-                               @"playerTypeDesc":@"ALL",
-                               @"playerTypeCode":@""
-                               }];
-    
+//    [DropDownArray addObject:@{
+//                               @"playerTypeDesc":@"ALL",
+//                               @"playerTypeCode":@""
+//                               }];
+    [DropDownArray insertObject:@{@"playerTypeDesc":@"ALL",@"playerTypeCode":@""} atIndex:0];
+
     
     playerTypeArray = [[NSMutableArray alloc] initWithArray:DropDownArray];
 
@@ -718,6 +791,7 @@
 
     dispatch_async(dispatch_get_main_queue(), ^{
         [collectionPlayerList reloadData];
+//        [collectionPlayerList.collectionViewLayout invalidateLayout];
     });
     
 }
@@ -766,14 +840,14 @@
                 tempArray = [MainListArray valueForKey:@"PlayerType"];
                 _playerTypeLbl.text  = [[tempArray objectAtIndex:0] valueForKey:@"playerTypeDesc"];
                 
-                _playerOrderLbl.text  = [[playerOrginArray objectAtIndex:3] valueForKey:@"playerTypeDesc"];
+                _playerOrderLbl.text  = [[playerOrginArray objectAtIndex:0] valueForKey:@"playerTypeDesc"];
                 self.lblBattingOrder.text = @"ALL";
-                self.playerOrderLbl.tag = 3;
+                self.playerOrderLbl.tag = 0;
                 self.playerTypeLbl.tag = 0;
                 self.battingStyleLbl.tag = 0;
-                self.bowlingStyleLbl.tag = 3;
-                self.lblBattingOrder.tag = 3;
-                [self dropDownValueForBowlingStyle];
+                self.bowlingStyleLbl.tag = 0;
+                self.lblBattingOrder.tag = 0;
+//                [self dropDownValueForBowlingStyle];
                 [self dropDownValueForBattingStyle];
                 [self dropDownValueForPlayerType];
                 
@@ -805,6 +879,8 @@
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
+//    [collectionView.collectionViewLayout invalidateLayout];
+
     if (PlayerListArray.count > 0) {
         return PlayerListArray.count+1;
         
@@ -823,17 +899,19 @@
     PlayerListCollectionViewCell* cell = [collectionPlayerList dequeueReusableCellWithReuseIdentifier:@"ContentCellIdentifier" forIndexPath:indexPath];
     
     if (indexPath.section == 0) {
-        if(indexPath.row >=0 && indexPath.row <= 17) // coulmn 1
+        
+        if(indexPath.row >=0 && indexPath.row <= 14) // coulmn 1
         {
             cell.backgroundColor = [UIColor colorWithRed:21.0/255.0 green:127.0/255.0 blue:182.0/255.0 alpha:1.0];
-        }else if (indexPath.row >= 17 && indexPath.row <= 24)
-        {
-            cell.backgroundColor = [UIColor colorWithRed:20.0/255.0 green:109.0/255.0 blue:181.0/255.0 alpha:1.0];
+        }
+        else if (indexPath.row >= 14 && indexPath.row <= 25) {
             
+            cell.backgroundColor = [UIColor colorWithRed:20.0/255.0 green:109.0/255.0 blue:181.0/255.0 alpha:1.0];
+
         }
         else{
             cell.backgroundColor = [UIColor colorWithRed:44.0/255.0 green:167.0/255.0 blue:219.0/255.0 alpha:1.0];
-            
+
         }
         
         [cell.lblRightShadow setHidden:YES];
@@ -849,19 +927,22 @@
                 cell.btnName.tag = [[tagArray objectAtIndex:indexPath.row] integerValue];
                 cell.btnName.secondTag = indexPath.row;
                 cell.btnName.titleLabel.numberOfLines = 2;
-                if (indexPath.row == 16) {
-                    [cell.btnName setTitle:[headingButtonNames objectAtIndex:indexPath.row] forState:UIControlStateNormal];
-                    
-                }else if (indexPath.row == 17) {
-                    [cell.btnName setTitle:[headingButtonNames objectAtIndex:indexPath.row] forState:UIControlStateNormal];
-                    
-                }else if (indexPath.row == 18) {
-                    [cell.btnName setTitle:[headingButtonNames objectAtIndex:indexPath.row] forState:UIControlStateNormal];
-                    
-                }else if (indexPath.row == 19) {
-                    [cell.btnName setTitle:[headingButtonNames objectAtIndex:indexPath.row] forState:UIControlStateNormal];
-                    
-                }
+                
+//                if (indexPath.row == 16) {
+//                    [cell.btnName setTitle:[headingButtonNames objectAtIndex:indexPath.row] forState:UIControlStateNormal];
+//
+//                }else if (indexPath.row == 17) {
+//                    [cell.btnName setTitle:[headingButtonNames objectAtIndex:indexPath.row] forState:UIControlStateNormal];
+//
+//                }else if (indexPath.row == 18) {
+//                    [cell.btnName setTitle:[headingButtonNames objectAtIndex:indexPath.row] forState:UIControlStateNormal];
+//
+//                }
+//                else if (indexPath.row == 19) {
+//                    [cell.btnName setTitle:[headingButtonNames objectAtIndex:indexPath.row] forState:UIControlStateNormal];
+//
+//                }
+                
                 if ([selectedHeading isEqualToString: cell.btnName.titleLabel.text]) {
                     [cell.btnName setTitleColor: [ UIColor colorWithRed:(13/255.0f) green:(43/255.0f) blue:(129/255.0f) alpha:1.0f] forState:UIControlStateNormal];
                 }
@@ -919,6 +1000,7 @@
     
     return cell;
 }
+
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 0) {
@@ -931,6 +1013,7 @@
     [self.navigationController pushViewController:nextVC animated:YES];
 
 }
+
 -(void)setShadow:(CALayer *)layer
 {
     layer.shadowColor = [[UIColor blackColor] CGColor];
@@ -938,4 +1021,5 @@
     layer.shadowOpacity = 1.0;
 
 }
+
 @end

@@ -396,7 +396,7 @@
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="kzq-oT-Gaq">
                                         <rect key="frame" x="8" y="161" width="1096" height="665"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <collectionViewLayout key="collectionViewLayout" id="ToA-ae-tXZ" customClass="CustomCollectionViewLayout" customModule="SportsStats" customModuleProvider="target"/>
+                                        <collectionViewLayout key="collectionViewLayout" id="ToA-ae-tXZ" customClass="CustomCollectionViewLayout1" customModule="SportsStats" customModuleProvider="target"/>
                                         <cells/>
                                         <connections>
                                             <outlet property="dataSource" destination="lZW-Fd-NmQ" id="XG4-Cb-13a"/>
@@ -458,10 +458,9 @@
         <!--Navigation Controller-->
         <scene sceneID="cXK-vx-8NT">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xur-Q7-pHl" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="xur-Q7-pHl" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zv9-5w-K5m">
-                        <rect key="frame" x="0.0" y="20" width="1112" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -672,7 +671,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recenct Form" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k2B-Nr-UzO">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recent Form" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k2B-Nr-UzO">
                                                         <rect key="frame" x="15" y="47" width="150" height="30"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <constraints>

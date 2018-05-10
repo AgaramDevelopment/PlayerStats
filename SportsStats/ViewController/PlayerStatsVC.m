@@ -28,7 +28,7 @@
     NSString * yValue;
     NSString * zValue;
 
-    NSMutableArray *playerArray;
+    NSMutableArray *playerArray,*MainArray;
 
     UITableView *dropDownTblView;
     CustomNavigation * objCustomNavigation;
@@ -145,20 +145,25 @@
     playerStaticArray = [[NSMutableArray alloc] initWithObjects:
                          @[
                            @{
+                               @"name":@"All",
+                               @"code":@"All"
+                               },
+                            @{
                                @"name":@"T20I",
                                @"code":@"MSC024"
                                },
                            @{
                                @"name":@"T20",
                                @"code":@"MSC116"
-                               },
-                           @{
-                               @"name":@"All",
-                               @"code":@"All"
                                }
+                        
                            ],
                          @[
                            @{
+                               @"name":@"All",
+                               @"code":@"3"
+                               },
+                            @{
                                @"name":@"1 Year",
                                @"code":@"1"
                                },
@@ -169,13 +174,13 @@
                            @{
                                @"name":@"3 Years",
                                @"code":@"3"
-                               },
-                           @{
-                               @"name":@"All",
-                               @"code":@"3"
                                }
                            ],
                          @[
+                           @{
+                               @"name":@"All",
+                               @"code":@"All"
+                               },
                            @{
                                @"name":@"Ireland",
                                @"code":@"Ireland"
@@ -211,13 +216,13 @@
                            @{
                                @"name":@"Subcontinent",
                                @"code":@"Subcontinent"
-                               },
-                           @{
-                               @"name":@"All",
-                               @"code":@"All"
                                }
                            ],
                          @[
+                           @{
+                               @"name":@"All",
+                               @"code":@"All"
+                               },
                            @{
                                @"name":@"1st",
                                @"code":@"1"
@@ -225,13 +230,14 @@
                            @{
                                @"name":@"2nd",
                                @"code":@"2"
-                               },
+                               }
+                           
+                           ],
+                         @[
                            @{
                                @"name":@"All",
                                @"code":@"All"
-                               }
-                           ],
-                         @[
+                               },
                            @{
                                @"name":@"Win",
                                @"code":@"MSC228"
@@ -243,13 +249,14 @@
                            @{
                                @"name":@"Loss",
                                @"code":@"Loss"
-                               },
+                               }
+                           
+                           ],
+                         @[
                            @{
                                @"name":@"All",
                                @"code":@"All"
-                               }
-                           ],
-                         @[
+                               },
                            @{
                                @"name":@"Batting Dominated",
                                @"code":@"Batting"
@@ -265,11 +272,8 @@
                            @{
                                @"name":@"Fast Dominated",
                                @"code":@"Fast"
-                               },
-                           @{
-                               @"name":@"All",
-                               @"code":@"All"
                                }
+                           
                            ],nil
                          ];
     
@@ -718,21 +722,6 @@
         NSString * runsPercentage = runsArray[0];
         self.runsPrgss.progress = [runsPercentage floatValue]/100 ;
         
-//        UILabel *fromLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, -5, 50, 20)];
-//        fromLabel.numberOfLines = 1;
-//        fromLabel.baselineAdjustment = YES;
-//        fromLabel.adjustsFontSizeToFitWidth = YES;
-//        fromLabel.adjustsLetterSpacingToFitWidth = YES;
-//        fromLabel.clipsToBounds = YES;
-//        fromLabel.text = [[self.PaceArray valueForKey:@"PaceRuns"] objectAtIndex:0];
-//        fromLabel.backgroundColor = [UIColor clearColor];
-//        fromLabel.textColor = [UIColor whiteColor];
-//        fromLabel.textAlignment = NSTextAlignmentRight;
-//        [self.runsPrgss addSubview:fromLabel];
-        
-        
-        
-        
         
         NSArray *ballsArray = [[[self.PaceArray valueForKey:@"PaceBallsWidth"] objectAtIndex:0] componentsSeparatedByString:@"%"];
         NSString * ballsPercentage = ballsArray[0];
@@ -880,6 +869,7 @@
         self.bdryFreqSpinlbl.text = [[self.SpinArray2 valueForKey:@"SpinBdryFreq"] objectAtIndex:0];
     }
 }
+
 -(IBAction)PP3Action:(id)sender
 {
     [self setInningsBySelection:@"3"];
@@ -1471,11 +1461,6 @@
 }
 - (void)updateChartData
 {
-    //    if (self.shouldHideData)
-    //    {
-    //        _chartView.data = nil;
-    //        return;
-    //    }
     
     [self setDataCount:12.0 + 1 range:50.0];
 }
@@ -1486,33 +1471,11 @@
     double spaceForBar = 10.0;
     
     NSMutableArray *yVals = [[NSMutableArray alloc] init];
-    //    [yVals addObject:[[BarChartDataEntry alloc] initWithX:0 y:20 icon: [UIImage imageNamed:@"icon"]]];
-    //    [yVals addObject:[[BarChartDataEntry alloc] initWithX:0 y:40 icon: [UIImage imageNamed:@"icon"]]];
-    //    for (NSDictionary *tempDic in  self.ComfortArray.objectEnumerator) {
-    //        //[yVals addObject:[[BarChartDataEntry alloc] initWithX:[[tempDic valueForKey:@"level"]integerValue] y:[[tempDic valueForKey:@"level"]integerValue] icon: [UIImage imageNamed:@"icon"]]];
-    //
-    //        [yVals addObject:[[BarChartDataEntry alloc] initWithX:0 y:20 icon: [UIImage imageNamed:@"icon"]]];
-    //    }
-    //
-    
-    //    for(int i=0; i<self.ComfortArray.count;i++)
-    //    {
-    //    //[yVals addObject:[[BarChartDataEntry alloc] initWithX:[[self.ComfortArray valueForKey:@""] objectAtIndex:i] y:10 icon: [UIImage imageNamed:@"icon"]]];
-    //    }
-    //    [yVals addObject:[[BarChartDataEntry alloc] initWithX:20 y:20 icon: [UIImage imageNamed:@"icon"]]];
-    //    [yVals addObject:[[BarChartDataEntry alloc] initWithX:30 y:30 icon: [UIImage imageNamed:@"icon"]]];
-    //    [yVals addObject:[[BarChartDataEntry alloc] initWithX:40 y:40 icon: [UIImage imageNamed:@"icon"]]];
-    //    [yVals addObject:[[BarChartDataEntry alloc] initWithX:50 y:50 icon: [UIImage imageNamed:@"icon"]]];
     NSLog(@"%@", yVals);
     
     for (int i = 0; i < self.ComfortArray.count; i++)
     {
-        //double mult = (range + 1);
-        //double val = (double) (arc4random_uniform(mult));
-//        [yVals addObject:[[BarChartDataEntry alloc] initWithX:i * spaceForBar y:[[[self.ComfortArray valueForKey:@"level"]objectAtIndex:i] integerValue] icon: [UIImage imageNamed:@"icon"]]];
-        
         [yVals addObject:[[BarChartDataEntry alloc] initWithX:i * spaceForBar y:[[[self.ComfortArray valueForKey:@"level"]objectAtIndex:i] integerValue] icon: [UIImage imageNamed:@"icon"]]];
-
     }
     
     BarChartDataSet *set1 = nil;
@@ -1607,36 +1570,29 @@
     
 }
 
+-(NSString *)checkNull:(NSString *)str
+{
+    if ([str isEqual:[NSNull null]] || str == nil || [str isEqual:@"<null>"]) {
+        str=@"0.1";
+    }
+    return str;
+
+}
+
 
 - (void)setDataCount1:(int)count range:(double)range
 {
-    double start = 1.0;
+//    double start = 1.0;
     
     NSMutableArray *yVals = [[NSMutableArray alloc] init];
-    //    [yVals addObject:[[BarChartDataEntry alloc] initWithX:i y:val icon: [UIImage imageNamed:@"icon"]]];
     
     for(int i=0;i<self.PositionArray.count;i++)
     {
-        [yVals addObject:[[BarChartDataEntry alloc] initWithX:[[[self.PositionArray valueForKey:@"positionNo"]objectAtIndex:i] integerValue] y:[[[self.PositionArray valueForKey:@"matches"]objectAtIndex:i] integerValue] icon: [UIImage imageNamed:@"icon"]]];
+        NSString* position = [self checkNull:[[self.PositionArray objectAtIndex:i]valueForKey:@"positionNo"]];
+        NSString* Matches = [self checkNull:[[self.PositionArray valueForKey:@"overs"]objectAtIndex:i]];
+
+        [yVals addObject:[[BarChartDataEntry alloc] initWithX:[position integerValue] y:[Matches integerValue] icon: [UIImage imageNamed:@"icon"]]];
     }
-    
-    
-    //    [yVals addObject:[[BarChartDataEntry alloc] initWithX:20 y:20 icon: [UIImage imageNamed:@"icon"]]];
-    //    [yVals addObject:[[BarChartDataEntry alloc] initWithX:30 y:30 icon: [UIImage imageNamed:@"icon"]]];
-    //    [yVals addObject:[[BarChartDataEntry alloc] initWithX:40 y:40 icon: [UIImage imageNamed:@"icon"]]];
-    //    [yVals addObject:[[BarChartDataEntry alloc] initWithX:50 y:50 icon: [UIImage imageNamed:@"icon"]]];
-    
-    
-    //        for (int i = start; i < start + count + 1; i++)
-    //        {
-    //            double mult = (range + 1);
-    //            double val = (double) (arc4random_uniform(mult));
-    //            if (arc4random_uniform(100) < 25) {
-    //                [yVals addObject:[[BarChartDataEntry alloc] initWithX:i y:val icon: [UIImage imageNamed:@"icon"]]];
-    //            } else {
-    //                [yVals addObject:[[BarChartDataEntry alloc] initWithX:i y:val]];
-    //            }
-    //        }
     
     BarChartDataSet *set1 = nil;
     if (viewBarChart.data.dataSetCount > 0)
@@ -1720,22 +1676,14 @@
                 self.playerBowlingDetaillistArray =[[NSMutableArray alloc]init];
                 
 
-                
+                MainArray = responseObject;
                 self.PlayerDetailsArray = [responseObject valueForKey:@"PlayerDetailsList"];
                 NSLog(@"%@", self.PlayerDetailsArray);
                 
                 self.PlayerCompetitionArray = [responseObject valueForKey:@"PlayerDetailsListCompetitions"];
                 
-                self.PaceArray = [responseObject valueForKey:@"statsPlayerPaceList"];
-                self.SpinArray = [responseObject valueForKey:@"statsPlayerSpinList"];
-                self.PaceArray2 = [responseObject valueForKey:@"statsPlayerPaceList2"];
-                self.SpinArray2 = [responseObject valueForKey:@"statsPlayerSpinList2"];
-                self.PaceArray3 = [responseObject valueForKey:@"statsPlayerPaceList3"];
-                self.SpinArray3 = [responseObject valueForKey:@"statsPlayerSpinList3"];
                 
-                self.ComfortArray = [responseObject valueForKey:@"statsPlayerComfort"];
                 
-                self.PositionArray = [responseObject valueForKey:@"statsPlayerPosition"];
                 
                 self.CompetitionArray = [responseObject valueForKey:@"statsPlayerCompetition"];
                 
@@ -1770,10 +1718,10 @@
                 if(![[[self.playerBasicDetailsArray valueForKey:@"playerPhoto"] objectAtIndex:0] isEqual:[NSNull null]])
                 {
                     
-                    NSString *img = [NSString stringWithFormat:@"%@%@",BASE_Image_URL,[[self.playerBasicDetailsArray valueForKey:@"playerPhoto"] objectAtIndex:0]];
+                    NSString *img = [NSString stringWithFormat:@"%@",[[self.playerBasicDetailsArray valueForKey:@"playerPhoto"] objectAtIndex:0]];
                     
                     NSURL *imageURL = [NSURL URLWithString:img];
-                    
+                    NSLog(@"imageURL %@",imageURL);
                     //NSURL *url=[NSURL URLWithString:@"http://images.indianexpress.com/2018/01/rahul-main-image.jpg"];
                     [self.playerimage sd_setImageWithURL:imageURL placeholderImage:[UIImage imageNamed:@"DefaultImg"]];
                 }
@@ -1805,12 +1753,10 @@
                 }
                 
                 //[self progressValues];
-                [self horizontalBarConfigure];
-                [self verticalBarConfiguration];
                 
                 [self.battingBtn sendActionsForControlEvents:UIControlEventTouchUpInside];
 
-                [self.PP1Btn sendActionsForControlEvents:UIControlEventTouchUpInside];
+//                [self.PP1Btn sendActionsForControlEvents:UIControlEventTouchUpInside];
                 
             }
             
@@ -1843,7 +1789,7 @@
         manager.requestSerializer = requestSerializer;
         
         //NSString *playerCode = @"PYC0000168";
-        NSString *matchtype = @"";
+//        NSString *matchtype = @"";
         NSLog(@"matchTypeCode=%@,lastNYearsCode=%@, conditionCode=%@, competitionCode=%@, againstCode=%@, inningsCode=%@, matchResultCode=%@, venueTypeCode=%@", matchTypeCode, lastNYearsCode, conditionCode, competitionCode, againstCode, inningsCode, matchResultCode, venueTypeCode);
         
         NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
@@ -1864,6 +1810,7 @@
             if(responseObject >0)
             {
                 NSLog(@"response ; %@",responseObject);
+                MainArray = responseObject;
                 self.PlayerDetailsArray = [[NSMutableArray alloc]init];
                 self.PlayerCompetitionArray = [[NSMutableArray alloc]init];
                 self.playerBowlingArray = [[NSMutableArray alloc]init];
@@ -1875,7 +1822,21 @@
                 self.playerBowlingArray = [responseObject valueForKey:@"PlayerDetailsListBowling"];
                 
                 self.playerBowlingDetaillistArray =[responseObject valueForKey:@"PlayerDetailsListBowlingCompetitions"];
+                
                 [self.battingBtn sendActionsForControlEvents:UIControlEventTouchUpInside];
+                
+//                [self.PP1Btn sendActionsForControlEvents:UIControlEventTouchUpInside];
+                
+                if(![[[self.playerBasicDetailsArray valueForKey:@"playerPhoto"] objectAtIndex:0] isEqual:[NSNull null]])
+                {
+                    
+                    NSString *img = [NSString stringWithFormat:@"%@",[[self.playerBasicDetailsArray valueForKey:@"playerPhoto"] objectAtIndex:0]];
+
+                    NSURL *imageURL = [NSURL URLWithString:img];
+                    NSLog(@"imageURL %@",imageURL);
+                    //NSURL *url=[NSURL URLWithString:@"http://images.indianexpress.com/2018/01/rahul-main-image.jpg"];
+                    [self.playerimage sd_setImageWithURL:imageURL placeholderImage:[UIImage imageNamed:@"DefaultImg"]];
+                }
 
                 
             }
@@ -1923,6 +1884,18 @@
 
 -(IBAction)BattingAction:(id)sender
 {
+    self.ComfortArray = [MainArray valueForKey:@"statsPlayerComfort"];
+    self.PositionArray = [MainArray valueForKey:@"statsPlayerPosition"];
+    self.PaceArray = [MainArray valueForKey:@"statsPlayerPaceList"];
+    self.SpinArray = [MainArray valueForKey:@"statsPlayerSpinList"];
+    self.PaceArray2 = [MainArray valueForKey:@"statsPlayerPaceList2"];
+    self.SpinArray2 = [MainArray valueForKey:@"statsPlayerSpinList2"];
+    self.PaceArray3 = [MainArray valueForKey:@"statsPlayerPaceList3"];
+    self.SpinArray3 = [MainArray valueForKey:@"statsPlayerSpinList3"];
+
+    [self horizontalBarConfigure];
+    [self verticalBarConfiguration];
+
     [self setInningsBySelection1:@"1"];
     self.BattingViewHeader.hidden = NO;
     self.BowlingViewHeader.hidden = YES;
@@ -1943,10 +1916,25 @@
     [self.horizatalScrollview setContentOffset:CGPointZero animated:YES];
 
     [_objExpendView.expendTbl reloadData];
+
+    [self.PP1Btn sendActionsForControlEvents:UIControlEventTouchUpInside];
+
     
 }
 -(IBAction)BowlingAction:(id)sender
 {
+    self.ComfortArray = [MainArray valueForKey:@"statsPlayerComfortBowl"];
+    self.PositionArray = [MainArray valueForKey:@"statsPlayerPositionBowl"];
+    self.PaceArray = [MainArray valueForKey:@"statsPlayerRhbList1"];
+    self.SpinArray = [MainArray valueForKey:@"statsPlayerLhbList1"];
+    self.PaceArray2 = [MainArray valueForKey:@"statsPlayerRhbList2"];
+    self.SpinArray2 = [MainArray valueForKey:@"statsPlayerLhbList2"];
+    self.PaceArray3 = [MainArray valueForKey:@"statsPlayerRhbList3"];
+    self.SpinArray3 = [MainArray valueForKey:@"statsPlayerLhbList3"];
+
+    [self horizontalBarConfigure];
+    [self verticalBarConfiguration];
+
     [self setInningsBySelection1:@"2"];
     self.BattingViewHeader.hidden = YES;
     self.BowlingViewHeader.hidden = NO;
@@ -1965,9 +1953,11 @@
     self.horzaticalScrolWidth.constant=self.view.frame.size.width;
     self.horizatalScrollview.scrollEnabled =NO;
     [self.horizatalScrollview setContentOffset:CGPointZero animated:YES];
-
     
     [_objExpendView.expendTbl reloadData];
+    
+    [self.PP1Btn sendActionsForControlEvents:UIControlEventTouchUpInside];
+
 }
 -(void) setInningsBySelection1: (NSString*) innsNo{
     
