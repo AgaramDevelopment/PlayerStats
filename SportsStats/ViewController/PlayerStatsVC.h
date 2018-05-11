@@ -104,5 +104,8 @@
 @property (nonatomic,strong) IBOutlet UIProgressView *onesPrgss;
 @property (nonatomic,strong) IBOutlet UIProgressView *bdryPrgss;
 @property (nonatomic,strong) IBOutlet UIProgressView *bdryFreqPrgss;
+@property (weak, nonatomic) IBOutlet UILabel *lblLeft;
+@property (weak, nonatomic) IBOutlet UILabel *lblRight;
+@property (weak, nonatomic) IBOutlet UILabel *lblVs;
 
 @end

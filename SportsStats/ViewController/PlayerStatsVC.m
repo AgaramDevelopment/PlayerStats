@@ -45,6 +45,7 @@
     BOOL isMatchResultOpen;
     BOOL isVenueTypeOpen;
     NSString *matchTypeCode, *lastNYearsCode, *conditionCode, *competitionCode, *againstCode, *inningsCode, *matchResultCode, *venueTypeCode;
+    BOOL battingSelected;
 
 }
 @property (nonatomic,strong)  NSArray *ylist;
@@ -89,6 +90,9 @@
 
 @implementation PlayerStatsVC
 @synthesize viewHorizontalBar,viewBarChart;
+
+@synthesize lblVs,lblLeft,lblRight;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -388,7 +392,7 @@
     objCustomNavigation.Cancelbtn.hidden = YES;
     objCustomNavigation.nav_search_view.hidden = NO;
     objCustomNavigation.objSearchBar.delegate = self;
-
+    objCustomNavigation.objSearchBar.placeholder = @"Player Name";
     [objCustomNavigation.btn_back addTarget:self action:@selector(BackBtn:) forControlEvents:UIControlEventTouchUpInside];
     
 }
@@ -599,9 +603,9 @@
     
     
     //if (index == 0) {
-    return [UIColor redColor];
+//    return [UIColor redColor];
     //}
-    //return [UIColor colorWithRed:(35/255.0f) green:(116/255.0f) blue:(203/255.0f) alpha:1.0];
+    return [UIColor colorWithRed:(35/255.0f) green:(116/255.0f) blue:(203/255.0f) alpha:1.0];
     
 }
 
@@ -1352,6 +1356,13 @@
 }
 - (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar
 {
+    
+    objCustomNavigation.searchWidth.constant = 300;
+    
+    [UIView animateWithDuration:0.2 animations:^{
+        [objCustomNavigation.nav_search_view layoutIfNeeded];
+    }];
+
     //    self.searchResult = _tableDataArray;
     self.searchResult =  self.playersSearchListArray ;// [self.playersSearchListArray valueForKey:@"playerName"];
     self.search_Tbl.hidden = NO;
@@ -1404,6 +1415,13 @@
 {
     self.search_Tbl.hidden=YES;
     [searchBar resignFirstResponder];
+    
+    if (searchBar.text.length == 0) {
+        objCustomNavigation.searchWidth.constant = 200;
+        [UIView animateWithDuration:0.2 animations:^{
+            [objCustomNavigation.nav_search_view layoutIfNeeded];
+        }];
+    }
 }
 
 -(IBAction)BackBtn:(id)sender
@@ -1456,13 +1474,10 @@
     viewHorizontalBar.fitBars = YES;
     
     [viewHorizontalBar animateWithYAxisDuration:2.5];
-    [self updateChartData];
-    
-}
-- (void)updateChartData
-{
     
     [self setDataCount:12.0 + 1 range:50.0];
+
+    
 }
 
 - (void)setDataCount:(int)count range:(double)range
@@ -1573,7 +1588,7 @@
 -(NSString *)checkNull:(NSString *)str
 {
     if ([str isEqual:[NSNull null]] || str == nil || [str isEqual:@"<null>"]) {
-        str=@"0.1";
+        str=@"0";
     }
     return str;
 
@@ -1589,7 +1604,7 @@
     for(int i=0;i<self.PositionArray.count;i++)
     {
         NSString* position = [self checkNull:[[self.PositionArray objectAtIndex:i]valueForKey:@"positionNo"]];
-        NSString* Matches = [self checkNull:[[self.PositionArray valueForKey:@"overs"]objectAtIndex:i]];
+        NSString* Matches = [self checkNull:[[self.PositionArray valueForKey:(battingSelected ? @"matches" : @"overs")]objectAtIndex:i]];
 
         [yVals addObject:[[BarChartDataEntry alloc] initWithX:[position integerValue] y:[Matches integerValue] icon: [UIImage imageNamed:@"icon"]]];
     }
@@ -1884,6 +1899,10 @@
 
 -(IBAction)BattingAction:(id)sender
 {
+    battingSelected = YES;
+    lblLeft.text = @"Pace";
+    lblRight.text = @"Spin";
+    lblVs.text = @"Pace Vs Spin";
     self.ComfortArray = [MainArray valueForKey:@"statsPlayerComfort"];
     self.PositionArray = [MainArray valueForKey:@"statsPlayerPosition"];
     self.PaceArray = [MainArray valueForKey:@"statsPlayerPaceList"];
@@ -1923,6 +1942,11 @@
 }
 -(IBAction)BowlingAction:(id)sender
 {
+    battingSelected = NO;
+    lblLeft.text = @"LHB";
+    lblRight.text = @"RHB";
+    lblVs.text = @"LHB Vs RHB";
+
     self.ComfortArray = [MainArray valueForKey:@"statsPlayerComfortBowl"];
     self.PositionArray = [MainArray valueForKey:@"statsPlayerPositionBowl"];
     self.PaceArray = [MainArray valueForKey:@"statsPlayerRhbList1"];

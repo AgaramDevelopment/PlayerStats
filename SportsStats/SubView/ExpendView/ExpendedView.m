@@ -119,7 +119,7 @@
                 viewLabel=(self.isBatting==NO)? [[UILabel alloc]initWithFrame:CGRectMake(i*77+130, 0, 75, 40)]:[[UILabel alloc]initWithFrame:CGRectMake(i*85+130, 0, 83, 40)];
             }
         //UILabel *viewLabel=[[UILabel alloc]initWithFrame:CGRectMake(i*85, 0, 83, 40)];
-        viewLabel.backgroundColor=[UIColor clearColor];
+        viewLabel.backgroundColor=[UIColor whiteColor];
         viewLabel.textColor=[UIColor blackColor];
         //viewLabel.font=[UIFont systemFontOfSize:16];
         viewLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:16];
@@ -194,7 +194,7 @@
              return self.playerDetailArray.count;
     }
     }
-    return nil;
+    return 0;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {

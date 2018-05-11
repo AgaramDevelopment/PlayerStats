@@ -21,6 +21,7 @@
 @property (nonatomic,strong) IBOutlet UIButton * summarybtn;
 @property (nonatomic,strong) IBOutlet UIView * nav_search_view;
 @property (nonatomic,strong) IBOutlet UISearchBar * objSearchBar;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *searchWidth;
 
 
 

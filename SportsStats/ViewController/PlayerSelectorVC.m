@@ -51,7 +51,7 @@
 @implementation PlayerSelectorVC
 @synthesize tblPlayerList,collectionPlayerList;
 
-
+@synthesize tapView;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -126,7 +126,7 @@
     headingKeyArray = @[@"PlayerName",@"BatStyle",@"Inns",@"Runs",@"Balls",@"dots",@"BatSR",@"HS",@"BatAve",@"Fours",@"Sixs",@"boundaries",@"dotspercent",@"thirties",@"fifties",@"BowlInns",@"BowlRuns",@"BowlBalls",@"wickets",@"Econ",@"BowlAve",@"BowlSR",@"BowlDB",@"BowlDBPercent",@"Bowlboundariespercent",@"threes",@"catches",@"stumpings"]; //28
 
 
-    headingButtonNames = @[@"Player",@" Bat Style &\nOrder",@"Inns",@"Runs",@"BF",@"DB",@"SR",@"HS",@"Avg %",@"4s",@"6s %",@"Bdry %",@"DB  %",@"30s",@"50s",@"Bowl\nInns",@"Bowl\nRuns",@"Bowl\nOvers",@"Wkts",@"Eco",@"Bowl\nAvg %",@"Bowl\nSR %",@"Bow\nDB",@"Bow\nDB %",@"Bow\nBdry %",@"3Wkts",@"Catches",@"Stumpings"];
+    headingButtonNames = @[@"Player",@" Bat\nStyle",@"Inns",@"Runs",@"BF",@"DB",@"SR",@"HS",@"Avg",@"4s",@"6s",@"Bdry %",@"DB  %",@"30s",@"50s",@"Bowl\nInns",@"Bowl\nRuns",@"Bowl\nOvers",@"Wkts",@"Eco",@"Bowl\nAvg",@"Bowl\nSR",@"Bow\nDB",@"Bowl\nDB %",@"Bowl\nBdry %",@"3Wkts",@"Catch",@"Stump"];
 
     
     [collectionPlayerList registerNib:[UINib nibWithNibName:@"PlayerListCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"ContentCellIdentifier"];
@@ -142,7 +142,7 @@
 
     battingOrderArray = [[NSMutableArray alloc] initWithArray:
                          @[@{
-                               @"playerTypeDesc":@"ALL",
+                               @"playerTypeDesc":@"All",
                                @"playerTypeCode":@""
                                },@{@"playerTypeDesc":@"Top",
                               @"playerTypeCode":@"Top"
@@ -174,30 +174,30 @@
 //                           }]];
     
     playerOrginArray = [[NSMutableArray alloc] initWithArray:
-                        @[@{@"playerTypeDesc":@"ALL",
+                        @[@{@"playerTypeDesc":@"All",
                               @"playerTypeCode":@""
                               }]];
     
     playerBowlingStyleArray = [[NSMutableArray alloc] initWithArray:
-                               @[@{@"playerTypeDesc":@"ALL",
+                               @[@{@"playerTypeDesc":@"All",
                                   @"playerTypeCode":@""
                                   },
-                                @{@"playerTypeDesc":@"RA FAST MEDIUM",
+                                @{@"playerTypeDesc":@"RA Fast Medium",
                                   @"playerTypeCode":@"RAFM"
                                   },
-                                @{@"playerTypeDesc":@"RA OFF SPIN",
+                                @{@"playerTypeDesc":@"RA OFF Spin",
                                   @"playerTypeCode":@"RAOS"
                                   },
-                                @{@"playerTypeDesc":@"RA LEG SPIN",
+                                @{@"playerTypeDesc":@"RA Leg Spin",
                                   @"playerTypeCode":@"RALS"
                                   },
-                                @{@"playerTypeDesc":@"LA FAST MEDIUM",
+                                @{@"playerTypeDesc":@"LA Fast Medium",
                                   @"playerTypeCode":@"LAFM"
                                   },
-                                @{@"playerTypeDesc":@"LA ORTHODOX",
+                                @{@"playerTypeDesc":@"LA Orthodox",
                                   @"playerTypeCode":@"LAO"
                                   },
-                                @{@"playerTypeDesc":@"LA CHINAMAN",
+                                @{@"playerTypeDesc":@"LA Chinman",
                                   @"playerTypeCode":@"LAC"
                                   }]];
                                 
@@ -246,6 +246,7 @@
         return PlayerListArray.count;
     }    else if(tableView == filterDropDownTblView){
         
+        [tapView setHidden:(DropDownArray.count ? NO : YES)];
         return  DropDownArray.count;
         
     }
@@ -438,11 +439,11 @@
             self.lblBattingOrder.tag = indexPath.row;
         }
         
-        if(filterDropDownTblView!=nil){
-            [filterDropDownTblView removeFromSuperview];
-        }
-        [self resetDropDownOpenStatus];
-        
+//        if(filterDropDownTblView!=nil){
+//            [filterDropDownTblView removeFromSuperview];
+//        }
+//        [self resetDropDownOpenStatus];
+        [self closeView:nil];
         [self filterPlayer];
         
         
@@ -658,12 +659,8 @@
         [DropDownArray addObject:tempDict];
     }
     
-//    [DropDownArray addObject:@{
-//                               @"playerTypeDesc":@"ALL",
-//                               @"playerTypeCode":@""
-//                               }];
     
-    [DropDownArray insertObject:@{@"playerTypeDesc":@"ALL",@"playerTypeCode":@""} atIndex:0];
+    [DropDownArray insertObject:@{@"playerTypeDesc":@"All",@"playerTypeCode":@""} atIndex:0];
     
     playerBattingStyleArray = [[NSMutableArray alloc] initWithArray:DropDownArray];;
 
@@ -682,11 +679,7 @@
         [DropDownArray addObject:tempDict];
     }
     
-//    [DropDownArray addObject:@{
-//                               @"playerTypeDesc":@"ALL",
-//                               @"playerTypeCode":@""
-//                               }];
-    [DropDownArray insertObject:@{@"playerTypeDesc":@"ALL",@"playerTypeCode":@""} atIndex:0];
+    [DropDownArray insertObject:@{@"playerTypeDesc":@"All",@"playerTypeCode":@""} atIndex:0];
 
     
     playerBowlingStyleArray = [[NSMutableArray alloc] initWithArray:DropDownArray];;
@@ -706,11 +699,7 @@
     }
     
     
-//    [DropDownArray addObject:@{
-//                               @"playerTypeDesc":@"ALL",
-//                               @"playerTypeCode":@""
-//                               }];
-    [DropDownArray insertObject:@{@"playerTypeDesc":@"ALL",@"playerTypeCode":@""} atIndex:0];
+    [DropDownArray insertObject:@{@"playerTypeDesc":@"All",@"playerTypeCode":@""} atIndex:0];
 
     
     playerTypeArray = [[NSMutableArray alloc] initWithArray:DropDownArray];
@@ -720,14 +709,14 @@
 -(void) filterPlayer{
     
     NSPredicate* predicate1,*predicate2,*predicate3,*predicate4,*predicate5;
-    if([_playerOrderLbl.text isEqualToString:@"ALL"])
+    if([self.playerOrderLbl.text isEqualToString:@"All"])
     {
         predicate1 = [NSPredicate predicateWithFormat:@"CappedOrNot != %@ OR CappedOrNot == %@",@"",@""];
     }else{
-        predicate1 = [NSPredicate predicateWithFormat:@"CappedOrNot == %@",[[playerOrginArray objectAtIndex:_playerOrderLbl.tag]valueForKey:@"playerTypeCode"]];
+        predicate1 = [NSPredicate predicateWithFormat:@"CappedOrNot == %@",[[playerOrginArray objectAtIndex:self.playerOrderLbl.tag]valueForKey:@"playerTypeCode"]];
     }
 
-    if ([_playerTypeLbl.text isEqualToString:@"ALL"]) {
+    if ([self.playerTypeLbl.text isEqualToString:@"All"]) {
         predicate2 = [NSPredicate predicateWithFormat:@"playerTypecode != %@ OR playerTypecode == %@",@"",@""];
     }else
     {
@@ -735,14 +724,14 @@
     }
 
 
-    if ([_battingStyleLbl.text isEqualToString:@"ALL"]) {
+    if ([self.battingStyleLbl.text isEqualToString:@"All"]) {
         predicate3 = [NSPredicate predicateWithFormat:@"batstylecode != %@ OR batstylecode == %@",@"",@""];
     }else
     {
         predicate3 = [NSPredicate predicateWithFormat:@"batstylecode == %@",[[playerBattingStyleArray objectAtIndex:self.battingStyleLbl.tag]valueForKey:@"playerTypeCode"]];
     }
 
-    if ([_bowlingStyleLbl.text isEqualToString:@"ALL"]) {
+    if ([self.bowlingStyleLbl.text isEqualToString:@"All"]) {
         predicate4 = [NSPredicate predicateWithFormat:@"bowlstylecode != %@ OR bowlstylecode == %@",@"",@""];
     }else
     {
@@ -750,7 +739,7 @@
     }
     
     
-    if ([_lblBattingOrder.text isEqualToString:@"ALL"]) {
+    if ([self.lblBattingOrder.text isEqualToString:@"All"]) {
         predicate5 = [NSPredicate predicateWithFormat:@"BatOrder != %@ OR BatOrder == %@",@"",@""];
         
     }else
@@ -832,21 +821,42 @@
                 playerTypeFilterPos = 0;
                 playerOrginFilterPos = 0;
                 
-                _bowlingStyleLbl.text = @"ALL";
-                
-                tempArray = [MainListArray valueForKey:@"BattingStyle"];
-                _battingStyleLbl.text  = [[tempArray objectAtIndex:0] valueForKey:@"playerTypeDesc"];
-                
-                tempArray = [MainListArray valueForKey:@"PlayerType"];
-                _playerTypeLbl.text  = [[tempArray objectAtIndex:0] valueForKey:@"playerTypeDesc"];
-                
-                _playerOrderLbl.text  = [[playerOrginArray objectAtIndex:0] valueForKey:@"playerTypeDesc"];
-                self.lblBattingOrder.text = @"ALL";
+                // Player origin
+                self.playerOrderLbl.text = @"All";
                 self.playerOrderLbl.tag = 0;
+                
+                // player type
+                self.playerTypeLbl.text = @"All";
                 self.playerTypeLbl.tag = 0;
+                
+                // Batting style
+                self.battingStyleLbl.text = @"All";
                 self.battingStyleLbl.tag = 0;
+                
+                // Bowling style
+                self.bowlingStyleLbl.text = @"All";
                 self.bowlingStyleLbl.tag = 0;
+                
+                //Order
+                self.lblBattingOrder.text = @"All";
                 self.lblBattingOrder.tag = 0;
+                
+                self.bowlingStyleLbl.text = @"All";
+                
+//                tempArray = [MainListArray valueForKey:@"BattingStyle"];
+//                self.battingStyleLbl.text  = [[tempArray objectAtIndex:0] valueForKey:@"playerTypeDesc"];
+//
+//                tempArray = [MainListArray valueForKey:@"PlayerType"];
+//                self.playerTypeLbl.text  = [[tempArray objectAtIndex:0] valueForKey:@"playerTypeDesc"];
+//
+//                self.playerOrderLbl.text  = [[playerOrginArray objectAtIndex:0] valueForKey:@"playerTypeDesc"];
+//                self.lblBattingOrder.text = @"ALL";
+//                self.playerOrderLbl.tag = 0;
+//                self.playerTypeLbl.tag = 0;
+//                self.battingStyleLbl.tag = 0;
+//                self.bowlingStyleLbl.tag = 0;
+//                self.lblBattingOrder.tag = 0;
+                
 //                [self dropDownValueForBowlingStyle];
                 [self dropDownValueForBattingStyle];
                 [self dropDownValueForPlayerType];
@@ -900,13 +910,23 @@
     
     if (indexPath.section == 0) {
         
-        if(indexPath.row >=0 && indexPath.row <= 14) // coulmn 1
+//        green = [UIColor colorWithRed:0.0 green:144.0/255.0 blue:81.0/255.0 alpha:1.0];
+//        orange  = [UIColor colorWithRed:255.0/255.0 green:147.0/255.0 blue:0.0 alpha:1.0];
+//        red  = [UIColor colorWithRed:255.0/255.0 green:38.0/255.0 blue:0.0 alpha:1.0];
+
+        if(indexPath.row == 0)
+        {
+            cell.backgroundColor = [UIColor colorWithRed:247.0/255.0 green:247.0/255.0 blue:81.0/255.0 alpha:0.5];
+
+        }
+        else if(indexPath.row >=1 && indexPath.row <= 14) // coulmn 1
         {
             cell.backgroundColor = [UIColor colorWithRed:21.0/255.0 green:127.0/255.0 blue:182.0/255.0 alpha:1.0];
         }
         else if (indexPath.row >= 14 && indexPath.row <= 25) {
             
-            cell.backgroundColor = [UIColor colorWithRed:20.0/255.0 green:109.0/255.0 blue:181.0/255.0 alpha:1.0];
+//            cell.backgroundColor = [UIColor colorWithRed:20.0/255.0 green:109.0/255.0 blue:181.0/255.0 alpha:1.0];
+            cell.backgroundColor = [UIColor colorWithRed:0.0 green:144.0/255.0 blue:81.0/255.0 alpha:1.0];
 
         }
         else{
@@ -1019,6 +1039,16 @@
     layer.shadowColor = [[UIColor blackColor] CGColor];
     layer.shadowOffset = CGSizeMake(10,3);
     layer.shadowOpacity = 1.0;
+
+}
+
+-(IBAction)closeView:(id)sender
+{
+    [tapView setHidden:YES];
+    if(filterDropDownTblView!=nil){
+        [filterDropDownTblView removeFromSuperview];
+    }
+    [self resetDropDownOpenStatus];
 
 }
 

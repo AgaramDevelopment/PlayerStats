@@ -15,19 +15,29 @@ class CustomCollectionViewLayout1: UICollectionViewLayout {
     
 //    let numberOfColumns = UserDefaults.standard.object(forKey: "requiredColumn")as! Int
 
-    let numberOfColumns = 28
+    var numberOfColumns = 28
+//    let collec = UICollectionView()
+
     var shouldPinFirstColumn = true
     var shouldPinFirstRow = true
 
     var itemAttributes = [[UICollectionViewLayoutAttributes]]()
     var itemsSize = [CGSize]()
     var contentSize: CGSize = .zero
-
+//    let collectionView = collectionView
     override func prepare() {
+        
         guard let collectionView = collectionView else {
             return
         }
-
+        
+//        numberOfColumns = collectionView.numberOfItems(inSection: 0)
+//
+//        if numberOfColumns == 0 {
+//            return;
+//        }
+        
+        NSLog("numberOfColumns \(numberOfColumns)")
         if collectionView.numberOfSections == 0 {
             return
         }
@@ -163,20 +173,8 @@ extension CustomCollectionViewLayout1 {
     }
 
     func sizeForItemWithColumnIndex(_ columnIndex: Int) -> CGSize {
-//        var text: NSString
-
-//        switch columnIndex {
-//        case 0:
-//            text = "MMM-99"
-//
-//        default:
-//            text = "Content"
-//        }
-//
-//        let size: CGSize = text.size(withAttributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 14.0)])
-//        let width: CGFloat = size.width + 16
         
-        let width: CGFloat = columnIndex == 0 ? 200 : 100
+        let width: CGFloat = columnIndex == 0 ? 180 : 60
 
         return CGSize(width: width, height: 50)
     }

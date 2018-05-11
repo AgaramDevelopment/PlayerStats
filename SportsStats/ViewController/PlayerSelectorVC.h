@@ -28,6 +28,7 @@
 @property (weak, nonatomic) IBOutlet UIView *view5;
 @property (weak, nonatomic) IBOutlet UICollectionView *lblNoData;
 
+@property (weak, nonatomic) IBOutlet UIView *tapView;
 
 
 @end
