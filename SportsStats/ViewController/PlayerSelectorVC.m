@@ -43,7 +43,7 @@
     NSMutableArray* MainListArray;
     NSMutableArray* DropDownArray;
     NSMutableArray* PlayerListArray;
-
+    CustomNavigation * objCustomNavigation;
 }
 
 @end
@@ -54,6 +54,7 @@
 @synthesize tapView;
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     
     isPlayerOrginOpen = NO;
      isPlayerTypeOpen = NO;
@@ -138,6 +139,10 @@
 
     [self fetchPlayerSelectionWS];
     
+    objCustomNavigation=[[CustomNavigation alloc] initWithNibName:@"CustomNavigation_iPad" bundle:nil];
+    objCustomNavigation.img1Leading.constant = 500;
+    objCustomNavigation.img2Trailing.constant = 500;
+
     [self customnavigationmethod];
 
     battingOrderArray = [[NSMutableArray alloc] initWithArray:
@@ -207,6 +212,7 @@
     filterDropDownTblView.backgroundColor=[UIColor colorWithRed:(13/255.0f) green:(43/255.0f) blue:(129/255.0f) alpha:1.0f];
     filterDropDownTblView.dataSource = self;
     filterDropDownTblView.delegate = self;
+    
 
 }
 
@@ -215,21 +221,83 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    objCustomNavigation.img1Leading.constant = 50;
+    objCustomNavigation.img2Trailing.constant = 50;
+    
+    [UIView animateWithDuration:0.4 animations:^{
+        [objCustomNavigation.view layoutIfNeeded];
+    }];
+
+}
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    objCustomNavigation.img1Leading.constant = 500;
+    objCustomNavigation.img2Trailing.constant = 500;
+
+}
+
 -(void)customnavigationmethod
 {
-    CustomNavigation * objCustomNavigation=[[CustomNavigation alloc] initWithNibName:@"CustomNavigation_iPad" bundle:nil];
-    
-    
     [self.view addSubview:objCustomNavigation.view];
     
+    objCustomNavigation.img1Leading.constant = 500;
+    objCustomNavigation.img2Trailing.constant = 500;
+
     objCustomNavigation.tittle_lbl.text=@"TNPL-3 Player Auction 2018";
     objCustomNavigation.nav_header_img.image = [UIImage imageNamed:@"withText"];
+    
+    [objCustomNavigation.img1 setHidden:NO];
+    [objCustomNavigation.img2 setHidden:NO];
+
+    
+    [objCustomNavigation.img1 setImage:[UIImage imageNamed:@"TNPL"]];
+    [objCustomNavigation.img2 setImage:[UIImage imageNamed:@"Tuti_patriots"]];
+    
+//    objCustomNavigation.img1.layer.cornerRadius = objCustomNavigation.img1.frame.size.height/2;
+//    objCustomNavigation.img1.layer.masksToBounds = YES;
+//
+//    objCustomNavigation.img2.layer.cornerRadius = objCustomNavigation.img1.frame.size.height/2;
+//    objCustomNavigation.img2.layer.masksToBounds = YES;
+    
+    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:objCustomNavigation.img1.bounds byRoundingCorners:UIRectCornerAllCorners cornerRadii:objCustomNavigation.img1.frame.size];
+    
+    CAShapeLayer *maskLayer1 = [[CAShapeLayer alloc] init];
+    CAShapeLayer *maskLayer2 = [[CAShapeLayer alloc] init];
+
+    maskLayer1.frame = objCustomNavigation.img1.bounds;
+    maskLayer1.path  = maskPath.CGPath;
+    
+    maskLayer2.frame = objCustomNavigation.img1.bounds;
+    maskLayer2.path  = maskPath.CGPath;
+
+    objCustomNavigation.img1.layer.mask = maskLayer1;
+    objCustomNavigation.img2.layer.mask = maskLayer2;
+
     
     objCustomNavigation.btn_back.hidden = YES;
     objCustomNavigation.filter_btn.hidden = YES;
     objCustomNavigation.Cancelbtn.hidden = YES;
     objCustomNavigation.summarybtn.hidden=YES;
     objCustomNavigation.nav_search_view.hidden = YES;
+    
+
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        objCustomNavigation.img1Leading.constant = 50;
+        objCustomNavigation.img2Trailing.constant = 50;
+
+        [UIView animateWithDuration:0.4 animations:^{
+            [objCustomNavigation.view layoutIfNeeded];
+        }];
+
+    });
+
     
 }
 
@@ -516,7 +584,13 @@
 - (IBAction)onClickPlayerOriginDD:(id)sender {
     
     if(filterDropDownTblView!=nil){
+        
+        [UIView animateWithDuration:0.4 animations:^{
+            filterDropDownTblView.frame = CGRectMake([sender superview].frame.origin.x, collectionPlayerList.frame.origin.y -10 ,[sender frame].size.width,0);
+        }];
+
         [filterDropDownTblView removeFromSuperview];
+        
     }
     
     if(!isPlayerOrginOpen){
@@ -526,11 +600,20 @@
         [self resetDropDownOpenStatus];
         isPlayerOrginOpen = YES;
         
-        filterDropDownTblView.frame = CGRectMake([sender superview].frame.origin.x, collectionPlayerList.frame.origin.y -10 ,[sender frame].size.width,DropDownArray.count*45);
+
+        filterDropDownTblView.frame = CGRectMake([sender superview].frame.origin.x, collectionPlayerList.frame.origin.y -10 ,[sender frame].size.width,0);
 
         [self.view addSubview:filterDropDownTblView];
         [filterDropDownTblView reloadData];
         
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [UIView animateWithDuration:0.4 animations:^{
+                
+                filterDropDownTblView.frame = CGRectMake([sender superview].frame.origin.x, collectionPlayerList.frame.origin.y -10 ,[sender frame].size.width,DropDownArray.count*45);
+            }];
+        });
+
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:playerOrginFilterPos inSection:0];
         [filterDropDownTblView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
         
@@ -538,6 +621,13 @@
         [self resetDropDownOpenStatus];
         
     }
+    
+//    dispatch_async(dispatch_get_main_queue(), ^{
+//        [UIView animateWithDuration:0.4 animations:^{
+//            [filterDropDownTblView layoutIfNeeded];
+//        }];
+//    });
+
 
 }
 
@@ -547,6 +637,11 @@
 - (IBAction)onClickPlayerTypeDD:(id)sender {
     
     if(filterDropDownTblView!=nil){
+        
+        [UIView animateWithDuration:0.4 animations:^{
+            filterDropDownTblView.frame = CGRectMake([sender superview].frame.origin.x, collectionPlayerList.frame.origin.y -10 ,[sender frame].size.width,0);
+        }];
+
         [filterDropDownTblView removeFromSuperview];
     }
     
@@ -555,23 +650,34 @@
         [self resetDropDownOpenStatus];
         isPlayerTypeOpen = YES;
         
-        filterDropDownTblView.frame = CGRectMake([sender superview].frame.origin.x, collectionPlayerList.frame.origin.y -10 ,[sender frame].size.width,DropDownArray.count*45);
+        filterDropDownTblView.frame = CGRectMake([sender superview].frame.origin.x, collectionPlayerList.frame.origin.y -10 ,[sender frame].size.width,0);
         
         [self.view addSubview:filterDropDownTblView];
         [filterDropDownTblView reloadData];
         
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:playerTypeFilterPos inSection:0];
         [filterDropDownTblView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+        
+        [UIView animateWithDuration:0.4 animations:^{
+            filterDropDownTblView.frame = CGRectMake([sender superview].frame.origin.x, collectionPlayerList.frame.origin.y -10 ,[sender frame].size.width,DropDownArray.count*45);
+        }];
+
     }else{
         [self resetDropDownOpenStatus];
         
     }
+    
+
     
 }
 
 - (IBAction)onClickBattingStyleDD:(id)sender {
     
     if(filterDropDownTblView!=nil){
+        [UIView animateWithDuration:0.4 animations:^{
+            filterDropDownTblView.frame = CGRectMake([sender superview].frame.origin.x, collectionPlayerList.frame.origin.y -10 ,[sender frame].size.width,0);
+        }];
+
         [filterDropDownTblView removeFromSuperview];
     }
     
@@ -581,13 +687,17 @@
         [self resetDropDownOpenStatus];
         isBattingStyleOpen = YES;
         
-        filterDropDownTblView.frame = CGRectMake([sender superview].frame.origin.x, collectionPlayerList.frame.origin.y -10 ,[sender frame].size.width,DropDownArray.count*45);
+        filterDropDownTblView.frame = CGRectMake([sender superview].frame.origin.x, collectionPlayerList.frame.origin.y -10 ,[sender frame].size.width,0);
         
         [self.view addSubview:filterDropDownTblView];
         [filterDropDownTblView reloadData];
         
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:battingStyleFilterPos inSection:0];
         [filterDropDownTblView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+        [UIView animateWithDuration:0.4 animations:^{
+            filterDropDownTblView.frame = CGRectMake([sender superview].frame.origin.x, collectionPlayerList.frame.origin.y -10 ,[sender frame].size.width,DropDownArray.count*45);
+        }];
+
     }else{
         [self resetDropDownOpenStatus];
     }
@@ -597,6 +707,10 @@
 - (IBAction)onClickBowlingStyleDD:(id)sender {
     
     if(filterDropDownTblView!=nil){
+        [UIView animateWithDuration:0.4 animations:^{
+            filterDropDownTblView.frame = CGRectMake([sender superview].frame.origin.x, collectionPlayerList.frame.origin.y -10 ,[sender frame].size.width,0);
+        }];
+
         [filterDropDownTblView removeFromSuperview];
     }
     
@@ -605,7 +719,7 @@
         [self resetDropDownOpenStatus];
         isBowlingStyleOpen = YES;
         
-        filterDropDownTblView.frame = CGRectMake([sender superview].frame.origin.x, collectionPlayerList.frame.origin.y -10 ,[sender frame].size.width,DropDownArray.count*45);
+        filterDropDownTblView.frame = CGRectMake([sender superview].frame.origin.x, collectionPlayerList.frame.origin.y -10 ,[sender frame].size.width,0);
 
 //        [self dropDownValueForBowlingStyle];
         DropDownArray = playerBowlingStyleArray;
@@ -615,15 +729,26 @@
         
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:bowlingStyleFilterPos inSection:0];
         [filterDropDownTblView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+        [UIView animateWithDuration:0.4 animations:^{
+            filterDropDownTblView.frame = CGRectMake([sender superview].frame.origin.x, collectionPlayerList.frame.origin.y -10 ,[sender frame].size.width,DropDownArray.count*45);
+        }];
+
     }else{
         [self resetDropDownOpenStatus];
         
     }
     
+
+    
 }
 - (IBAction)onClickBattingOrderStyleDD:(id)sender {
     
     if(filterDropDownTblView!=nil){
+        
+        [UIView animateWithDuration:0.4 animations:^{
+            filterDropDownTblView.frame = CGRectMake([sender superview].frame.origin.x, collectionPlayerList.frame.origin.y -10 ,[sender frame].size.width,0);
+        }];
+
         [filterDropDownTblView removeFromSuperview];
     }
     
@@ -631,20 +756,23 @@
 
         isBattingOrderOpen = YES;
         DropDownArray = battingOrderArray;
-        filterDropDownTblView.frame = CGRectMake([sender superview].frame.origin.x, collectionPlayerList.frame.origin.y -10 ,[sender frame].size.width,DropDownArray.count*45);
+        filterDropDownTblView.frame = CGRectMake([sender superview].frame.origin.x, collectionPlayerList.frame.origin.y -10 ,[sender frame].size.width,0);
         [self.view addSubview:filterDropDownTblView];
         
         [filterDropDownTblView reloadData];
         
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:_lblBattingOrder.tag inSection:0];
         [filterDropDownTblView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+        
+        [UIView animateWithDuration:0.4 animations:^{
+            filterDropDownTblView.frame = CGRectMake([sender superview].frame.origin.x, collectionPlayerList.frame.origin.y -10 ,[sender frame].size.width,DropDownArray.count*45);
+        }];
 
         
     }else{
         [self resetDropDownOpenStatus];
         
     }
-
 }
 -(void)dropDownValueForBattingStyle
 {
@@ -663,6 +791,8 @@
     [DropDownArray insertObject:@{@"playerTypeDesc":@"All",@"playerTypeCode":@""} atIndex:0];
     
     playerBattingStyleArray = [[NSMutableArray alloc] initWithArray:DropDownArray];;
+    
+    
 
 }
 
@@ -916,7 +1046,7 @@
 
         if(indexPath.row == 0)
         {
-            cell.backgroundColor = [UIColor colorWithRed:247.0/255.0 green:247.0/255.0 blue:81.0/255.0 alpha:0.5];
+            cell.backgroundColor = [UIColor colorWithRed:247.0/255.0 green:247.0/255.0 blue:81.0/255.0 alpha:1.0];
 
         }
         else if(indexPath.row >=1 && indexPath.row <= 14) // coulmn 1
@@ -1044,11 +1174,16 @@
 
 -(IBAction)closeView:(id)sender
 {
+    [UIView animateWithDuration:0.4 animations:^{
+        filterDropDownTblView.frame = CGRectMake(filterDropDownTblView.frame.origin.x, filterDropDownTblView.frame.origin.y -10 ,filterDropDownTblView.frame.size.width,0);
+    }];
+
     [tapView setHidden:YES];
     if(filterDropDownTblView!=nil){
         [filterDropDownTblView removeFromSuperview];
     }
     [self resetDropDownOpenStatus];
+
 
 }
 

@@ -103,6 +103,7 @@
     _topViewShadow.layer.shadowOffset = CGSizeMake(3,3);
     _topViewShadow.layer.shadowOpacity = 0.1;
     
+    objCustomNavigation=[[CustomNavigation alloc] initWithNibName:@"CustomNavigation_iPad" bundle:nil];
     [self customnavigationmethod];
     
     self.BattingViewHeader.hidden = NO;
@@ -382,11 +383,14 @@
 }
 -(void)customnavigationmethod
 {
-    objCustomNavigation=[[CustomNavigation alloc] initWithNibName:@"CustomNavigation_iPad" bundle:nil];
     [self.view addSubview:objCustomNavigation.view];
     objCustomNavigation.tittle_lbl.text=@"Player Stats";
     objCustomNavigation.nav_header_img.image = [UIImage imageNamed:@"withText"];
     objCustomNavigation.nav_header_img.backgroundColor = [UIColor colorWithRed:(13/255.0f) green:(43/255.0f) blue:(129/255.0f) alpha:1.0f];
+    
+    [objCustomNavigation.img1 setHidden:YES];
+    [objCustomNavigation.img2 setHidden:YES];
+    
     objCustomNavigation.btn_back.hidden = NO;
     objCustomNavigation.filter_btn.hidden = YES;
     objCustomNavigation.Cancelbtn.hidden = YES;
@@ -396,6 +400,7 @@
     [objCustomNavigation.btn_back addTarget:self action:@selector(BackBtn:) forControlEvents:UIControlEventTouchUpInside];
     
 }
+
 -(CGRect)setFramrToMenuViewWithXposition:(NSInteger)position{
     CGRect frame;
     frame.origin.x=position;

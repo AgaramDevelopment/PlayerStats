@@ -22,6 +22,10 @@
 @property (nonatomic,strong) IBOutlet UIView * nav_search_view;
 @property (nonatomic,strong) IBOutlet UISearchBar * objSearchBar;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *searchWidth;
+@property (weak, nonatomic) IBOutlet UIImageView *img1;
+@property (weak, nonatomic) IBOutlet UIImageView *img2;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *img1Leading;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *img2Trailing;
 
 
 
