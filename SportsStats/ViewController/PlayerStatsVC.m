@@ -1647,7 +1647,7 @@
 
 -(void)PlayerDetailsWebservice
 {
-    [COMMON loadingIcon:self.view];
+    [AppCommon showLoading];
     if([COMMON isInternetReachable])
     {
         
@@ -1780,14 +1780,14 @@
                 
             }
             
-            [COMMON RemoveLoadingIcon];
-            [self.view setUserInteractionEnabled:YES];
+            [AppCommon hideLoading];
+            
             
             
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"failed");
-            [COMMON webServiceFailureError];
-            [self.view setUserInteractionEnabled:YES];
+            [COMMON webServiceFailureError:error];
+            
             
         }];
     }
@@ -1796,7 +1796,7 @@
 
 -(void)FilterWebservice
 {
-    [COMMON loadingIcon:self.view];
+    [AppCommon showLoading];
     if([COMMON isInternetReachable])
     {
         
@@ -1861,14 +1861,14 @@
                 
             }
             
-            [COMMON RemoveLoadingIcon];
-            [self.view setUserInteractionEnabled:YES];
+            [AppCommon hideLoading];
+            
             
             
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"failed");
-            [COMMON webServiceFailureError];
-            [self.view setUserInteractionEnabled:YES];
+            [COMMON webServiceFailureError:error];
+            
             
         }];
     }

@@ -7,30 +7,37 @@
 //
 
 #import "AppDelegate.h"
+#import "LoginVC.h"
+#import "PlayerSelectorVC.h"
 
 @interface AppDelegate ()
 {
-     UINavigationController *navigationController;
+     
 }
 
 @end
 
 @implementation AppDelegate
 
+@synthesize ArrayTeam,ArrayCompetition,storyBoard,navigationController;
+
+@synthesize ArrayIPL_teamplayers,MainArray,LocalNotificationUserInfoArray;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-//    UIViewController *initViewController;
-//    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    BOOL isLogin = [[NSUserDefaults standardUserDefaults] boolForKey:@"isLogin"];
+    UIViewController *initViewController = [LoginVC new];
+    storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+
+    if (isLogin) {
+        initViewController = (PlayerSelectorVC*)[storyBoard instantiateViewControllerWithIdentifier:@"PlayerSelectorVC"];
+    }
+    navigationController = [[UINavigationController alloc] initWithRootViewController:initViewController];
+    _window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    navigationController.navigationBarHidden = YES;
+    _window.rootViewController = navigationController;
     
-//    initViewController = [storyBoard instantiateViewControllerWithIdentifier:@"PlayerStats"];
-//
-//    navigationController = [[UINavigationController alloc] initWithRootViewController:initViewController];
-//    _window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-//    navigationController.navigationBarHidden = YES;
-//    _window.rootViewController = navigationController;
-//    
-//    [self.window makeKeyAndVisible];
+    [self.window makeKeyAndVisible];
     return YES;
 }
 

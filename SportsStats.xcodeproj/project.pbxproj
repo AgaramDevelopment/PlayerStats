@@ -80,6 +80,8 @@
 		CE91AAC920A1C4E100DBA042 /* XYMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE91AAC120A1C4E100DBA042 /* XYMarkerView.swift */; };
 		CE9E8DFF20A4202A00B519D6 /* CustomCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9E8DFD20A4202900B519D6 /* CustomCollectionViewLayout.m */; };
 		CE9E8E0020A4202A00B519D6 /* CustomCollectionViewLayout1.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9E8DFE20A4202900B519D6 /* CustomCollectionViewLayout1.swift */; };
+		CEC52AE620B2A4D900CF80CF /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC52AE420B2A4D900CF80CF /* LoginVC.m */; };
+		CEC52AE720B2A4D900CF80CF /* LoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEC52AE520B2A4D900CF80CF /* LoginVC.xib */; };
 		D26F577458E341244586FA48 /* Pods_SportsStats.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 232E1BAC40EF0415C421597D /* Pods_SportsStats.framework */; };
 /* End PBXBuildFile section */
 
@@ -185,6 +187,9 @@
 		CE9E8DFC20A4202900B519D6 /* CustomCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCollectionViewLayout.h; sourceTree = "<group>"; };
 		CE9E8DFD20A4202900B519D6 /* CustomCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCollectionViewLayout.m; sourceTree = "<group>"; };
 		CE9E8DFE20A4202900B519D6 /* CustomCollectionViewLayout1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewLayout1.swift; sourceTree = "<group>"; };
+		CEC52AE320B2A4D900CF80CF /* LoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginVC.h; sourceTree = "<group>"; };
+		CEC52AE420B2A4D900CF80CF /* LoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginVC.m; sourceTree = "<group>"; };
+		CEC52AE520B2A4D900CF80CF /* LoginVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginVC.xib; sourceTree = "<group>"; };
 		CF99D1CD0E6CE8A891638D5B /* Pods-SportsStats.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SportsStats.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SportsStats/Pods-SportsStats.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -331,6 +336,7 @@
 		187F5C691FFF944600970319 /* SportsStats */ = {
 			isa = PBXGroup;
 			children = (
+				CEC52AE220B2A4D900CF80CF /* LoginVC */,
 				CE91AAA820A1C3BF00DBA042 /* PlayerListCollectionViewCell */,
 				1893D7AB2004F8A80048CCF1 /* Helper */,
 				187832A72003622700F8A156 /* Reachability */,
@@ -508,6 +514,16 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		CEC52AE220B2A4D900CF80CF /* LoginVC */ = {
+			isa = PBXGroup;
+			children = (
+				CEC52AE320B2A4D900CF80CF /* LoginVC.h */,
+				CEC52AE420B2A4D900CF80CF /* LoginVC.m */,
+				CEC52AE520B2A4D900CF80CF /* LoginVC.xib */,
+			);
+			path = LoginVC;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -520,7 +536,6 @@
 				187F5C641FFF944600970319 /* Frameworks */,
 				187F5C651FFF944600970319 /* Resources */,
 				8588976F128267A2749263A0 /* [CP] Embed Pods Frameworks */,
-				33D58425D6F81CEC92DF964E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -584,6 +599,7 @@
 				1821A8FB2000E97C009F8269 /* Montserrat-ThinItalic.otf in Resources */,
 				1821A8F32000E97C009F8269 /* MontserratAlternates-ExtraBoldItalic.otf in Resources */,
 				1821A8FD2000E97C009F8269 /* Montserrat-MediumItalic.otf in Resources */,
+				CEC52AE720B2A4D900CF80CF /* LoginVC.xib in Resources */,
 				187F5C771FFF944600970319 /* LaunchScreen.storyboard in Resources */,
 				1821A9022000E97C009F8269 /* Montserrat-LightItalic.otf in Resources */,
 				1821A8F02000E97C009F8269 /* Montserrat-ExtraLight.otf in Resources */,
@@ -619,21 +635,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		33D58425D6F81CEC92DF964E /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SportsStats/Pods-SportsStats-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		4D5344FA5CF8417FB058D76D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -661,12 +662,14 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-SportsStats/Pods-SportsStats-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
 				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -683,6 +686,7 @@
 			files = (
 				187832AF20038CB000F8A156 /* PlayerListTableViewCell.m in Sources */,
 				CE2993DF2005D247003781EC /* ExpendedView.m in Sources */,
+				CEC52AE620B2A4D900CF80CF /* LoginVC.m in Sources */,
 				CE91AAB320A1C49200DBA042 /* BowlerCell.m in Sources */,
 				CE0C7DFA2002267200A53371 /* CustomButton.m in Sources */,
 				1893D7B32004F8F10048CCF1 /* HACBarLayer.m in Sources */,
@@ -850,7 +854,7 @@
 				INFOPLIST_FILE = SportsStats/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.agaram.playerStats;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.IPL-2018.app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -868,7 +872,7 @@
 				INFOPLIST_FILE = SportsStats/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.agaram.playerStats;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.IPL-2018.app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

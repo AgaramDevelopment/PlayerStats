@@ -44,12 +44,13 @@
     NSMutableArray* DropDownArray;
     NSMutableArray* PlayerListArray;
     CustomNavigation * objCustomNavigation;
+    NSInteger* selectedIndex;
 }
 
 @end
 
 @implementation PlayerSelectorVC
-@synthesize tblPlayerList,collectionPlayerList;
+@synthesize collectionPlayerList;
 
 @synthesize tapView;
 - (void)viewDidLoad {
@@ -213,6 +214,8 @@
     filterDropDownTblView.dataSource = self;
     filterDropDownTblView.delegate = self;
     
+    [[COMMON logoutbtn] setHidden:NO];
+    [COMMON drawLogoutButton];
 
 }
 
@@ -309,10 +312,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if(tableView == tblPlayerList){
-
-        return PlayerListArray.count;
-    }    else if(tableView == filterDropDownTblView){
+    if(tableView == filterDropDownTblView){
         
         [tapView setHidden:(DropDownArray.count ? NO : YES)];
         return  DropDownArray.count;
@@ -324,66 +324,39 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-        if(tableView == tblPlayerList){
-
     
-        PlayerListTableViewCell *cell = [tblPlayerList dequeueReusableCellWithIdentifier:@"FirstCell"];
-        NSArray* arr = [[NSBundle mainBundle] loadNibNamed:@"PlayerListTableViewCell" owner:self options:nil];
-        cell = arr[1];
-        
-        if (indexPath.row % 2 != 0) {
-            cell.viewBG.backgroundColor = [UIColor colorWithRed:238.0/255.0 green:238.0/255.0 blue:238.0/255.0 alpha:1.0];
-            
-        }else
-        {
-            cell.viewBG.backgroundColor = [UIColor whiteColor];
-        }
-        
-        
-        cell.lblPlayerName.text = [[PlayerListArray objectAtIndex:indexPath.row] valueForKey:@"PlayerName"];
-        cell.lblOrigin.text = [[PlayerListArray objectAtIndex:indexPath.row] valueForKey:@"CappedOrNot"];
-        cell.lblStyle.text = [[PlayerListArray objectAtIndex:indexPath.row] valueForKey:@"BatStyle"];
-        cell.lblOrder.text = [[PlayerListArray objectAtIndex:indexPath.row] valueForKey:@"BatOrder"];
-        cell.lblMat.text = [[PlayerListArray objectAtIndex:indexPath.row] valueForKey:@"Matches"];
-        cell.lblInns.text = [[PlayerListArray objectAtIndex:indexPath.row] valueForKey:@"Inns"];
-        cell.lblNo.text = [[PlayerListArray objectAtIndex:indexPath.row] valueForKey:@"NOs"];
-        cell.lblRuns.text = [[PlayerListArray objectAtIndex:indexPath.row] valueForKey:@"Runs"];
-        cell.lblBF.text = [[PlayerListArray objectAtIndex:indexPath.row] valueForKey:@"Balls"];
-        cell.lblHS.text = [[PlayerListArray objectAtIndex:indexPath.row] valueForKey:@"HS"];
-        cell.lblAve.text = [[PlayerListArray objectAtIndex:indexPath.row] valueForKey:@"BatAve"];
-        cell.lblSR.text = [[PlayerListArray objectAtIndex:indexPath.row] valueForKey:@"BatSR"];
-        cell.lblDB.text = [[PlayerListArray objectAtIndex:indexPath.row] valueForKey:@"dots"];
-        cell.lblBdry.text = [[PlayerListArray objectAtIndex:indexPath.row] valueForKey:@"boundaries"];
-        cell.lbl100.text = [[PlayerListArray objectAtIndex:indexPath.row] valueForKey:@"hunderds"];
-        cell.lbl50.text = [[PlayerListArray objectAtIndex:indexPath.row] valueForKey:@"fifties"];
-        //        cell.lbl0.text = [[PlayerListArray objectAtIndex:indexPath.row] valueForKey:@"0"];
-        cell.lbl4s.text = [[PlayerListArray objectAtIndex:indexPath.row] valueForKey:@"Fours"];
-        cell.lbl6s.text = [[PlayerListArray objectAtIndex:indexPath.row] valueForKey:@"Sixs"];
-        
-        cell.lbl30s.text = [[PlayerListArray objectAtIndex:indexPath.row] valueForKey:@"thirties"];
-        cell.lblBowlRuns.text = [[PlayerListArray objectAtIndex:indexPath.row] valueForKey:@"BowlRuns"];
-        cell.lblBowlBalls.text = [[PlayerListArray objectAtIndex:indexPath.row] valueForKey:@"BowlBalls"];
-        cell.lblBowlAve.text = [[PlayerListArray objectAtIndex:indexPath.row] valueForKey:@"BowlAve"];
-        cell.lblBowlSR.text = [[PlayerListArray objectAtIndex:indexPath.row] valueForKey:@"BowlSR"];
-        cell.lblWkts.text = [[PlayerListArray objectAtIndex:indexPath.row] valueForKey:@"wickets"];
-//        cell.lbl3wAbove.text = [[PlayerListArray objectAtIndex:indexPath.row] valueForKey:@"Sixs"];
-        cell.lblEcon.text = [[PlayerListArray objectAtIndex:indexPath.row] valueForKey:@"Econ"];
-        cell.lblCatch.text = [[PlayerListArray objectAtIndex:indexPath.row] valueForKey:@"catches"];
-        cell.lblStump.text = [[PlayerListArray objectAtIndex:indexPath.row] valueForKey:@"stumpings"];
-        
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        return cell;
-    }else{ //Other Cell
-        
         UITableViewCell *otherCell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
         if (otherCell == nil) {
             otherCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
         }
         otherCell.backgroundColor = [UIColor clearColor];
-        
-        UIView *bgColorView = [[UIView alloc] init];
-        bgColorView.backgroundColor = [UIColor colorWithRed:(8/255.0f) green:(26/255.0f) blue:(77/255.0f) alpha:1.0f];
-        otherCell.selectedBackgroundView = bgColorView;
+    
+    
+    
+//    if(isPlayerOrginOpen){
+//        _playerOrderLbl.text = [[DropDownArray objectAtIndex:indexPath.row] valueForKey:@"playerTypeDesc"];
+//        playerOrginFilterPos = indexPath.row;
+//        self.playerOrderLbl.tag = indexPath.row;
+//    }else if(isPlayerTypeOpen){
+//        _playerTypeLbl.text = [[DropDownArray objectAtIndex:indexPath.row] valueForKey:@"playerTypeDesc"];
+//        playerTypeFilterPos = indexPath.row;
+//        self.playerTypeLbl.tag = indexPath.row;
+//    }else if(isBattingStyleOpen){
+//        _battingStyleLbl.text = [[DropDownArray objectAtIndex:indexPath.row] valueForKey:@"playerTypeDesc"];
+//        battingStyleFilterPos = indexPath.row;
+//        self.battingStyleLbl.tag = indexPath.row;
+//    }else if(isBowlingStyleOpen){
+//        _bowlingStyleLbl.text = [[DropDownArray objectAtIndex:indexPath.row] valueForKey:@"playerTypeDesc"];
+//        bowlingStyleFilterPos = indexPath.row;
+//        self.bowlingStyleLbl.tag = indexPath.row;
+//    }else if(isBattingOrderOpen){
+//        _lblBattingOrder.text = [[DropDownArray objectAtIndex:indexPath.row] valueForKey:@"playerTypeDesc"];
+//        self.lblBattingOrder.tag = indexPath.row;
+//    }
+
+//        UIView *bgColorView = [[UIView alloc] init];
+//        bgColorView.backgroundColor = [UIColor colorWithRed:(8/255.0f) green:(26/255.0f) blue:(77/255.0f) alpha:1.0f];
+//        otherCell.selectedBackgroundView = bgColorView;
         otherCell.textLabel.textColor = [UIColor whiteColor];
         
         if(tableView == filterDropDownTblView){
@@ -393,98 +366,12 @@
 
         
         return otherCell;
-        
-        
-    }
     
-    
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    
-//    if(tableView == tblPlayerList && section == 0){
-//        return tableView.rowHeight;
-//    }else{
-//        return 0;
-//    }
-    
-    if(tableView == tblPlayerList){
-        return tableView.rowHeight;
-    }else{
-        return 0;
-    }
-
-
-}
-
-
-- (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-    {
-        
-//        if(tableView == tblPlayerList && section == 0){
-        if(tableView == tblPlayerList){
-
-        
-            PlayerListTableViewCell *cell = [tblPlayerList dequeueReusableCellWithIdentifier:@"Header"];
-            NSArray* arr = [[NSBundle mainBundle] loadNibNamed:@"PlayerListTableViewCell" owner:self options:nil];
-            
-            if(cell == nil)
-            {
-                cell = arr[0];
-            }
-            
-            for (CustomButton* tempBut in cell.btnHeader.objectEnumerator) {
-                NSInteger buttonIndex = [cell.btnHeader indexOfObject:tempBut];
-                tempBut.tag = [[tagArray objectAtIndex:buttonIndex] integerValue];
-                [tempBut addTarget:self action:@selector(btnActionForSorting:) forControlEvents:UIControlEventTouchUpInside];
-                tempBut.secondTag = buttonIndex;
-                
-                if (tempBut.secondTag == 19) {
-                    tempBut.titleLabel.numberOfLines = 2;
-                    [tempBut setTitle:[NSString stringWithFormat:@"Bowl\nRuns"] forState:UIControlStateNormal];
-                }else if (tempBut.secondTag == 20) {
-                    tempBut.titleLabel.numberOfLines = 2;
-                    [tempBut setTitle:[NSString stringWithFormat:@"Bowl\nBalls"] forState:UIControlStateNormal];
-                }else if (tempBut.secondTag == 21) {
-                    tempBut.titleLabel.numberOfLines = 2;
-                    [tempBut setTitle:[NSString stringWithFormat:@"Bowl\nAvg %@",@"%"] forState:UIControlStateNormal];
-                }else if (tempBut.secondTag == 22) {
-                    tempBut.titleLabel.numberOfLines = 2;
-                    [tempBut setTitle:[NSString stringWithFormat:@"Bowl\nSR %@",@"%"] forState:UIControlStateNormal];
-                }
-
-                
-                if ([selectedHeading isEqualToString: tempBut.titleLabel.text]) {
-                    [tempBut setTitleColor: [ UIColor colorWithRed:(13/255.0f) green:(43/255.0f) blue:(129/255.0f) alpha:1.0f] forState:UIControlStateNormal];
-                //    [[tempBut titleLabel]setFont:[UIFont fontWithName:@"Montserrat-Regular" size:20.0]];
-                }
-                else{
-                    [tempBut setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-                  //  [[tempBut titleLabel]setFont:[UIFont fontWithName:@"Montserrat-Regular" size:15.0]];
-                }
-                
-//                NSLog(@"Button Name = %@",tempBut.titleLabel.text);
-//                NSLog(@"Button tag = %ld",(long)tempBut.tag);
-//                NSLog(@"Button second tag = %ld",(long)tempBut.secondTag);
-            }
-            
-            return cell;
-            
-        }
-        
-        return NULL;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if(tableView == tblPlayerList){
-        PlayerStatsVC * nextVC = [[PlayerStatsVC alloc]init];
-        nextVC = (PlayerStatsVC *)[self.storyboard instantiateViewControllerWithIdentifier:@"PlayerStats"];
-        nextVC.SelectedPlayerCode = [[PlayerListArray objectAtIndex:indexPath.row] valueForKey:@"PlayerCode"];
-        [self.navigationController pushViewController:nextVC animated:YES];
-
-        
-    }else if(tableView == filterDropDownTblView){
+   
+    if(tableView == filterDropDownTblView){
         
         if(isPlayerOrginOpen){
             _playerOrderLbl.text = [[DropDownArray objectAtIndex:indexPath.row] valueForKey:@"playerTypeDesc"];
@@ -507,14 +394,8 @@
             self.lblBattingOrder.tag = indexPath.row;
         }
         
-//        if(filterDropDownTblView!=nil){
-//            [filterDropDownTblView removeFromSuperview];
-//        }
-//        [self resetDropDownOpenStatus];
         [self closeView:nil];
         [self filterPlayer];
-        
-        
         
     }
 
@@ -552,8 +433,6 @@
     
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.collectionPlayerList reloadData];
-//        [self.collectionPlayerList.collectionViewLayout invalidateLayout];
-
     });
 }
 
@@ -569,16 +448,6 @@
     isBowlingStyleOpen = NO;
     isBattingOrderOpen = NO;
 }
-
-//- (IBAction)onClickSearchBtn:(id)sender {
-//
-//    if(filterDropDownTblView!=nil){
-//        [filterDropDownTblView removeFromSuperview];
-//    }
-//    [self resetDropDownOpenStatus];
-//
-//    [self filterPlayer];
-//}
 
 
 - (IBAction)onClickPlayerOriginDD:(id)sender {
@@ -621,13 +490,6 @@
         [self resetDropDownOpenStatus];
         
     }
-    
-//    dispatch_async(dispatch_get_main_queue(), ^{
-//        [UIView animateWithDuration:0.4 animations:^{
-//            [filterDropDownTblView layoutIfNeeded];
-//        }];
-//    });
-
 
 }
 
@@ -666,8 +528,6 @@
         [self resetDropDownOpenStatus];
         
     }
-    
-
     
 }
 
@@ -715,7 +575,7 @@
     }
     
     if(!isBowlingStyleOpen){
-        
+        [self dropDownValueForBowlingStyle];
         [self resetDropDownOpenStatus];
         isBowlingStyleOpen = YES;
         
@@ -729,6 +589,7 @@
         
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:bowlingStyleFilterPos inSection:0];
         [filterDropDownTblView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+        
         [UIView animateWithDuration:0.4 animations:^{
             filterDropDownTblView.frame = CGRectMake([sender superview].frame.origin.x, collectionPlayerList.frame.origin.y -10 ,[sender frame].size.width,DropDownArray.count*45);
         }];
@@ -917,26 +778,18 @@
 
 -(void)fetchPlayerSelectionWS
 {
-    [COMMON loadingIcon:self.view];
+//    [COMMON loadingIcon:self.view];
     if([COMMON isInternetReachable])
     {
         
+        [AppCommon showLoading];
         NSString *URLString =  [URL_FOR_RESOURCE(@"") stringByAppendingString:[NSString stringWithFormat:@"%@",FETCH_AUCTION_OVERALL_PLAYER_STATS]];
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
         AFHTTPRequestSerializer *requestSerializer = [AFJSONRequestSerializer serializer];
         [requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
         
         manager.requestSerializer = requestSerializer;
-        
-        NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
-//                if(competition)   [dic    setObject:competition     forKey:@"Competitioncode"];
-//                if(teamcode)   [dic    setObject:teamcode     forKey:@"Teamcode"];
-//                if(self.matchCode)   [dic    setObject:self.matchCode     forKey:@"MatchCode"];
-        
-        
-        NSLog(@"parameters : %@",dic);
-        [manager POST:URLString parameters:dic success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            //NSLog(@"response ; %@",responseObject);
+        [manager POST:URLString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
             
             if(responseObject >0)
             {
@@ -971,7 +824,6 @@
                 self.lblBattingOrder.text = @"All";
                 self.lblBattingOrder.tag = 0;
                 
-                self.bowlingStyleLbl.text = @"All";
                 
 //                tempArray = [MainListArray valueForKey:@"BattingStyle"];
 //                self.battingStyleLbl.text  = [[tempArray objectAtIndex:0] valueForKey:@"playerTypeDesc"];
@@ -987,7 +839,7 @@
 //                self.bowlingStyleLbl.tag = 0;
 //                self.lblBattingOrder.tag = 0;
                 
-//                [self dropDownValueForBowlingStyle];
+                [self dropDownValueForBowlingStyle];
                 [self dropDownValueForBattingStyle];
                 [self dropDownValueForPlayerType];
                 
@@ -1000,16 +852,16 @@
                 });
                 
             }
-            [COMMON RemoveLoadingIcon];
-            [self.view setUserInteractionEnabled:YES];
+            [AppCommon hideLoading];
+             
             
             
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             
             NSLog(@"failed");
-            [COMMON webServiceFailureError];
-            [COMMON RemoveLoadingIcon];
-            [self.view setUserInteractionEnabled:YES];
+            [COMMON webServiceFailureError:error];
+            [AppCommon hideLoading];
+             
             
         }];
     }
@@ -1046,12 +898,14 @@
 
         if(indexPath.row == 0)
         {
-            cell.backgroundColor = [UIColor colorWithRed:247.0/255.0 green:247.0/255.0 blue:81.0/255.0 alpha:1.0];
+            cell.backgroundColor = [UIColor colorWithRed:255.0/255.0 green:38.0/255.0 blue:0 alpha:1.0];
 
         }
         else if(indexPath.row >=1 && indexPath.row <= 14) // coulmn 1
         {
-            cell.backgroundColor = [UIColor colorWithRed:21.0/255.0 green:127.0/255.0 blue:182.0/255.0 alpha:1.0];
+//            cell.backgroundColor = [UIColor colorWithRed:21.0/255.0 green:127.0/255.0 blue:182.0/255.0 alpha:1.0];
+            cell.backgroundColor = [UIColor colorWithRed:0 green:84.0/255.0 blue:147.0/255.0 alpha:1.0];
+
         }
         else if (indexPath.row >= 14 && indexPath.row <= 25) {
             
@@ -1059,8 +913,9 @@
             cell.backgroundColor = [UIColor colorWithRed:0.0 green:144.0/255.0 blue:81.0/255.0 alpha:1.0];
 
         }
-        else{
-            cell.backgroundColor = [UIColor colorWithRed:44.0/255.0 green:167.0/255.0 blue:219.0/255.0 alpha:1.0];
+        else {
+//            cell.backgroundColor = [UIColor colorWithRed:44.0/255.0 green:167.0/255.0 blue:219.0/255.0 alpha:1.0];
+            cell.backgroundColor = [UIColor colorWithRed:122.0/255.0 green:129.0/255.0 blue:255.0/255.0 alpha:1.0];
 
         }
         
@@ -1094,7 +949,9 @@
 //                }
                 
                 if ([selectedHeading isEqualToString: cell.btnName.titleLabel.text]) {
-                    [cell.btnName setTitleColor: [ UIColor colorWithRed:(13/255.0f) green:(43/255.0f) blue:(129/255.0f) alpha:1.0f] forState:UIControlStateNormal];
+//                    [cell.btnName setTitleColor: [ UIColor colorWithRed:(13/255.0f) green:(43/255.0f) blue:(129/255.0f) alpha:1.0f] forState:UIControlStateNormal];
+                    [cell.btnName setTitleColor: [ UIColor colorWithRed:(1.0/255.0f) green:(25.0/255.0f) blue:(147.0/255.0f) alpha:1.0f] forState:UIControlStateNormal];
+
                 }
                 else{
                     [cell.btnName setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];

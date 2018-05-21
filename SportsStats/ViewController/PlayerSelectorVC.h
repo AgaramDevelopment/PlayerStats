@@ -20,7 +20,6 @@
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionPlayerList;
 
-@property (weak, nonatomic) IBOutlet UITableView *tblPlayerList;
 @property (weak, nonatomic) IBOutlet UIView *view1;
 @property (weak, nonatomic) IBOutlet UIView *view2;
 @property (weak, nonatomic) IBOutlet UIView *view3;

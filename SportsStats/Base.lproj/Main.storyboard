@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xur-Q7-pHl">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="ipad10_5" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
@@ -79,11 +79,10 @@
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cQL-D6-wwR">
                                                                 <rect key="frame" x="0.0" y="0.0" width="200" height="69"/>
                                                                 <connections>
-                                                                    <action selector="onClickPlayerOriginDD:" destination="lZW-Fd-NmQ" eventType="touchUpInside" id="WlZ-Yc-EHt"/>
+                                                                    <action selector="onClickPlayerOriginDD:" destination="lZW-Fd-NmQ" eventType="touchUpInside" id="jBO-Po-Z46"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
                                                             <constraint firstAttribute="trailing" secondItem="cQL-D6-wwR" secondAttribute="trailing" id="0d5-TP-ucI"/>
                                                             <constraint firstAttribute="trailing" secondItem="gnt-iq-9JI" secondAttribute="trailing" id="4cI-Nq-810"/>
@@ -145,7 +144,7 @@
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iv1-nx-Yei">
                                                                 <rect key="frame" x="0.0" y="0.0" width="217" height="69"/>
                                                                 <connections>
-                                                                    <action selector="onClickPlayerTypeDD:" destination="lZW-Fd-NmQ" eventType="touchUpInside" id="B9r-Ek-U4V"/>
+                                                                    <action selector="onClickPlayerTypeDD:" destination="lZW-Fd-NmQ" eventType="touchUpInside" id="u3d-2U-xHp"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -211,7 +210,7 @@
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="whp-XZ-GLA">
                                                                 <rect key="frame" x="0.0" y="0.0" width="202.5" height="69"/>
                                                                 <connections>
-                                                                    <action selector="onClickBattingStyleDD:" destination="lZW-Fd-NmQ" eventType="touchUpInside" id="hlT-Z7-o3D"/>
+                                                                    <action selector="onClickBattingStyleDD:" destination="lZW-Fd-NmQ" eventType="touchUpInside" id="d61-uw-xFA"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -276,7 +275,7 @@
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DY2-Fj-MzF">
                                                                 <rect key="frame" x="0.0" y="0.0" width="202" height="69"/>
                                                                 <connections>
-                                                                    <action selector="onClickBowlingStyleDD:" destination="lZW-Fd-NmQ" eventType="touchUpInside" id="Hou-QO-QaY"/>
+                                                                    <action selector="onClickBowlingStyleDD:" destination="lZW-Fd-NmQ" eventType="touchUpInside" id="rRK-dG-aMz"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -341,7 +340,7 @@
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O2C-ci-9l1">
                                                                 <rect key="frame" x="0.0" y="0.0" width="202.5" height="69"/>
                                                                 <connections>
-                                                                    <action selector="onClickBattingOrderStyleDD:" destination="lZW-Fd-NmQ" eventType="touchUpInside" id="eeZ-wB-2sg"/>
+                                                                    <action selector="onClickBattingOrderStyleDD:" destination="lZW-Fd-NmQ" eventType="touchUpInside" id="RR7-gZ-NGN"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -471,23 +470,6 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-1389.9280575539569" y="25.899280575539571"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="cXK-vx-8NT">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="xur-Q7-pHl" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zv9-5w-K5m">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="lZW-Fd-NmQ" kind="relationship" relationship="rootViewController" id="iBh-wQ-t9Q"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="VW2-kS-cee" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2104.31654676259" y="25.899280575539571"/>
         </scene>
         <!--Player StatsVC-->
         <scene sceneID="bYD-62-ra9">

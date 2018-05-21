@@ -86,4 +86,5 @@
 
 #define Filter_key                         @"GETAUCTIONPLAYERSTATS"
 
+#define LoginKey                          @"UserLoginAuthentication"
 
