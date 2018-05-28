@@ -9,8 +9,8 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Montserrat-Bold.otf">
-            <string>Montserrat-Bold</string>
+        <array key="Montserrat-Black.otf">
+            <string>Montserrat-Black</string>
         </array>
     </customFonts>
     <objects>
@@ -63,7 +63,7 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="38" id="Bll-lZ-pyl"/>
                             </constraints>
-                            <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="17"/>
+                            <fontDescription key="fontDescription" name="Montserrat-Black" family="Montserrat" pointSize="23"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -113,17 +113,17 @@
                                 <constraint firstAttribute="width" constant="200" id="har-QS-kV5"/>
                             </constraints>
                         </view>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BPZ-gX-wcz">
-                            <rect key="frame" x="300" y="5" width="60" height="60"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TNPL" translatesAutoresizingMaskIntoConstraints="NO" id="BPZ-gX-wcz">
+                            <rect key="frame" x="300" y="5" width="200" height="60"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="60" id="kZt-wT-I36"/>
-                                <constraint firstAttribute="width" constant="60" id="vhc-eF-E2G"/>
+                                <constraint firstAttribute="width" constant="200" id="vhc-eF-E2G"/>
                             </constraints>
                         </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="M7j-7b-gHj">
-                            <rect key="frame" x="718" y="5" width="60" height="60"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AgaramImage" translatesAutoresizingMaskIntoConstraints="NO" id="M7j-7b-gHj">
+                            <rect key="frame" x="578" y="5" width="200" height="60"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="60" id="JT5-VZ-xQW"/>
+                                <constraint firstAttribute="width" constant="200" id="JT5-VZ-xQW"/>
                                 <constraint firstAttribute="height" constant="60" id="xfB-qN-bxq"/>
                             </constraints>
                         </imageView>
@@ -168,7 +168,9 @@
         </view>
     </objects>
     <resources>
+        <image name="AgaramImage" width="220" height="60"/>
         <image name="Backbutton" width="32" height="32"/>
+        <image name="TNPL" width="283" height="132"/>
         <image name="withText" width="1920" height="360"/>
     </resources>
 </document>

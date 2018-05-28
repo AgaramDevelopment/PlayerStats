@@ -52,8 +52,6 @@
 		1821A95F2000F29B009F8269 /* PlayerStatsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1821A95E2000F29B009F8269 /* PlayerStatsVC.m */; };
 		187832A6200361E400F8A156 /* AppCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 187832A4200361E300F8A156 /* AppCommon.m */; };
 		187832AA2003625300F8A156 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 187832A82003625300F8A156 /* Reachability.m */; };
-		187832AE20038CB000F8A156 /* PlayerListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 187832AB20038CB000F8A156 /* PlayerListTableViewCell.xib */; };
-		187832AF20038CB000F8A156 /* PlayerListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 187832AC20038CB000F8A156 /* PlayerListTableViewCell.m */; };
 		187F5C6C1FFF944600970319 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 187F5C6B1FFF944600970319 /* AppDelegate.m */; };
 		187F5C721FFF944600970319 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 187F5C701FFF944600970319 /* Main.storyboard */; };
 		187F5C741FFF944600970319 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 187F5C731FFF944600970319 /* Assets.xcassets */; };
@@ -66,6 +64,8 @@
 		CE0C7DFA2002267200A53371 /* CustomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0C7DF72002267200A53371 /* CustomButton.m */; };
 		CE2993DF2005D247003781EC /* ExpendedView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2993DB2005D247003781EC /* ExpendedView.m */; };
 		CE2993E02005D247003781EC /* SeachView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2993DE2005D247003781EC /* SeachView.m */; };
+		CE8BC53E20B82BCA009C4FF2 /* TeamListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8BC53D20B82BCA009C4FF2 /* TeamListCollectionViewCell.swift */; };
+		CE8BC54020B83197009C4FF2 /* TeamListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8BC53F20B83197009C4FF2 /* TeamListTableViewCell.swift */; };
 		CE91AAA720A1C07A00DBA042 /* DetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE91AAA620A1C07A00DBA042 /* DetailCell.m */; };
 		CE91AAAF20A1C3BF00DBA042 /* PlayerListCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE91AAAC20A1C3BF00DBA042 /* PlayerListCollectionViewCell.m */; };
 		CE91AAB020A1C3BF00DBA042 /* PlayerListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE91AAAD20A1C3BF00DBA042 /* PlayerListCollectionViewCell.xib */; };
@@ -80,6 +80,7 @@
 		CE91AAC920A1C4E100DBA042 /* XYMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE91AAC120A1C4E100DBA042 /* XYMarkerView.swift */; };
 		CE9E8DFF20A4202A00B519D6 /* CustomCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9E8DFD20A4202900B519D6 /* CustomCollectionViewLayout.m */; };
 		CE9E8E0020A4202A00B519D6 /* CustomCollectionViewLayout1.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9E8DFE20A4202900B519D6 /* CustomCollectionViewLayout1.swift */; };
+		CEBF5C0320B6F1DC008B43FA /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBF5C0220B6F1DC008B43FA /* PlayerViewController.swift */; };
 		CEC52AE620B2A4D900CF80CF /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC52AE420B2A4D900CF80CF /* LoginVC.m */; };
 		CEC52AE720B2A4D900CF80CF /* LoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEC52AE520B2A4D900CF80CF /* LoginVC.xib */; };
 		D26F577458E341244586FA48 /* Pods_SportsStats.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 232E1BAC40EF0415C421597D /* Pods_SportsStats.framework */; };
@@ -138,10 +139,7 @@
 		187832A5200361E300F8A156 /* AppCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppCommon.h; sourceTree = "<group>"; };
 		187832A82003625300F8A156 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		187832A92003625300F8A156 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
-		187832AB20038CB000F8A156 /* PlayerListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerListTableViewCell.xib; sourceTree = "<group>"; };
-		187832AC20038CB000F8A156 /* PlayerListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerListTableViewCell.m; sourceTree = "<group>"; };
-		187832AD20038CB000F8A156 /* PlayerListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerListTableViewCell.h; sourceTree = "<group>"; };
-		187F5C671FFF944600970319 /* SportsStats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SportsStats.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		187F5C671FFF944600970319 /* SuperStats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SuperStats.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		187F5C6A1FFF944600970319 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		187F5C6B1FFF944600970319 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		187F5C711FFF944600970319 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -165,6 +163,9 @@
 		CE2993DB2005D247003781EC /* ExpendedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpendedView.m; sourceTree = "<group>"; };
 		CE2993DD2005D247003781EC /* SeachView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeachView.h; sourceTree = "<group>"; };
 		CE2993DE2005D247003781EC /* SeachView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeachView.m; sourceTree = "<group>"; };
+		CE8BC53C20B8181C009C4FF2 /* SportsStats-Bridging-Header .h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SportsStats-Bridging-Header .h"; sourceTree = "<group>"; };
+		CE8BC53D20B82BCA009C4FF2 /* TeamListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamListCollectionViewCell.swift; sourceTree = "<group>"; };
+		CE8BC53F20B83197009C4FF2 /* TeamListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamListTableViewCell.swift; sourceTree = "<group>"; };
 		CE91AAA520A1C07A00DBA042 /* DetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailCell.h; sourceTree = "<group>"; };
 		CE91AAA620A1C07A00DBA042 /* DetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailCell.m; sourceTree = "<group>"; };
 		CE91AAAB20A1C3BF00DBA042 /* PlayerListCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerListCollectionViewCell.h; sourceTree = "<group>"; };
@@ -187,6 +188,7 @@
 		CE9E8DFC20A4202900B519D6 /* CustomCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCollectionViewLayout.h; sourceTree = "<group>"; };
 		CE9E8DFD20A4202900B519D6 /* CustomCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCollectionViewLayout.m; sourceTree = "<group>"; };
 		CE9E8DFE20A4202900B519D6 /* CustomCollectionViewLayout1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewLayout1.swift; sourceTree = "<group>"; };
+		CEBF5C0220B6F1DC008B43FA /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
 		CEC52AE320B2A4D900CF80CF /* LoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginVC.h; sourceTree = "<group>"; };
 		CEC52AE420B2A4D900CF80CF /* LoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginVC.m; sourceTree = "<group>"; };
 		CEC52AE520B2A4D900CF80CF /* LoginVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginVC.xib; sourceTree = "<group>"; };
@@ -293,6 +295,7 @@
 				1821A95B2000F285009F8269 /* PlayerSelectorVC.m */,
 				1821A95D2000F29B009F8269 /* PlayerStatsVC.h */,
 				1821A95E2000F29B009F8269 /* PlayerStatsVC.m */,
+				CEBF5C0220B6F1DC008B43FA /* PlayerViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -328,7 +331,7 @@
 		187F5C681FFF944600970319 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				187F5C671FFF944600970319 /* SportsStats.app */,
+				187F5C671FFF944600970319 /* SuperStats.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -342,7 +345,6 @@
 				187832A72003622700F8A156 /* Reachability */,
 				187832A32003619500F8A156 /* AppCommon */,
 				CE0C7DF52002267200A53371 /* CustomButton */,
-				CE0C7DF12002267200A53371 /* PlayerSelectorTVC */,
 				1821A9152000EAF2009F8269 /* ViewController */,
 				CE2993D82005D247003781EC /* SubView */,
 				1821A90D2000E9A1009F8269 /* CustomNavigation */,
@@ -357,6 +359,7 @@
 				187F5C751FFF944600970319 /* LaunchScreen.storyboard */,
 				187F5C781FFF944600970319 /* Info.plist */,
 				187F5C791FFF944600970319 /* main.m */,
+				CE8BC53C20B8181C009C4FF2 /* SportsStats-Bridging-Header .h */,
 			);
 			path = SportsStats;
 			sourceTree = "<group>";
@@ -412,16 +415,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		CE0C7DF12002267200A53371 /* PlayerSelectorTVC */ = {
-			isa = PBXGroup;
-			children = (
-				187832AD20038CB000F8A156 /* PlayerListTableViewCell.h */,
-				187832AC20038CB000F8A156 /* PlayerListTableViewCell.m */,
-				187832AB20038CB000F8A156 /* PlayerListTableViewCell.xib */,
-			);
-			path = PlayerSelectorTVC;
-			sourceTree = "<group>";
-		};
 		CE0C7DF52002267200A53371 /* CustomButton */ = {
 			isa = PBXGroup;
 			children = (
@@ -434,6 +427,7 @@
 		CE2993D82005D247003781EC /* SubView */ = {
 			isa = PBXGroup;
 			children = (
+				CEBF5C0420B6F596008B43FA /* TeamListCollection */,
 				CE2993D92005D247003781EC /* ExpendView */,
 				CE2993DC2005D247003781EC /* SeachView */,
 			);
@@ -514,6 +508,15 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		CEBF5C0420B6F596008B43FA /* TeamListCollection */ = {
+			isa = PBXGroup;
+			children = (
+				CE8BC53D20B82BCA009C4FF2 /* TeamListCollectionViewCell.swift */,
+				CE8BC53F20B83197009C4FF2 /* TeamListTableViewCell.swift */,
+			);
+			path = TeamListCollection;
+			sourceTree = "<group>";
+		};
 		CEC52AE220B2A4D900CF80CF /* LoginVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -543,7 +546,7 @@
 			);
 			name = SportsStats;
 			productName = SportsStats;
-			productReference = 187F5C671FFF944600970319 /* SportsStats.app */;
+			productReference = 187F5C671FFF944600970319 /* SuperStats.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -622,7 +625,6 @@
 				187F5C741FFF944600970319 /* Assets.xcassets in Resources */,
 				1821A8FC2000E97C009F8269 /* Montserrat-ExtraLightItalic.otf in Resources */,
 				1821A9002000E97C009F8269 /* Montserrat-Bold.otf in Resources */,
-				187832AE20038CB000F8A156 /* PlayerListTableViewCell.xib in Resources */,
 				1821A90A2000E97C009F8269 /* MontserratAlternates-MediumItalic.otf in Resources */,
 				1821A8FE2000E97C009F8269 /* MontserratAlternates-Bold.otf in Resources */,
 				187F5C721FFF944600970319 /* Main.storyboard in Resources */,
@@ -684,15 +686,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				187832AF20038CB000F8A156 /* PlayerListTableViewCell.m in Sources */,
 				CE2993DF2005D247003781EC /* ExpendedView.m in Sources */,
 				CEC52AE620B2A4D900CF80CF /* LoginVC.m in Sources */,
 				CE91AAB320A1C49200DBA042 /* BowlerCell.m in Sources */,
 				CE0C7DFA2002267200A53371 /* CustomButton.m in Sources */,
+				CEBF5C0320B6F1DC008B43FA /* PlayerViewController.swift in Sources */,
 				1893D7B32004F8F10048CCF1 /* HACBarLayer.m in Sources */,
 				CE91AAC620A1C4E100DBA042 /* LargeValueFormatter.swift in Sources */,
 				1821A95C2000F285009F8269 /* PlayerSelectorVC.m in Sources */,
 				187F5C7A1FFF944600970319 /* main.m in Sources */,
+				CE8BC53E20B82BCA009C4FF2 /* TeamListCollectionViewCell.swift in Sources */,
 				187832AA2003625300F8A156 /* Reachability.m in Sources */,
 				1821A8C22000E928009F8269 /* WebService.m in Sources */,
 				CE91AAC320A1C4E100DBA042 /* DayAxisValueFormatter.m in Sources */,
@@ -704,6 +707,7 @@
 				1821A95F2000F29B009F8269 /* PlayerStatsVC.m in Sources */,
 				1893D7B92004F91D0048CCF1 /* MCChartInformationView.m in Sources */,
 				CE9E8E0020A4202A00B519D6 /* CustomCollectionViewLayout1.swift in Sources */,
+				CE8BC54020B83197009C4FF2 /* TeamListTableViewCell.swift in Sources */,
 				CE91AAC720A1C4E100DBA042 /* BalloonMarker.swift in Sources */,
 				CE91AAA720A1C07A00DBA042 /* DetailCell.m in Sources */,
 				CE91AAAF20A1C3BF00DBA042 /* PlayerListCollectionViewCell.m in Sources */,
@@ -850,12 +854,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
 				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = LZ7UNGW43T;
 				INFOPLIST_FILE = SportsStats/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.IPL-2018.app";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = SuperStats;
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/user/Documents/SportsStats/SportsStats/SportsStats-Bridging-Header .h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -868,12 +874,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
 				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = LZ7UNGW43T;
 				INFOPLIST_FILE = SportsStats/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.IPL-2018.app";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = SuperStats;
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/user/Documents/SportsStats/SportsStats/SportsStats-Bridging-Header .h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -11,6 +11,7 @@
 
 @interface PlayerListCollectionViewCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet CustomButton *btnName;
+@property (weak, nonatomic) IBOutlet UIImageView *imgCap;
 
 @property (strong, nonatomic) IBOutlet UILabel *lblRightShadow;
 @end

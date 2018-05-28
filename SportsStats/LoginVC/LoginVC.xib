@@ -44,7 +44,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pkm-xo-tmo">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="700"/>
                             <subviews>
-                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="Ikb-1t-3fZ">
+                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="Icon-App-83.5x83.5" translatesAutoresizingMaskIntoConstraints="NO" id="Ikb-1t-3fZ">
                                     <rect key="frame" x="137" y="150" width="100" height="100"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="100" id="6qO-Sf-hYA">
@@ -253,10 +253,10 @@
         </view>
     </objects>
     <resources>
+        <image name="Icon-App-83.5x83.5" width="83" height="83"/>
         <image name="User-14" width="167" height="167"/>
         <image name="bg_login" width="1536" height="2048"/>
         <image name="eye_hide_icon" width="32" height="32"/>
         <image name="lock-14" width="167" height="167"/>
-        <image name="logo" width="50" height="50"/>
     </resources>
 </document>

@@ -10,13 +10,12 @@
 
 #import "PlayerSelectorVC.h"
 #import "CustomNavigation.h"
-#import "PlayerListTableViewCell.h"
 #import "WebService.h"
 #import "Config.h"
 #import "AppCommon.h"
 #import "PlayerStatsVC.h"
 #import "PlayerListCollectionViewCell.h"
-
+#import "SuperStats-Swift.h"
 
 
 @interface PlayerSelectorVC ()<UITableViewDelegate,UITableViewDataSource>
@@ -68,62 +67,7 @@
     playerTypeFilterPos = 0;
     battingStyleFilterPos = 0;
     bowlingStyleFilterPos = 0;
-    /*
-     
-     "PlayerCode": "PYC0000054",
-     "PlayerName": "ASHWIN R",
-     "PlayerPhoto": null,
-     "Origin": "",
-     "CappedOrNot": "UNCAPPED",
-     "PlayerType": null,
-     "BatStyle": "Right Hand Bat",
-     "BatOrder": "Lower",
-     "Matches": "2",
-     "Inns": "2",
-     "NOs": "0",
-     "Runs": "64",
-     "Balls": "38",
-     "HS": "49",
-     "BatAve": "32.00",
-     "BatSR": "168.42",
-     "dots": "10",
-     "dotspercent": "15.63",
-     "dotsfreq": null,
-     "ones": null,
-     "boundaries": "62.50",
-     "boundariespercent": null,
-     "boundaryfrequency": null,
-     "Fours": "4",
-     "Sixs": "4",
-     "thirties": "1",
-     "fifties": "0",
-     "thirtiespart": null,
-     "fiftiespart": null,
-     "hunderds": "0",
-     "BowlRuns": "40",
-     "BowlBalls": "6",
-     "BowlInns": "2",
-     "BowlDB": "15",
-     "BowlDBPercent": "41",
-     "Bowlboundariespercent": "55",
-     "wickets": "2",
-     "BowlSR": "18.00",
-     "BowlAve": "20.00",
-     "Threes": null,
-     "Wides": null,
-     "Noballs": null,
-     "Econ": "6.67",
-     "threes": "0",
-     "catches": "0",
-     "stumpings": "0",
-     "playerTypecode": "MSC008",
-     "batstylecode": "MSC013",
-     "bowlstylecode": "RAOS",
-     "competitionCode": null,
-     "competitionName": null,
-     "className": "row02"
-     
-     */
+    
     
     headingKeyArray = @[@"PlayerName",@"BatStyle",@"Inns",@"Runs",@"Balls",@"dots",@"BatSR",@"HS",@"BatAve",@"Fours",@"Sixs",@"boundaries",@"dotspercent",@"thirties",@"fifties",@"BowlInns",@"BowlRuns",@"BowlBalls",@"wickets",@"Econ",@"BowlAve",@"BowlSR",@"BowlDB",@"BowlDBPercent",@"Bowlboundariespercent",@"threes",@"catches",@"stumpings"]; //28
 
@@ -150,18 +94,19 @@
                          @[@{
                                @"playerTypeDesc":@"All",
                                @"playerTypeCode":@""
-                               },@{@"playerTypeDesc":@"Top",
-                              @"playerTypeCode":@"Top"
-                              }, @{
-                              @"playerTypeDesc":@"Middle",
-                              @"playerTypeCode":@"Middle"
-                              },@{
-                              @"playerTypeDesc":@"Tail Ender",
-                              @"playerTypeCode":@"Tail Ender"
-                              },@{
-                              @"playerTypeDesc":@"Lower Order",
-                              @"playerTypeCode":@"lower"
-                              }]];
+                               },@{
+                               @"playerTypeDesc":@"Top",
+                               @"playerTypeCode":@"Top"
+                               }, @{
+                               @"playerTypeDesc":@"Middle",
+                               @"playerTypeCode":@"Middle"
+                               },@{
+                               @"playerTypeDesc":@"Tail Ender",
+                               @"playerTypeCode":@"Tail Ender"
+                               },@{
+                               @"playerTypeDesc":@"Lower Order",
+                               @"playerTypeCode":@"lower"
+                               }]];
 
     
     
@@ -179,10 +124,23 @@
 //                           @"playerTypeCode":@""
 //                           }]];
     
+//    playerOrginArray = [[NSMutableArray alloc] initWithArray:
+//                        @[@{@"playerTypeDesc":@"All",
+//                              @"playerTypeCode":@""
+//                              }]];
+    
     playerOrginArray = [[NSMutableArray alloc] initWithArray:
-                        @[@{@"playerTypeDesc":@"All",
+                        @[@{
+                              @"playerTypeDesc":@"All",
                               @"playerTypeCode":@""
+                              },
+                            @{@"playerTypeDesc":@"Capped",
+                            @"playerTypeCode":@"CAPPED"
+                            }, @{
+                              @"playerTypeDesc":@"Uncapped",
+                              @"playerTypeCode":@"UNCAPPED"
                               }]];
+
     
     playerBowlingStyleArray = [[NSMutableArray alloc] initWithArray:
                                @[@{@"playerTypeDesc":@"All",
@@ -260,7 +218,7 @@
 
     
     [objCustomNavigation.img1 setImage:[UIImage imageNamed:@"TNPL"]];
-    [objCustomNavigation.img2 setImage:[UIImage imageNamed:@"Tuti_patriots"]];
+    [objCustomNavigation.img2 setImage:[UIImage imageNamed:@"AgaramImage"]];
     
 //    objCustomNavigation.img1.layer.cornerRadius = objCustomNavigation.img1.frame.size.height/2;
 //    objCustomNavigation.img1.layer.masksToBounds = YES;
@@ -268,19 +226,19 @@
 //    objCustomNavigation.img2.layer.cornerRadius = objCustomNavigation.img1.frame.size.height/2;
 //    objCustomNavigation.img2.layer.masksToBounds = YES;
     
-    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:objCustomNavigation.img1.bounds byRoundingCorners:UIRectCornerAllCorners cornerRadii:objCustomNavigation.img1.frame.size];
-    
-    CAShapeLayer *maskLayer1 = [[CAShapeLayer alloc] init];
-    CAShapeLayer *maskLayer2 = [[CAShapeLayer alloc] init];
-
-    maskLayer1.frame = objCustomNavigation.img1.bounds;
-    maskLayer1.path  = maskPath.CGPath;
-    
-    maskLayer2.frame = objCustomNavigation.img1.bounds;
-    maskLayer2.path  = maskPath.CGPath;
-
-    objCustomNavigation.img1.layer.mask = maskLayer1;
-    objCustomNavigation.img2.layer.mask = maskLayer2;
+//    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:objCustomNavigation.img1.bounds byRoundingCorners:UIRectCornerAllCorners cornerRadii:objCustomNavigation.img1.frame.size];
+//
+//    CAShapeLayer *maskLayer1 = [[CAShapeLayer alloc] init];
+//    CAShapeLayer *maskLayer2 = [[CAShapeLayer alloc] init];
+//
+//    maskLayer1.frame = objCustomNavigation.img1.bounds;
+//    maskLayer1.path  = maskPath.CGPath;
+//
+//    maskLayer2.frame = objCustomNavigation.img1.bounds;
+//    maskLayer2.path  = maskPath.CGPath;
+//
+//    objCustomNavigation.img1.layer.mask = maskLayer1;
+//    objCustomNavigation.img2.layer.mask = maskLayer2;
 
     
     objCustomNavigation.btn_back.hidden = YES;
@@ -315,6 +273,13 @@
     if(tableView == filterDropDownTblView){
         
         [tapView setHidden:(DropDownArray.count ? NO : YES)];
+        
+        
+        
+        CGRect frame = filterDropDownTblView.frame;
+        frame.size.height = DropDownArray.count*45;
+        filterDropDownTblView.frame = frame;
+
         return  DropDownArray.count;
         
     }
@@ -354,9 +319,10 @@
 //        self.lblBattingOrder.tag = indexPath.row;
 //    }
 
-//        UIView *bgColorView = [[UIView alloc] init];
-//        bgColorView.backgroundColor = [UIColor colorWithRed:(8/255.0f) green:(26/255.0f) blue:(77/255.0f) alpha:1.0f];
-//        otherCell.selectedBackgroundView = bgColorView;
+        UIView *bgColorView = [[UIView alloc] init];
+        bgColorView.backgroundColor = [UIColor colorWithRed:(8/255.0f) green:(26/255.0f) blue:(77/255.0f) alpha:1.0f];
+        otherCell.selectedBackgroundView = bgColorView;
+    
         otherCell.textLabel.textColor = [UIColor whiteColor];
         
         if(tableView == filterDropDownTblView){
@@ -783,7 +749,7 @@
     {
         
         [AppCommon showLoading];
-        NSString *URLString =  [URL_FOR_RESOURCE(@"") stringByAppendingString:[NSString stringWithFormat:@"%@",FETCH_AUCTION_OVERALL_PLAYER_STATS]];
+        NSString *URLString =  URL_FOR_RESOURCE(FETCH_AUCTION_OVERALL_PLAYER_STATS);
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
         AFHTTPRequestSerializer *requestSerializer = [AFJSONRequestSerializer serializer];
         [requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
@@ -885,16 +851,24 @@
     return headingButtonNames.count;
 }
 
+- (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath
+{
+//        collectionView.cell
+//    if (indexPath.section == 0) {
+//
+//        [cell.imgCap setHidden:NO];
+//    }
+
+}
+
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    PlayerListCollectionViewCell* cell = [collectionPlayerList dequeueReusableCellWithReuseIdentifier:@"ContentCellIdentifier" forIndexPath:indexPath];
+    PlayerListCollectionViewCell* cell = (PlayerListCollectionViewCell *)[collectionPlayerList dequeueReusableCellWithReuseIdentifier:@"ContentCellIdentifier" forIndexPath:indexPath];
     
     if (indexPath.section == 0) {
         
-//        green = [UIColor colorWithRed:0.0 green:144.0/255.0 blue:81.0/255.0 alpha:1.0];
-//        orange  = [UIColor colorWithRed:255.0/255.0 green:147.0/255.0 blue:0.0 alpha:1.0];
-//        red  = [UIColor colorWithRed:255.0/255.0 green:38.0/255.0 blue:0.0 alpha:1.0];
+        [cell.imgCap setHidden:YES];
 
         if(indexPath.row == 0)
         {
@@ -922,7 +896,7 @@
         [cell.lblRightShadow setHidden:YES];
         cell.btnName.contentEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0);
         cell.btnName.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
-
+        cell.btnName.titleLabel.font = [UIFont fontWithName:@"Montserrat-Medium" size:15];
         
         for (id value in headingButtonNames) {
             
@@ -962,10 +936,10 @@
             }
         }
         cell.btnName.userInteractionEnabled = YES;
-        
     }
     else
     {
+        cell.btnName.titleLabel.font = [UIFont fontWithName:@"Montserrat-Regular" size:15];
             [cell.lblRightShadow setHidden:(indexPath.row == 0 ? NO : YES)];
         if (!cell.lblRightShadow.isHidden) {
             cell.lblRightShadow.clipsToBounds = NO;
@@ -992,11 +966,22 @@
                     cell.btnName.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
                     cell.btnName.contentEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
                     NSLog(@"Player Name %@ ",str);
+                    
+                    [cell.imgCap setHidden:NO];
+
+                    if ([[[PlayerListArray objectAtIndex:indexPath.section-1]valueForKey:@"CappedOrNot"] isEqualToString:@"CAPPED"]) {
+                        cell.imgCap.image = [UIImage imageNamed:@"capped"];
+                    }
+                    else
+                    {
+                        cell.imgCap.image = [UIImage imageNamed:@"uncapped"];
+                    }
                 }
                 else
                 {
                     cell.btnName.contentEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0);
                     cell.btnName.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+                    [cell.imgCap setHidden:YES];
                 }
                 [cell.btnName setTitle:str forState:UIControlStateNormal];
                 break;
@@ -1014,10 +999,18 @@
         return;
     }
     
-    PlayerStatsVC * nextVC = [[PlayerStatsVC alloc]init];
-    nextVC = (PlayerStatsVC *)[self.storyboard instantiateViewControllerWithIdentifier:@"PlayerStats"];
+//    PlayerStatsVC * nextVC = [[PlayerStatsVC alloc]init];
+    PlayerStatsVC * nextVC = (PlayerStatsVC *)[self.storyboard instantiateViewControllerWithIdentifier:@"PlayerStats"];
     nextVC.SelectedPlayerCode = [[PlayerListArray objectAtIndex:indexPath.section-1] valueForKey:@"PlayerCode"];
+    
+//    PlayerViewController* nextVC = (PlayerViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"PlayerViewController"];
     [self.navigationController pushViewController:nextVC animated:YES];
+    
+    
+    
+    /*
+     
+     */
 
 }
 
