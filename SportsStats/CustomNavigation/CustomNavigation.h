@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface CustomNavigation : UIViewController
 
 
@@ -26,6 +27,9 @@
 @property (weak, nonatomic) IBOutlet UIImageView *img2;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *img1Leading;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *img2Trailing;
+@property (weak, nonatomic) IBOutlet UIButton *btnCompName;
+@property (weak, nonatomic) IBOutlet UIButton *btnSquad;
+
 
 
 

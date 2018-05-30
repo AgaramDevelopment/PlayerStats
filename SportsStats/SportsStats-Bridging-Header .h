@@ -12,5 +12,6 @@
 
 #import "AppDelegate.h"
 #import "CustomNavigation.h"
+#import "Config.h"
 
 #endif /* SportsStats_Bridging_Header__h */

@@ -28,6 +28,9 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *lblNoData;
 
 @property (weak, nonatomic) IBOutlet UIView *tapView;
+@property (weak, nonatomic) IBOutlet UIView *menuView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *FilterViewHeight;
+@property (weak, nonatomic) IBOutlet UILabel *lblCompetetionName;
 
 
 @end

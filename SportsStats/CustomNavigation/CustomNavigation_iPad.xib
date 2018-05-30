@@ -9,19 +9,21 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Montserrat-Black.otf">
-            <string>Montserrat-Black</string>
+        <array key="Montserrat-Medium.otf">
+            <string>Montserrat-Medium</string>
         </array>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomNavigation">
             <connections>
+                <outlet property="btnCompName" destination="kyg-wa-p3R" id="Xjm-zb-ZaL"/>
+                <outlet property="btnSquad" destination="AJS-dW-hSB" id="ENu-5k-bk7"/>
                 <outlet property="btn_back" destination="O7X-eh-3XV" id="Hcc-DZ-ePW"/>
                 <outlet property="filter_btn" destination="HXP-dI-wGH" id="6fN-iF-vx7"/>
                 <outlet property="img1" destination="BPZ-gX-wcz" id="IsP-CB-0yD"/>
                 <outlet property="img1Leading" destination="5ai-5Q-JpR" id="0lp-59-obf"/>
-                <outlet property="img2" destination="M7j-7b-gHj" id="Ox3-NJ-K8n"/>
-                <outlet property="img2Trailing" destination="d6M-Ej-Bxn" id="ASu-t4-G4w"/>
+                <outlet property="img2" destination="c3N-ba-8Gq" id="lXT-Y3-gPl"/>
+                <outlet property="img2Trailing" destination="jA1-Yu-bN6" id="mvn-MC-IEh"/>
                 <outlet property="nav_header_img" destination="qzs-Rg-GBp" id="4ZE-mj-VG8"/>
                 <outlet property="nav_search_view" destination="s1y-7b-dFc" id="9wQ-0K-0kx"/>
                 <outlet property="objSearchBar" destination="J1r-h4-bjA" id="yRM-Sp-Tko"/>
@@ -63,7 +65,7 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="38" id="Bll-lZ-pyl"/>
                             </constraints>
-                            <fontDescription key="fontDescription" name="Montserrat-Black" family="Montserrat" pointSize="23"/>
+                            <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="23"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -114,17 +116,66 @@
                             </constraints>
                         </view>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TNPL" translatesAutoresizingMaskIntoConstraints="NO" id="BPZ-gX-wcz">
-                            <rect key="frame" x="300" y="5" width="200" height="60"/>
+                            <rect key="frame" x="300" y="5" width="60" height="60"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="60" id="kZt-wT-I36"/>
-                                <constraint firstAttribute="width" constant="200" id="vhc-eF-E2G"/>
+                                <constraint firstAttribute="width" constant="60" id="vhc-eF-E2G"/>
                             </constraints>
                         </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AgaramImage" translatesAutoresizingMaskIntoConstraints="NO" id="M7j-7b-gHj">
-                            <rect key="frame" x="578" y="5" width="200" height="60"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kyg-wa-p3R">
+                            <rect key="frame" x="718" y="5" width="60" height="60"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="200" id="JT5-VZ-xQW"/>
-                                <constraint firstAttribute="height" constant="60" id="xfB-qN-bxq"/>
+                                <constraint firstAttribute="height" constant="60" id="z2d-rJ-Dfp"/>
+                                <constraint firstAttribute="width" constant="60" id="zDG-SY-J0L"/>
+                            </constraints>
+                            <state key="normal" title="Button" image="SelectTeam"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="30"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="buttonsCount">
+                                    <integer key="value" value="5"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="distance">
+                                    <real key="value" value="120"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="duration">
+                                    <real key="value" value="0.5"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="showDelay">
+                                    <real key="value" value="0.0"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AJS-dW-hSB">
+                            <rect key="frame" x="868" y="5" width="60" height="60"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="60" id="Rlx-kK-ClV"/>
+                                <constraint firstAttribute="height" constant="60" id="VWq-nc-eJw"/>
+                            </constraints>
+                            <state key="normal" title="Button" image="squad"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="30"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="buttonsCount">
+                                    <integer key="value" value="5"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="distance">
+                                    <real key="value" value="120"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="duration">
+                                    <real key="value" value="0.5"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="showDelay">
+                                    <real key="value" value="0.0"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </button>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AgaramImage" translatesAutoresizingMaskIntoConstraints="NO" id="c3N-ba-8Gq">
+                            <rect key="frame" x="150" y="5" width="200" height="60"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="200" id="qeX-aU-n9L"/>
                             </constraints>
                         </imageView>
                     </subviews>
@@ -135,21 +186,26 @@
                         <constraint firstItem="O7X-eh-3XV" firstAttribute="top" secondItem="ihS-cR-66G" secondAttribute="top" constant="20" id="76e-Kf-hfv"/>
                         <constraint firstAttribute="bottom" secondItem="qzs-Rg-GBp" secondAttribute="bottom" id="Gf4-pm-FFi"/>
                         <constraint firstItem="Igr-Dz-93U" firstAttribute="top" secondItem="ihS-cR-66G" secondAttribute="top" constant="16" id="IMs-hN-2jv"/>
-                        <constraint firstItem="M7j-7b-gHj" firstAttribute="centerY" secondItem="ihS-cR-66G" secondAttribute="centerY" id="Lx9-yC-dab"/>
+                        <constraint firstItem="c3N-ba-8Gq" firstAttribute="top" secondItem="ihS-cR-66G" secondAttribute="top" constant="5" id="KPd-Jc-qgr"/>
                         <constraint firstItem="qzs-Rg-GBp" firstAttribute="top" secondItem="ihS-cR-66G" secondAttribute="top" id="Q8W-L2-eZb"/>
                         <constraint firstAttribute="trailing" secondItem="s1y-7b-dFc" secondAttribute="trailing" constant="15" id="TUg-OJ-C6c"/>
+                        <constraint firstItem="c3N-ba-8Gq" firstAttribute="leading" secondItem="ihS-cR-66G" secondAttribute="leading" constant="150" id="Trh-ID-yOi"/>
                         <constraint firstItem="HXP-dI-wGH" firstAttribute="leading" secondItem="Igr-Dz-93U" secondAttribute="trailing" id="Vcn-q9-PYb"/>
                         <constraint firstItem="O7X-eh-3XV" firstAttribute="leading" secondItem="ihS-cR-66G" secondAttribute="leading" constant="15" id="XJX-ja-BSb"/>
-                        <constraint firstAttribute="trailing" secondItem="M7j-7b-gHj" secondAttribute="trailing" constant="300" id="d6M-Ej-Bxn"/>
+                        <constraint firstItem="kyg-wa-p3R" firstAttribute="centerY" secondItem="ihS-cR-66G" secondAttribute="centerY" id="YRm-WK-wRJ"/>
                         <constraint firstAttribute="bottom" secondItem="s1y-7b-dFc" secondAttribute="bottom" id="fBD-Yg-ptx"/>
+                        <constraint firstAttribute="trailing" secondItem="AJS-dW-hSB" secondAttribute="trailing" constant="150" id="ffT-W0-3ry"/>
                         <constraint firstItem="HXP-dI-wGH" firstAttribute="top" secondItem="ihS-cR-66G" secondAttribute="top" constant="20" id="gh7-hf-1ov"/>
                         <constraint firstAttribute="trailing" secondItem="HXP-dI-wGH" secondAttribute="trailing" constant="20" id="i0D-GB-sxe"/>
+                        <constraint firstAttribute="trailing" secondItem="kyg-wa-p3R" secondAttribute="trailing" constant="300" id="jA1-Yu-bN6"/>
                         <constraint firstItem="s1y-7b-dFc" firstAttribute="top" secondItem="ihS-cR-66G" secondAttribute="top" id="lUa-sF-YGs"/>
+                        <constraint firstAttribute="bottom" secondItem="c3N-ba-8Gq" secondAttribute="bottom" constant="5" id="mbK-Sl-MOa"/>
                         <constraint firstItem="jbb-dO-Hqu" firstAttribute="top" secondItem="ihS-cR-66G" secondAttribute="top" constant="20" id="nxc-SQ-AX6"/>
                         <constraint firstAttribute="trailing" secondItem="jbb-dO-Hqu" secondAttribute="trailing" constant="15" id="oZw-nL-keE"/>
                         <constraint firstAttribute="trailing" secondItem="qzs-Rg-GBp" secondAttribute="trailing" id="pM6-bY-3rT"/>
                         <constraint firstItem="BPZ-gX-wcz" firstAttribute="centerY" secondItem="ihS-cR-66G" secondAttribute="centerY" id="sfj-XK-oja"/>
                         <constraint firstItem="Igr-Dz-93U" firstAttribute="leading" secondItem="O7X-eh-3XV" secondAttribute="trailing" constant="20" id="tuc-CS-qWd"/>
+                        <constraint firstItem="AJS-dW-hSB" firstAttribute="centerY" secondItem="ihS-cR-66G" secondAttribute="centerY" id="zUb-Ot-FAS"/>
                     </constraints>
                 </view>
             </subviews>
@@ -170,7 +226,9 @@
     <resources>
         <image name="AgaramImage" width="220" height="60"/>
         <image name="Backbutton" width="32" height="32"/>
-        <image name="TNPL" width="283" height="132"/>
+        <image name="SelectTeam" width="112" height="112"/>
+        <image name="TNPL" width="704" height="535"/>
+        <image name="squad" width="225" height="225"/>
         <image name="withText" width="1920" height="360"/>
     </resources>
 </document>

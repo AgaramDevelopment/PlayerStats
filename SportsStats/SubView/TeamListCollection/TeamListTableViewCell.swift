@@ -10,8 +10,9 @@ import UIKit
 
 class TeamListTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var lblName: UILabel!
-    @IBOutlet weak var lblImg: UIImageView!
+    @IBOutlet weak var lblPlayerName: UILabel!
+    @IBOutlet weak var lblPlayerRole: UILabel!
+    @IBOutlet weak var lblPlayerImg: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

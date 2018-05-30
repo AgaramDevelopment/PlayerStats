@@ -174,7 +174,7 @@ extension CustomCollectionViewLayout1 {
 
     func sizeForItemWithColumnIndex(_ columnIndex: Int) -> CGSize {
         
-        let width: CGFloat = columnIndex == 0 ? 180 : 60
+        let width: CGFloat = columnIndex == 0 ? 250 : 60
 
         return CGSize(width: width, height: 50)
     }

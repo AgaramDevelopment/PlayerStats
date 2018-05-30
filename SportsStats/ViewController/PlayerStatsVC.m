@@ -381,6 +381,7 @@
     self.searchResult = [NSMutableArray arrayWithCapacity:[self.playersSearchListArray count]];
     self.search_Tbl.hidden=YES;
 }
+
 -(void)customnavigationmethod
 {
     [self.view addSubview:objCustomNavigation.view];
@@ -388,9 +389,10 @@
     objCustomNavigation.nav_header_img.image = [UIImage imageNamed:@"withText"];
     objCustomNavigation.nav_header_img.backgroundColor = [UIColor colorWithRed:(13/255.0f) green:(43/255.0f) blue:(129/255.0f) alpha:1.0f];
     
-    [objCustomNavigation.img1 setHidden:YES];
     [objCustomNavigation.img2 setHidden:YES];
-    
+    [objCustomNavigation.img1 setHidden:YES];
+    [objCustomNavigation.btnCompName setHidden:YES];
+    [objCustomNavigation.btnSquad setHidden:YES];
     objCustomNavigation.btn_back.hidden = NO;
     objCustomNavigation.filter_btn.hidden = YES;
     objCustomNavigation.Cancelbtn.hidden = YES;

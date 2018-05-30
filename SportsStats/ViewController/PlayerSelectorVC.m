@@ -15,7 +15,9 @@
 #import "AppCommon.h"
 #import "PlayerStatsVC.h"
 #import "PlayerListCollectionViewCell.h"
-#import "SuperStats-Swift.h"
+#import "SuperSelector-Swift.h"
+#import "PopMenu.h"
+
 
 
 @interface PlayerSelectorVC ()<UITableViewDelegate,UITableViewDataSource>
@@ -24,7 +26,7 @@
     NSMutableArray* playerOrginArray,* playerTypeArray,* playerBattingStyleArray,* playerBowlingStyleArray,*battingOrderArray;
     NSMutableArray* tagArray;
     NSArray* headingButtonNames;
-
+    UIRefreshControl* pullDownRefresh;
     long playerOrginFilterPos;
     long playerTypeFilterPos;
     long battingStyleFilterPos;
@@ -44,17 +46,22 @@
     NSMutableArray* PlayerListArray;
     CustomNavigation * objCustomNavigation;
     NSInteger* selectedIndex;
+    NSArray* items;
+    NSTimer* myTimer;
+    BOOL isTNPLSelcted;
+    NSString* SelectedCompetitionCode;
 }
+
+@property (nonatomic, strong) PopMenu *popMenu;
 
 @end
 
 @implementation PlayerSelectorVC
-@synthesize collectionPlayerList;
+@synthesize collectionPlayerList,menuView,lblCompetetionName;
 
 @synthesize tapView;
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     
     isPlayerOrginOpen = NO;
      isPlayerTypeOpen = NO;
@@ -78,11 +85,10 @@
     [collectionPlayerList registerNib:[UINib nibWithNibName:@"PlayerListCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"ContentCellIdentifier"];
 
 
-    for (id tag in headingKeyArray.objectEnumerator) {
+    for (id _ in headingKeyArray.objectEnumerator) {
         [tagArray addObject:@0];
     }
 
-    [self fetchPlayerSelectionWS];
     
     objCustomNavigation=[[CustomNavigation alloc] initWithNibName:@"CustomNavigation_iPad" bundle:nil];
     objCustomNavigation.img1Leading.constant = 500;
@@ -168,14 +174,29 @@
     
     
     filterDropDownTblView=[[UITableView alloc]init];
-    filterDropDownTblView.backgroundColor=[UIColor colorWithRed:(13/255.0f) green:(43/255.0f) blue:(129/255.0f) alpha:1.0f];
+    filterDropDownTblView.backgroundColor = [UIColor colorWithRed:(13/255.0f) green:(43/255.0f) blue:(129/255.0f) alpha:1.0f];
     filterDropDownTblView.dataSource = self;
     filterDropDownTblView.delegate = self;
     
     [[COMMON logoutbtn] setHidden:NO];
     [COMMON drawLogoutButton];
+    
+    isTNPLSelcted = YES;
+    SelectedCompetitionCode = @"TNPL";
+    lblCompetetionName.text = @"  TNPL  ";
+    [self setInitialFIlter];
+    [self fetchPlayerSelectionWS];
+//    myTimer = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(fetchPlayerSelectionWS) userInfo:nil repeats:YES];
+    self.FilterViewHeight.constant = 0;
+    pullDownRefresh = [UIRefreshControl new];
+    pullDownRefresh.tintColor = [UIColor grayColor];
+    [pullDownRefresh addTarget:self action:@selector(fetchPlayerSelectionWS) forControlEvents:UIControlEventValueChanged];
+    [self.collectionPlayerList addSubview:pullDownRefresh];
+    self.collectionPlayerList.alwaysBounceVertical = YES;
 
 }
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -186,11 +207,12 @@
 {
     [super viewDidAppear:animated];
     
-    objCustomNavigation.img1Leading.constant = 50;
-    objCustomNavigation.img2Trailing.constant = 50;
-    
+    objCustomNavigation.img1Leading.constant = 60;
+    objCustomNavigation.img2Trailing.constant = 60;
+    self.FilterViewHeight.constant = 85;
     [UIView animateWithDuration:0.4 animations:^{
         [objCustomNavigation.view layoutIfNeeded];
+        [self.filterView layoutIfNeeded];
     }];
 
 }
@@ -203,6 +225,118 @@
 
 }
 
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    [myTimer invalidate];
+}
+
+- (void)showMenu {
+    
+    /*
+     Inter Districts T20
+     Venkateshwara T20
+     VAP 50 Overs
+     2nd Div 50 Overs
+     */
+    
+    NSMutableArray *items = [[NSMutableArray alloc] initWithCapacity:3];
+    
+    MenuItem *menuItem = [MenuItem itemWithTitle:@"  TNPL  " iconName:@"Teams" glowColor:[UIColor colorWithRed:0.040 green:0.864 blue:0.058 alpha:0.600]];
+    menuItem.index = 1;
+    [items addObject:menuItem];
+    
+    menuItem = [MenuItem itemWithTitle:@"close" iconName:@"Close button" glowColor:[UIColor colorWithRed:0.840 green:0.264 blue:0.208 alpha:0.800]];
+    [items addObject:menuItem];
+    
+    menuItem = [MenuItem itemWithTitle:@"  Inter Districts T20  " iconName:@"Teams" glowColor:[UIColor colorWithRed:0.232 green:0.442 blue:0.687 alpha:0.800]];
+    menuItem.index = 2;
+    [items addObject:menuItem];
+    
+    menuItem = [MenuItem itemWithTitle:@"  Venkateshwara T20  " iconName:@"Teams" glowColor:[UIColor colorWithRed:0.000 green:0.509 blue:0.687 alpha:0.800]];
+    menuItem.index = 3;
+    [items addObject:menuItem];
+    
+    menuItem = [MenuItem itemWithTitle:@"  VAP 50 Overs  " iconName:@"Teams" glowColor:[UIColor colorWithRed:0.687 green:0.164 blue:0.246 alpha:0.800]];
+    menuItem.index = 4;
+    [items addObject:menuItem];
+    
+    menuItem = [MenuItem itemWithTitle:@"  2nd Div 50 Overs  " iconName:@"Teams" glowColor:[UIColor colorWithRed:0.258 green:0.245 blue:0.687 alpha:0.800]];
+    menuItem.index = 5;
+    [items addObject:menuItem];
+    
+    if (!_popMenu) {
+        _popMenu = [[PopMenu alloc] initWithFrame:self.view.bounds items:items];
+        _popMenu.menuAnimationType = kPopMenuAnimationTypeNetEase;
+    }
+    
+    if (_popMenu.isShowed) {
+        return;
+    }
+    
+    __weak PlayerSelectorVC *self_ = self;
+
+    _popMenu.didSelectedItemCompletion = ^(MenuItem *selectedItem) {
+        NSLog(@"%@",selectedItem.title);
+        
+        
+//        NSArray* array = [[NSUserDefaults standardUserDefaults] arrayForKey:@"CompetitionArray"];
+        
+        
+        switch (selectedItem.index) {
+            case 1: // TNPL
+            {
+                NSLog(@"TNPL Selected");
+                SelectedCompetitionCode = @"TNPL";
+
+            }
+                break;
+            case 2: // Inter Districts T20
+            {
+                SelectedCompetitionCode = @"IDT20";
+
+            }
+                break;
+            case 3: // Venkateshwara T20
+            {
+                SelectedCompetitionCode = @"VT20";
+
+            }
+                break;
+            case 4: // VAP 50 Overs
+            {
+                SelectedCompetitionCode = @"VA50";
+
+            }
+                break;
+            case 5: //  2nd Div 50 Overs
+            {
+                SelectedCompetitionCode = @"2D50";
+
+            }
+                break;
+
+            default:
+                break;
+                
+        }
+        
+        if (![selectedItem.title isEqualToString:@"close"]) {
+            isTNPLSelcted = selectedItem.index == 1;
+            self_.lblCompetetionName.text = selectedItem.title;
+            [self_ fetchPlayerSelectionWS];
+        }
+        
+        
+    };
+    
+    [_popMenu showMenuAtView:self.view];
+    
+//        [_popMenu showMenuAtView:self.view startPoint:CGPointMake(CGRectGetWidth(self.view.bounds) - 60, CGRectGetHeight(self.view.bounds)) endPoint:CGPointMake(60, CGRectGetHeight(self.view.bounds))];
+    
+}
+
+
 -(void)customnavigationmethod
 {
     [self.view addSubview:objCustomNavigation.view];
@@ -214,32 +348,33 @@
     objCustomNavigation.nav_header_img.image = [UIImage imageNamed:@"withText"];
     
     [objCustomNavigation.img1 setHidden:NO];
-    [objCustomNavigation.img2 setHidden:NO];
+    [objCustomNavigation.btnCompName setHidden:NO];
+    [objCustomNavigation.btnSquad setHidden:NO];
+    [objCustomNavigation.img2 setHighlighted:NO];
+    
+//    [objCustomNavigation.img1 setImage:[UIImage imageNamed:@"TNPL"]];
+//    [objCustomNavigation.img2 setImage:[UIImage imageNamed:@"AgaramImage"]];
+    
+    objCustomNavigation.img1.layer.cornerRadius = objCustomNavigation.img1.frame.size.height/2;
+    objCustomNavigation.img1.layer.masksToBounds = YES;
 
+    objCustomNavigation.btnSquad.layer.cornerRadius = objCustomNavigation.img1.frame.size.height/2;
+    objCustomNavigation.btnSquad.layer.masksToBounds = YES;
     
-    [objCustomNavigation.img1 setImage:[UIImage imageNamed:@"TNPL"]];
-    [objCustomNavigation.img2 setImage:[UIImage imageNamed:@"AgaramImage"]];
-    
-//    objCustomNavigation.img1.layer.cornerRadius = objCustomNavigation.img1.frame.size.height/2;
-//    objCustomNavigation.img1.layer.masksToBounds = YES;
-//
-//    objCustomNavigation.img2.layer.cornerRadius = objCustomNavigation.img1.frame.size.height/2;
-//    objCustomNavigation.img2.layer.masksToBounds = YES;
-    
-//    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:objCustomNavigation.img1.bounds byRoundingCorners:UIRectCornerAllCorners cornerRadii:objCustomNavigation.img1.frame.size];
-//
-//    CAShapeLayer *maskLayer1 = [[CAShapeLayer alloc] init];
-//    CAShapeLayer *maskLayer2 = [[CAShapeLayer alloc] init];
-//
-//    maskLayer1.frame = objCustomNavigation.img1.bounds;
-//    maskLayer1.path  = maskPath.CGPath;
-//
-//    maskLayer2.frame = objCustomNavigation.img1.bounds;
-//    maskLayer2.path  = maskPath.CGPath;
-//
-//    objCustomNavigation.img1.layer.mask = maskLayer1;
-//    objCustomNavigation.img2.layer.mask = maskLayer2;
+    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:objCustomNavigation.img1.bounds byRoundingCorners:UIRectCornerAllCorners cornerRadii:objCustomNavigation.img1.frame.size];
 
+    CAShapeLayer *maskLayer1 = [[CAShapeLayer alloc] init];
+    CAShapeLayer *maskLayer2 = [[CAShapeLayer alloc] init];
+
+    maskLayer1.frame = objCustomNavigation.img1.bounds;
+    maskLayer1.path  = maskPath.CGPath;
+
+    maskLayer2.frame = objCustomNavigation.img1.bounds;
+    maskLayer2.path  = maskPath.CGPath;
+
+    objCustomNavigation.img1.layer.mask = maskLayer1;
+    objCustomNavigation.btnSquad.layer.mask = maskLayer2;
+    [objCustomNavigation.btnSquad addTarget:self action:@selector(navigateToTeamSquad) forControlEvents:UIControlEventTouchUpInside];
     
     objCustomNavigation.btn_back.hidden = YES;
     objCustomNavigation.filter_btn.hidden = YES;
@@ -250,8 +385,8 @@
 
     dispatch_async(dispatch_get_main_queue(), ^{
         
-        objCustomNavigation.img1Leading.constant = 50;
-        objCustomNavigation.img2Trailing.constant = 50;
+        objCustomNavigation.img1Leading.constant = 60;
+        objCustomNavigation.img2Trailing.constant = 60;
 
         [UIView animateWithDuration:0.4 animations:^{
             [objCustomNavigation.view layoutIfNeeded];
@@ -259,7 +394,14 @@
 
     });
 
+    [objCustomNavigation.btnCompName addTarget:self action:@selector(showMenu) forControlEvents:UIControlEventTouchUpInside];
+}
+
+-(void)navigateToTeamSquad{
     
+        PlayerViewController* nextVC = (PlayerViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"PlayerViewController"];
+    [self.navigationController pushViewController:nextVC animated:YES];
+
 }
 
 
@@ -625,6 +767,8 @@
 
 -(void)dropDownValueForBowlingStyle
 {
+    
+    
     DropDownArray = [[NSMutableArray alloc] init];
     NSMutableArray * tempArray = [MainListArray valueForKey:@"BowlingStyle"];
     
@@ -742,78 +886,85 @@
     
 }
 
+-(void)setInitialFIlter{
+    
+    //Set Filter position
+    bowlingStyleFilterPos = 0;
+    battingStyleFilterPos = 0;
+    playerTypeFilterPos = 0;
+    playerOrginFilterPos = 0;
+    
+    // Player origin
+    self.playerOrderLbl.text = @"All";
+    self.playerOrderLbl.tag = 0;
+    
+    // player type
+    self.playerTypeLbl.text = @"All";
+    self.playerTypeLbl.tag = 0;
+    
+    // Batting style
+    self.battingStyleLbl.text = @"All";
+    self.battingStyleLbl.tag = 0;
+    
+    // Bowling style
+    self.bowlingStyleLbl.text = @"All";
+    self.bowlingStyleLbl.tag = 0;
+    
+    //Order
+    self.lblBattingOrder.text = @"All";
+    self.lblBattingOrder.tag = 0;
+
+}
+
 -(void)fetchPlayerSelectionWS
 {
-//    [COMMON loadingIcon:self.view];
-    if([COMMON isInternetReachable])
-    {
+    if(![COMMON isInternetReachable])
+        return
         
         [AppCommon showLoading];
-        NSString *URLString =  URL_FOR_RESOURCE(FETCH_AUCTION_OVERALL_PLAYER_STATS);
+        NSString *URLString =  URL_FOR_RESOURCE(isTNPLSelcted ? @"FETCHAUCTIONOVERALLPLAYERSTATS" :  @"FETCHAUCTIONTNPLPLAYERSTATS");
+//    NSString *URLString =  URL_FOR_RESOURCE(@"FETCHAUCTIONTNPLPLAYERSTATS");
+
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
         AFHTTPRequestSerializer *requestSerializer = [AFJSONRequestSerializer serializer];
         [requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
         
         manager.requestSerializer = requestSerializer;
-        [manager POST:URLString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    
+        /*
+         {
+         "competition":"IDT20",
+         "playerRole":"",
+         "batStyle":"",
+         "bowlStyle":""
+         }
+         */
+    
+        NSDictionary* dic = @{@"competition":SelectedCompetitionCode};
+        if (isTNPLSelcted) {
+            dic = nil;
+        }
+    
+        [manager POST:URLString parameters:dic success:^(AFHTTPRequestOperation *operation, id responseObject) {
             
             if(responseObject >0)
             {
+                
                 //Root Array
                 MainListArray = responseObject;
                 
-                
-                //Set Filter position
-                NSMutableArray *tempArray = [MainListArray valueForKey:@"BowlingStyle"];
-                bowlingStyleFilterPos = tempArray.count;
-                battingStyleFilterPos = 0;
-                playerTypeFilterPos = 0;
-                playerOrginFilterPos = 0;
-                
-                // Player origin
-                self.playerOrderLbl.text = @"All";
-                self.playerOrderLbl.tag = 0;
-                
-                // player type
-                self.playerTypeLbl.text = @"All";
-                self.playerTypeLbl.tag = 0;
-                
-                // Batting style
-                self.battingStyleLbl.text = @"All";
-                self.battingStyleLbl.tag = 0;
-                
-                // Bowling style
-                self.bowlingStyleLbl.text = @"All";
-                self.bowlingStyleLbl.tag = 0;
-                
-                //Order
-                self.lblBattingOrder.text = @"All";
-                self.lblBattingOrder.tag = 0;
-                
-                
-//                tempArray = [MainListArray valueForKey:@"BattingStyle"];
-//                self.battingStyleLbl.text  = [[tempArray objectAtIndex:0] valueForKey:@"playerTypeDesc"];
-//
-//                tempArray = [MainListArray valueForKey:@"PlayerType"];
-//                self.playerTypeLbl.text  = [[tempArray objectAtIndex:0] valueForKey:@"playerTypeDesc"];
-//
-//                self.playerOrderLbl.text  = [[playerOrginArray objectAtIndex:0] valueForKey:@"playerTypeDesc"];
-//                self.lblBattingOrder.text = @"ALL";
-//                self.playerOrderLbl.tag = 0;
-//                self.playerTypeLbl.tag = 0;
-//                self.battingStyleLbl.tag = 0;
-//                self.bowlingStyleLbl.tag = 0;
-//                self.lblBattingOrder.tag = 0;
-                
-                [self dropDownValueForBowlingStyle];
-                [self dropDownValueForBattingStyle];
-                [self dropDownValueForPlayerType];
+                if (isTNPLSelcted) {
+                    
+                    [self dropDownValueForBowlingStyle];
+                    [self dropDownValueForBattingStyle];
+                    [self dropDownValueForPlayerType];
+
+                }
                 
                 //Player Array
                 PlayerListArray = [responseObject valueForKey:@"PlayerDetailsList"];
                 
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    //[self.tblPlayerList reloadData];
                     [self filterPlayer];
                 });
                 
@@ -821,16 +972,15 @@
             [AppCommon hideLoading];
              
             
-            
+            [pullDownRefresh endRefreshing];
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            
+            [pullDownRefresh endRefreshing];
             NSLog(@"failed");
             [COMMON webServiceFailureError:error];
             [AppCommon hideLoading];
              
             
         }];
-    }
 }
 
 #pragma mark UICollectionView
@@ -995,23 +1145,16 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 0) {
+    if (indexPath.section == 0 || !isTNPLSelcted) {
         return;
     }
     
-//    PlayerStatsVC * nextVC = [[PlayerStatsVC alloc]init];
     PlayerStatsVC * nextVC = (PlayerStatsVC *)[self.storyboard instantiateViewControllerWithIdentifier:@"PlayerStats"];
     nextVC.SelectedPlayerCode = [[PlayerListArray objectAtIndex:indexPath.section-1] valueForKey:@"PlayerCode"];
     
 //    PlayerViewController* nextVC = (PlayerViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"PlayerViewController"];
     [self.navigationController pushViewController:nextVC animated:YES];
     
-    
-    
-    /*
-     
-     */
-
 }
 
 -(void)setShadow:(CALayer *)layer

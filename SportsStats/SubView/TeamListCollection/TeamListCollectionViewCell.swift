@@ -13,30 +13,23 @@ class TeamListCollectionViewCell: UICollectionViewCell {
     
     var responseArray = [Any]()
 
+    @IBOutlet weak var lblNoData: UILabel!
     @IBOutlet weak var lblTeamName: UILabel!
     @IBOutlet weak var imgTeamLogo: UIImageView!
-//    @IBOutlet weak var PlayerTable: UITableView!{
-//
-//        didSet {
-//            PlayerTable.delegate   = self as? UITableViewDelegate
-//            PlayerTable.dataSource = self as? UITableViewDataSource
-//        }
-//    }
+    @IBOutlet weak var PlayerTable: UITableView!
 }
 
-//extension TeamListTableViewCell : UITableViewDelegate {
-//
-//}
-//
-//extension TeamListTableViewCell : UITableViewDataSource {
-//
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return self.res
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        return
-//    }
-//
-//
-//}
+extension TeamListCollectionViewCell{
+    
+    func setTable <D : UITableViewDelegate & UITableViewDataSource>(delegate : D ,forRow row:Int){
+        
+        PlayerTable.delegate = delegate
+        PlayerTable.dataSource = delegate
+        PlayerTable.tag = row
+        PlayerTable.reloadData()
+        
+        
+    }
+}
+
+

@@ -9,5 +9,6 @@ target 'SportsStats' do
     pod 'AFNetworking', '~> 2.5.4'
     pod 'Charts'
     pod 'MBProgressHUD', '~> 1.1.0'
+    pod 'PopMenu'
 
 end
