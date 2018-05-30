@@ -3188,7 +3188,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QjZ-Gz-6RS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-712" y="26"/>
+            <point key="canvasLocation" x="-141" y="25"/>
         </scene>
         <!--Player View Controller-->
         <scene sceneID="rQr-QB-5Mm">
@@ -3199,7 +3199,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="d6c-fJ-seD">
-                                <rect key="frame" x="5" y="70" width="1102" height="759"/>
+                                <rect key="frame" x="0.0" y="70" width="1107" height="759"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="20" minimumInteritemSpacing="0.0" id="vPw-q4-4WC">
                                     <size key="itemSize" width="400" height="700"/>
@@ -3354,7 +3354,7 @@
                         <constraints>
                             <constraint firstItem="d6c-fJ-seD" firstAttribute="top" secondItem="GZQ-9a-C4f" secondAttribute="top" constant="50" id="OU0-W5-fWE"/>
                             <constraint firstItem="GZQ-9a-C4f" firstAttribute="trailing" secondItem="d6c-fJ-seD" secondAttribute="trailing" constant="5" id="cB3-39-Glh"/>
-                            <constraint firstItem="d6c-fJ-seD" firstAttribute="leading" secondItem="GZQ-9a-C4f" secondAttribute="leading" constant="5" id="cJg-cL-6YW"/>
+                            <constraint firstItem="d6c-fJ-seD" firstAttribute="leading" secondItem="GZQ-9a-C4f" secondAttribute="leading" id="cJg-cL-6YW"/>
                             <constraint firstItem="GZQ-9a-C4f" firstAttribute="bottom" secondItem="d6c-fJ-seD" secondAttribute="bottom" constant="5" id="f8q-yl-WQI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GZQ-9a-C4f"/>
@@ -3365,7 +3365,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZlD-J1-0x9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-712.23021582733816" y="746.76258992805765"/>
+            <point key="canvasLocation" x="-1239" y="1213"/>
         </scene>
     </scenes>
     <resources>

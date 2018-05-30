@@ -3,7 +3,7 @@
     {
       "orientation" : "portrait",
       "idiom" : "ipad",
-      "filename" : "LaunchImage-Portrait~ipad_768x1024.png",
+      "filename" : "Agaram_768X1024.jpg",
       "extent" : "full-screen",
       "minimum-system-version" : "7.0",
       "scale" : "1x"
@@ -11,7 +11,7 @@
     {
       "orientation" : "landscape",
       "idiom" : "ipad",
-      "filename" : "LaunchImage-Landscape~ipad_1024x768.png",
+      "filename" : "Agaram_1024X768.jpg",
       "extent" : "full-screen",
       "minimum-system-version" : "7.0",
       "scale" : "1x"
@@ -19,7 +19,7 @@
     {
       "orientation" : "portrait",
       "idiom" : "ipad",
-      "filename" : "LaunchImage-Portrait@2x~ipad_1536x2048.png",
+      "filename" : "Agaram_1536X2048.jpg",
       "extent" : "full-screen",
       "minimum-system-version" : "7.0",
       "scale" : "2x"
@@ -27,7 +27,7 @@
     {
       "orientation" : "landscape",
       "idiom" : "ipad",
-      "filename" : "LaunchImage-Landscape@2x~ipad_2048x1536.png",
+      "filename" : "Agaram_2048X1536.jpg",
       "extent" : "full-screen",
       "minimum-system-version" : "7.0",
       "scale" : "2x"

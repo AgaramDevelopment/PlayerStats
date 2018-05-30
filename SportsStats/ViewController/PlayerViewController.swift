@@ -28,10 +28,10 @@ class PlayerViewController: UIViewController,UITableViewDelegate,UITableViewData
         return UIDevice.current.userInterfaceIdiom == .pad
     }
     
-    var responseArray = [Any]() //as! [String:Any]
+    var responseArray = [Any]()
     
     fileprivate let cellIdentifier = "TeamListCollectionViewCell"
-    fileprivate var myTimer = Timer()
+    fileprivate var myTimer : Timer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,8 +41,7 @@ class PlayerViewController: UIViewController,UITableViewDelegate,UITableViewData
         addCustomNavigation()
         webservice()
         
-//        myTimer = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(updateNotificationCount) userInfo:nil repeats:YES];
-        myTimer = Timer(timeInterval: 2.0, target: self, selector: #selector(webservice), userInfo: nil, repeats: true)
+        myTimer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(PlayerViewController.webservice), userInfo: nil, repeats: true)
         
 
     }
@@ -65,7 +64,7 @@ class PlayerViewController: UIViewController,UITableViewDelegate,UITableViewData
         navObj.nav_header_img.image = UIImage(named: "withText")
         
         navObj.img1.isHidden=true
-        navObj.img2.isHidden=true
+//        navObj.img2.isHidden=true
         navObj.btnCompName.isHidden=true
         navObj.btnSquad.isHidden=true
 
@@ -129,7 +128,6 @@ class PlayerViewController: UIViewController,UITableViewDelegate,UITableViewData
                     cell.lblPlayerImg.sd_setImage(with: url, placeholderImage: UIImage(named: "DefaultImg"),options: SDWebImageOptions(rawValue: 0), completed: { (image, error, cacheType, imageURL) in
                         // Perform operation.
                     })
-                    
                 }
 
             }

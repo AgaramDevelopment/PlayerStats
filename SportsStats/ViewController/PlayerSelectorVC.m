@@ -187,7 +187,6 @@
     [self setInitialFIlter];
     [self fetchPlayerSelectionWS];
 //    myTimer = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(fetchPlayerSelectionWS) userInfo:nil repeats:YES];
-    self.FilterViewHeight.constant = 0;
     pullDownRefresh = [UIRefreshControl new];
     pullDownRefresh.tintColor = [UIColor grayColor];
     [pullDownRefresh addTarget:self action:@selector(fetchPlayerSelectionWS) forControlEvents:UIControlEventValueChanged];
@@ -209,10 +208,8 @@
     
     objCustomNavigation.img1Leading.constant = 60;
     objCustomNavigation.img2Trailing.constant = 60;
-    self.FilterViewHeight.constant = 85;
     [UIView animateWithDuration:0.4 animations:^{
         [objCustomNavigation.view layoutIfNeeded];
-        [self.filterView layoutIfNeeded];
     }];
 
 }
@@ -355,24 +352,24 @@
 //    [objCustomNavigation.img1 setImage:[UIImage imageNamed:@"TNPL"]];
 //    [objCustomNavigation.img2 setImage:[UIImage imageNamed:@"AgaramImage"]];
     
-    objCustomNavigation.img1.layer.cornerRadius = objCustomNavigation.img1.frame.size.height/2;
-    objCustomNavigation.img1.layer.masksToBounds = YES;
+//    objCustomNavigation.img1.layer.cornerRadius = objCustomNavigation.img1.frame.size.height/2;
+//    objCustomNavigation.img1.layer.masksToBounds = YES;
 
-    objCustomNavigation.btnSquad.layer.cornerRadius = objCustomNavigation.img1.frame.size.height/2;
+    objCustomNavigation.btnSquad.layer.cornerRadius = objCustomNavigation.btnSquad.frame.size.height/2;
     objCustomNavigation.btnSquad.layer.masksToBounds = YES;
     
-    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:objCustomNavigation.img1.bounds byRoundingCorners:UIRectCornerAllCorners cornerRadii:objCustomNavigation.img1.frame.size];
+    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:objCustomNavigation.img1.bounds byRoundingCorners:UIRectCornerAllCorners cornerRadii:objCustomNavigation.btnSquad.frame.size];
 
-    CAShapeLayer *maskLayer1 = [[CAShapeLayer alloc] init];
+//    CAShapeLayer *maskLayer1 = [[CAShapeLayer alloc] init];
     CAShapeLayer *maskLayer2 = [[CAShapeLayer alloc] init];
 
-    maskLayer1.frame = objCustomNavigation.img1.bounds;
-    maskLayer1.path  = maskPath.CGPath;
+//    maskLayer1.frame = objCustomNavigation.img1.bounds;
+//    maskLayer1.path  = maskPath.CGPath;
 
-    maskLayer2.frame = objCustomNavigation.img1.bounds;
+    maskLayer2.frame = objCustomNavigation.btnSquad.bounds;
     maskLayer2.path  = maskPath.CGPath;
 
-    objCustomNavigation.img1.layer.mask = maskLayer1;
+//    objCustomNavigation.img1.layer.mask = maskLayer1;
     objCustomNavigation.btnSquad.layer.mask = maskLayer2;
     [objCustomNavigation.btnSquad addTarget:self action:@selector(navigateToTeamSquad) forControlEvents:UIControlEventTouchUpInside];
     
